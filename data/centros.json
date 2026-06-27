@@ -3,6 +3,7 @@
   "fuente": "Directorios ciudadanos y medios tras los terremotos del 24/06/2026",
   "centros": [
     {
+      "pais": "Venezuela",
       "org": "Comando Con Venezuela",
       "estado": "Barinas",
       "ciudad": "Barinas",
@@ -15,6 +16,7 @@
       "lng": -70.217709
     },
     {
+      "pais": "Venezuela",
       "org": "Comando Con Venezuela",
       "estado": "Barinas",
       "ciudad": "Santa Bárbara de Barinas",
@@ -27,6 +29,7 @@
       "lng": -71.181144
     },
     {
+      "pais": "Venezuela",
       "org": "Comando Con Venezuela",
       "estado": "Barinas",
       "ciudad": "Barrancas",
@@ -35,10 +38,11 @@
       "reciben": "Agua, alimentos no perecederos, insumos médicos, ropa y abrigos",
       "tel": "04145298154",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 8.765942,
+      "lng": -70.108642
     },
     {
+      "pais": "Venezuela",
       "org": "Fe y Alegría",
       "estado": "Barinas",
       "ciudad": "Barinas",
@@ -51,6 +55,7 @@
       "lng": -70.195679
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil (Tatas Food)",
       "estado": "Lara",
       "ciudad": "Barquisimeto",
@@ -63,6 +68,7 @@
       "lng": -69.350527
     },
     {
+      "pais": "Venezuela",
       "org": "Voluntariado Higea",
       "estado": "Lara",
       "ciudad": "Barquisimeto",
@@ -75,6 +81,7 @@
       "lng": -69.356083
     },
     {
+      "pais": "Venezuela",
       "org": "Voluntariado Higea",
       "estado": "Lara",
       "ciudad": "Barquisimeto",
@@ -87,6 +94,7 @@
       "lng": -69.310191
     },
     {
+      "pais": "Venezuela",
       "org": "Colegio Las Colinas",
       "estado": "Lara",
       "ciudad": "Barquisimeto",
@@ -99,6 +107,7 @@
       "lng": -69.28195
     },
     {
+      "pais": "Venezuela",
       "org": "G3 Logística",
       "estado": "Lara",
       "ciudad": "Barquisimeto",
@@ -111,6 +120,7 @@
       "lng": -69.372575
     },
     {
+      "pais": "Venezuela",
       "org": "Colegio de Médicos del Estado Lara",
       "estado": "Lara",
       "ciudad": "Barquisimeto",
@@ -119,10 +129,11 @@
       "reciben": "Alimentos, agua, medicamentos, higiene, colchones, ropa en buen estado",
       "tel": "",
       "info": "https://instagram.com/COMELAR.VE",
-      "lat": null,
-      "lng": null
+      "lat": 10.077437,
+      "lng": -69.322229
     },
     {
+      "pais": "Venezuela",
       "org": "Rianzha Motobike",
       "estado": "Lara",
       "ciudad": "Barquisimeto",
@@ -131,10 +142,11 @@
       "reciben": "Alimentos no perecederos, agua, medicamentos, primeros auxilios, ropa, higiene",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.077437,
+      "lng": -69.322229
     },
     {
+      "pais": "Venezuela",
       "org": "Fitness Factory Cabudare",
       "estado": "Lara",
       "ciudad": "Cabudare",
@@ -147,6 +159,7 @@
       "lng": -69.276968
     },
     {
+      "pais": "Venezuela",
       "org": "Cámara de Comercio de Bolívar",
       "estado": "Bolívar",
       "ciudad": "Ciudad Bolívar",
@@ -159,6 +172,7 @@
       "lng": -63.544106
     },
     {
+      "pais": "Venezuela",
       "org": "Comando Con Venezuela",
       "estado": "Bolívar",
       "ciudad": "Ciudad Guayana",
@@ -171,6 +185,7 @@
       "lng": -62.756149
     },
     {
+      "pais": "Venezuela",
       "org": "Comando Con Venezuela",
       "estado": "Bolívar",
       "ciudad": "Ciudad Bolívar",
@@ -183,6 +198,7 @@
       "lng": -63.546217
     },
     {
+      "pais": "Venezuela",
       "org": "Fundación Social Bolívar (Sede 911)",
       "estado": "Bolívar",
       "ciudad": "Ciudad Guayana",
@@ -191,10 +207,11 @@
       "reciben": "Alimentos no perecederos, agua, medicamentos y ropa en buen estado",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 8.322376,
+      "lng": -62.689662
     },
     {
+      "pais": "Venezuela",
       "org": "Mundo de Sonrisas",
       "estado": "Bolívar",
       "ciudad": "Ciudad Bolívar",
@@ -207,6 +224,7 @@
       "lng": -63.54454
     },
     {
+      "pais": "Venezuela",
       "org": "Rotaract Santo Ángel",
       "estado": "Bolívar",
       "ciudad": "Ciudad Guayana",
@@ -219,6 +237,7 @@
       "lng": -62.734084
     },
     {
+      "pais": "Venezuela",
       "org": "Rotaract Santo Ángel",
       "estado": "Bolívar",
       "ciudad": "Ciudad Guayana",
@@ -231,6 +250,7 @@
       "lng": -62.666026
     },
     {
+      "pais": "Venezuela",
       "org": "Rotaract Santo Ángel",
       "estado": "Bolívar",
       "ciudad": "Ciudad Guayana",
@@ -243,6 +263,7 @@
       "lng": -62.711356
     },
     {
+      "pais": "Venezuela",
       "org": "Rotaract Santo Ángel",
       "estado": "Bolívar",
       "ciudad": "Ciudad Guayana",
@@ -255,6 +276,7 @@
       "lng": -62.718858
     },
     {
+      "pais": "Venezuela",
       "org": "Rotaract Santo Ángel",
       "estado": "Bolívar",
       "ciudad": "Ciudad Guayana",
@@ -267,6 +289,7 @@
       "lng": -62.741633
     },
     {
+      "pais": "Venezuela",
       "org": "UCAB Guayana",
       "estado": "Bolívar",
       "ciudad": "Puerto Ordaz",
@@ -279,6 +302,7 @@
       "lng": -62.711523
     },
     {
+      "pais": "Venezuela",
       "org": "Casa de la Mujer",
       "estado": "Bolívar",
       "ciudad": "Upata",
@@ -291,6 +315,7 @@
       "lng": -62.39374
     },
     {
+      "pais": "Venezuela",
       "org": "Rescatistas y vecinos",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -303,6 +328,7 @@
       "lng": -66.847771
     },
     {
+      "pais": "Venezuela",
       "org": "Rescatistas y vecinos",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -315,6 +341,7 @@
       "lng": -66.848326
     },
     {
+      "pais": "Venezuela",
       "org": "Comando Con Venezuela",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -327,6 +354,7 @@
       "lng": -66.852904
     },
     {
+      "pais": "Venezuela",
       "org": "Comando Con Venezuela",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -339,6 +367,7 @@
       "lng": -66.950592
     },
     {
+      "pais": "Venezuela",
       "org": "Comando Con Venezuela",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -351,6 +380,7 @@
       "lng": -66.901724
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -359,10 +389,11 @@
       "reciben": "Ropa, medicamentos e insumos, agua, alimentos no perecederos, lencería",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.506093,
+      "lng": -66.914601
     },
     {
+      "pais": "Venezuela",
       "org": "Cáritas Venezuela (Sede Montalbán)",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -375,6 +406,7 @@
       "lng": -66.968365
     },
     {
+      "pais": "Venezuela",
       "org": "Fundación Cruz Azul",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -387,6 +419,7 @@
       "lng": -66.84659
     },
     {
+      "pais": "Venezuela",
       "org": "Instituto de Diseño de Caracas",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -399,6 +432,7 @@
       "lng": -66.853243
     },
     {
+      "pais": "Venezuela",
       "org": "Colegio Cristo Rey Altamira",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -411,6 +445,7 @@
       "lng": -66.849045
     },
     {
+      "pais": "Venezuela",
       "org": "Chef Margaro",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -423,6 +458,7 @@
       "lng": -66.875802
     },
     {
+      "pais": "Venezuela",
       "org": "G3 Logística",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -435,6 +471,7 @@
       "lng": -66.827898
     },
     {
+      "pais": "Venezuela",
       "org": "Centro de Acopio Bloque Histórico Popular (CEPROI)",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -447,6 +484,7 @@
       "lng": -66.947504
     },
     {
+      "pais": "Venezuela",
       "org": "Alcaldía de Chacao",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -459,6 +497,7 @@
       "lng": -66.855208
     },
     {
+      "pais": "Venezuela",
       "org": "Colegio Mater Salvatoris",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -471,6 +510,7 @@
       "lng": -66.866086
     },
     {
+      "pais": "Venezuela",
       "org": "Alcaldía de Baruta",
       "estado": "Miranda",
       "ciudad": "Caracas",
@@ -479,10 +519,11 @@
       "reciben": "Donaciones (centro de acopio)",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.479994,
+      "lng": -66.880933
     },
     {
+      "pais": "Venezuela",
       "org": "Futuros Vinotinto",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -491,10 +532,11 @@
       "reciben": "Agua, alimentos, higiene, mantas y ropa limpia, kits de primeros auxilios",
       "tel": "04125557885",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.506093,
+      "lng": -66.914601
     },
     {
+      "pais": "Venezuela",
       "org": "Universidad Metropolitana (UNIMET)",
       "estado": "Miranda",
       "ciudad": "Caracas",
@@ -503,10 +545,11 @@
       "reciben": "Alimentos, ropa y abrigo, insumos médicos, agua (8am-6pm)",
       "tel": "",
       "info": "https://instagram.com/capellaniaunimet",
-      "lat": null,
-      "lng": null
+      "lat": 10.470755,
+      "lng": -66.837257
     },
     {
+      "pais": "Venezuela",
       "org": "Vecinos San Martín",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -515,10 +558,11 @@
       "reciben": "Ropa, medicamentos, pañales, alimentos",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.506093,
+      "lng": -66.914601
     },
     {
+      "pais": "Venezuela",
       "org": "Otro Enfoque",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -527,10 +571,11 @@
       "reciben": "Agua, insumos médicos, alimentos, artículos de bebés, linternas, baterías y cargadores",
       "tel": "04242231527",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.506093,
+      "lng": -66.914601
     },
     {
+      "pais": "Venezuela",
       "org": "Fundación Andrés Bello",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -539,10 +584,11 @@
       "reciben": "Insumos médicos, artículos personales, comida",
       "tel": "04121200410",
       "info": "https://instagram.com/fundacion.andresbello",
-      "lat": null,
-      "lng": null
+      "lat": 10.506093,
+      "lng": -66.914601
     },
     {
+      "pais": "Venezuela",
       "org": "UCAB Caracas / S.O.S Ucabista",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -551,10 +597,11 @@
       "reciben": "Alimentos, agua, fórmulas infantiles, pañales, medicinas, suero, higiene, picos, palas, guantes, cascos, herramientas (8am-7pm)",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.506093,
+      "lng": -66.914601
     },
     {
+      "pais": "Venezuela",
       "org": "Obra Evangélica Luz del Mundo",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -563,10 +610,11 @@
       "reciben": "Alimentos no perecederos, colchonetas, ropa",
       "tel": "04143890573",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.506093,
+      "lng": -66.914601
     },
     {
+      "pais": "Venezuela",
       "org": "Iglesia Evangélica Renovada Sion",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -575,10 +623,11 @@
       "reciben": "Agua, alimentos, higiene, medicinas y primeros auxilios, ropa, calzado (junto a Protección Civil URS7)",
       "tel": "04242025903",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.506093,
+      "lng": -66.914601
     },
     {
+      "pais": "Venezuela",
       "org": "Corazones Unidos en El Recreo",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -587,10 +636,11 @@
       "reciben": "Alimentos, agua, higiene personal, medicinas de primera necesidad",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.506093,
+      "lng": -66.914601
     },
     {
+      "pais": "Venezuela",
       "org": "Federación Venezolana de Fútbol",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -599,10 +649,11 @@
       "reciben": "Insumos médicos, agua, alimentos, herramientas, linternas, aseo personal",
       "tel": "",
       "info": "https://instagram.com/fvf_oficial",
-      "lat": null,
-      "lng": null
+      "lat": 10.506093,
+      "lng": -66.914601
     },
     {
+      "pais": "Venezuela",
       "org": "Centro Comercial Palo Verde",
       "estado": "Miranda",
       "ciudad": "Caracas",
@@ -611,10 +662,11 @@
       "reciben": "Alimentos, medicamentos, insumos médicos, ropa en buen estado",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.479469,
+      "lng": -66.792642
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil (FCU-UCV)",
       "estado": "Distrito Capital",
       "ciudad": "Caracas",
@@ -627,6 +679,7 @@
       "lng": -66.888877
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil",
       "estado": "Miranda",
       "ciudad": "El Hatillo",
@@ -639,6 +692,7 @@
       "lng": -66.821199
     },
     {
+      "pais": "Venezuela",
       "org": "Alcaldía de Los Salias",
       "estado": "Miranda",
       "ciudad": "San Antonio de los Altos",
@@ -647,10 +701,11 @@
       "reciben": "Agua, comida, ropa, higiene personal. También buscan ingenieros, doctores y voluntarios",
       "tel": "04242364445",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.375135,
+      "lng": -66.966541
     },
     {
+      "pais": "Venezuela",
       "org": "Koko Sushi",
       "estado": "Miranda",
       "ciudad": "Guarenas",
@@ -659,10 +714,11 @@
       "reciben": "Alimentos, agua, primeros auxilios, higiene personal, ropa y sábanas",
       "tel": "04241659844",
       "info": "https://instagram.com/kokosushigyg",
-      "lat": null,
-      "lng": null
+      "lat": 10.466288,
+      "lng": -66.607842
     },
     {
+      "pais": "Venezuela",
       "org": "Inversiones Guatiquesos",
       "estado": "Miranda",
       "ciudad": "Guatire",
@@ -671,10 +727,11 @@
       "reciben": "Agua, ropa, medicina, insumos médicos, enlatados",
       "tel": "04122006625",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.468459,
+      "lng": -66.543111
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil (Burger Latin)",
       "estado": "Aragua",
       "ciudad": "La Victoria",
@@ -687,6 +744,7 @@
       "lng": -67.334652
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil (Bodega 33)",
       "estado": "Aragua",
       "ciudad": "La Victoria",
@@ -699,6 +757,7 @@
       "lng": -67.321106
     },
     {
+      "pais": "Venezuela",
       "org": "CEI María de las Mercedes",
       "estado": "Aragua",
       "ciudad": "La Victoria",
@@ -711,6 +770,7 @@
       "lng": -67.331249
     },
     {
+      "pais": "Venezuela",
       "org": "Parroquia Nuestra Señora del Carmen",
       "estado": "Aragua",
       "ciudad": "La Victoria",
@@ -719,10 +779,11 @@
       "reciben": "Insumos médicos, agua, alimentos, higiene, pañales, fórmulas infantiles",
       "tel": "04243573790",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.230987,
+      "lng": -67.335289
     },
     {
+      "pais": "Venezuela",
       "org": "Comando Con Venezuela",
       "estado": "Aragua",
       "ciudad": "Maracay",
@@ -735,6 +796,7 @@
       "lng": -67.600267
     },
     {
+      "pais": "Venezuela",
       "org": "Voluntad Popular",
       "estado": "Aragua",
       "ciudad": "Maracay",
@@ -747,6 +809,7 @@
       "lng": -67.591178
     },
     {
+      "pais": "Venezuela",
       "org": "Teatro de la Ópera",
       "estado": "Aragua",
       "ciudad": "Maracay",
@@ -759,6 +822,7 @@
       "lng": -67.595455
     },
     {
+      "pais": "Venezuela",
       "org": "Centro de Estudiantes de Veterinaria UCV Maracay",
       "estado": "Aragua",
       "ciudad": "Maracay",
@@ -767,10 +831,11 @@
       "reciben": "No perecederos, enlatados, agua, primeros auxilios, medicamentos, ropa, zapatos, higiene",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.253367,
+      "lng": -67.600551
     },
     {
+      "pais": "Venezuela",
       "org": "Deli Plaza",
       "estado": "Aragua",
       "ciudad": "Maracay",
@@ -779,10 +844,11 @@
       "reciben": "Agua, enlatados, alimentos, ropa, insumos médicos, cobijas, higiene",
       "tel": "04121971501",
       "info": "https://instagram.com/deliplaza_",
-      "lat": null,
-      "lng": null
+      "lat": 10.237514,
+      "lng": -67.589022
     },
     {
+      "pais": "Venezuela",
       "org": "Un Nuevo Tiempo",
       "estado": "Zulia",
       "ciudad": "Maracaibo",
@@ -795,6 +861,7 @@
       "lng": -71.603948
     },
     {
+      "pais": "Venezuela",
       "org": "Vente Zulia",
       "estado": "Zulia",
       "ciudad": "Maracaibo",
@@ -807,6 +874,7 @@
       "lng": -71.622312
     },
     {
+      "pais": "Venezuela",
       "org": "Colegio de Médicos del Zulia",
       "estado": "Zulia",
       "ciudad": "Maracaibo",
@@ -819,6 +887,7 @@
       "lng": -71.634552
     },
     {
+      "pais": "Venezuela",
       "org": "Torre Promotora Paraíso",
       "estado": "Zulia",
       "ciudad": "Maracaibo",
@@ -827,10 +896,11 @@
       "reciben": "Gasas, vendas, alcohol, jeringas, guantes, tapabocas, alimentos, agua, analgésicos, antibióticos, higiene, pañales, sábanas y cobijas",
       "tel": "",
       "info": "https://instagram.com/torrepromotoraparaisomcbo",
-      "lat": null,
-      "lng": null
+      "lat": 10.683897,
+      "lng": -71.614303
     },
     {
+      "pais": "Venezuela",
       "org": "XIA Caribe Mar / Grupo LAMAR",
       "estado": "Zulia",
       "ciudad": "Maracaibo",
@@ -839,10 +909,11 @@
       "reciben": "Alimentos, agua, insumos médicos, ropa y calzado, mantas, higiene, comida para animales (8am-5pm L-V)",
       "tel": "",
       "info": "https://instagram.com/xiacaribemar",
-      "lat": null,
-      "lng": null
+      "lat": 10.649809,
+      "lng": -71.64436
     },
     {
+      "pais": "Venezuela",
       "org": "PROMO 17 U.E.P Flor de María Vásquez",
       "estado": "Zulia",
       "ciudad": "Maracaibo",
@@ -851,10 +922,11 @@
       "reciben": "Agua, alimentos, nutrición infantil, insumos médicos, medicamentos, higiene, ropa, linternas, comida para animales",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.649809,
+      "lng": -71.64436
     },
     {
+      "pais": "Venezuela",
       "org": "RELEVECA",
       "estado": "Zulia",
       "ciudad": "Ciudad Ojeda",
@@ -867,6 +939,7 @@
       "lng": -71.311961
     },
     {
+      "pais": "Venezuela",
       "org": "Gobierno de Venezuela",
       "estado": "Zulia",
       "ciudad": "Cabimas",
@@ -879,6 +952,7 @@
       "lng": -71.454502
     },
     {
+      "pais": "Venezuela",
       "org": "Gobierno de Venezuela",
       "estado": "Zulia",
       "ciudad": "Cabimas",
@@ -891,6 +965,7 @@
       "lng": -71.442025
     },
     {
+      "pais": "Venezuela",
       "org": "Gobierno de Venezuela",
       "estado": "Zulia",
       "ciudad": "Cabimas",
@@ -903,6 +978,7 @@
       "lng": -71.458164
     },
     {
+      "pais": "Venezuela",
       "org": "Iglesia Nuestra Señora de Guadalupe",
       "estado": "Zulia",
       "ciudad": "San Francisco",
@@ -915,6 +991,7 @@
       "lng": -71.635059
     },
     {
+      "pais": "Venezuela",
       "org": "Voluntad Popular",
       "estado": "Monagas",
       "ciudad": "Maturín",
@@ -923,10 +1000,11 @@
       "reciben": "Agua, alimentos no perecederos, insumos médicos, ropa y abrigos",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 9.742277,
+      "lng": -63.188885
     },
     {
+      "pais": "Venezuela",
       "org": "Caritas de Venezuela",
       "estado": "Monagas",
       "ciudad": "Maturín",
@@ -939,6 +1017,7 @@
       "lng": -63.15551
     },
     {
+      "pais": "Venezuela",
       "org": "Caritas de Venezuela",
       "estado": "Monagas",
       "ciudad": "Maturín",
@@ -951,6 +1030,7 @@
       "lng": -63.172264
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil",
       "estado": "Mérida",
       "ciudad": "Mérida",
@@ -963,6 +1043,7 @@
       "lng": -71.159601
     },
     {
+      "pais": "Venezuela",
       "org": "Animales Sin Nombre",
       "estado": "Mérida",
       "ciudad": "Mérida",
@@ -975,6 +1056,7 @@
       "lng": -71.161044
     },
     {
+      "pais": "Venezuela",
       "org": "Rotaract Táchira",
       "estado": "Táchira",
       "ciudad": "San Antonio del Táchira",
@@ -987,6 +1069,7 @@
       "lng": -72.444075
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil (Madeco)",
       "estado": "Táchira",
       "ciudad": "San Cristóbal",
@@ -999,6 +1082,7 @@
       "lng": -72.234949
     },
     {
+      "pais": "Venezuela",
       "org": "Rotaract Táchira",
       "estado": "Táchira",
       "ciudad": "San Cristóbal",
@@ -1011,6 +1095,7 @@
       "lng": -72.218345
     },
     {
+      "pais": "Venezuela",
       "org": "Rotaract Táchira",
       "estado": "Táchira",
       "ciudad": "San Cristóbal",
@@ -1023,6 +1108,7 @@
       "lng": -72.233807
     },
     {
+      "pais": "Venezuela",
       "org": "Movimiento Estudiantil VEN UNETE (UNET)",
       "estado": "Táchira",
       "ciudad": "San Cristóbal",
@@ -1031,10 +1117,11 @@
       "reciben": "Alimentos, primeros auxilios, agua, mantas, linternas y cargadores",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 7.775666,
+      "lng": -72.221415
     },
     {
+      "pais": "Venezuela",
       "org": "UCAT / ULA / UNET",
       "estado": "Táchira",
       "ciudad": "San Cristóbal",
@@ -1047,6 +1134,7 @@
       "lng": -72.225988
     },
     {
+      "pais": "Venezuela",
       "org": "Rotaract Táchira",
       "estado": "Táchira",
       "ciudad": "Táriba",
@@ -1059,6 +1147,7 @@
       "lng": -72.220257
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil",
       "estado": "Trujillo",
       "ciudad": "Trujillo",
@@ -1071,6 +1160,7 @@
       "lng": -70.435714
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil",
       "estado": "Trujillo",
       "ciudad": "Sabana de Mendoza",
@@ -1083,6 +1173,7 @@
       "lng": -70.779174
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil",
       "estado": "Trujillo",
       "ciudad": "Pampanito",
@@ -1095,6 +1186,7 @@
       "lng": -70.492438
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil",
       "estado": "Trujillo",
       "ciudad": "Valera",
@@ -1107,6 +1199,7 @@
       "lng": -70.621411
     },
     {
+      "pais": "Venezuela",
       "org": "Jóvenes por el Clima",
       "estado": "Carabobo",
       "ciudad": "Valencia",
@@ -1119,6 +1212,7 @@
       "lng": -68.009671
     },
     {
+      "pais": "Venezuela",
       "org": "Comando Con Venezuela",
       "estado": "Carabobo",
       "ciudad": "Valencia",
@@ -1131,6 +1225,7 @@
       "lng": -68.013534
     },
     {
+      "pais": "Venezuela",
       "org": "G3 Logística",
       "estado": "Carabobo",
       "ciudad": "Valencia",
@@ -1143,6 +1238,7 @@
       "lng": -67.974735
     },
     {
+      "pais": "Venezuela",
       "org": "Club Italo de Valencia",
       "estado": "Carabobo",
       "ciudad": "Valencia",
@@ -1151,10 +1247,11 @@
       "reciben": "Agua, alimentos no perecederos, insumos médicos, ropa y abrigos",
       "tel": "",
       "info": "https://instagram.com/sofisbylaslepores",
-      "lat": null,
-      "lng": null
+      "lat": 10.172788,
+      "lng": -67.993489
     },
     {
+      "pais": "Venezuela",
       "org": "Aaura Movement",
       "estado": "Carabobo",
       "ciudad": "Valencia",
@@ -1163,10 +1260,11 @@
       "reciben": "Agua, alimentos no perecederos, insumos médicos, ropa y abrigos",
       "tel": "",
       "info": "https://instagram.com/aaura.movement",
-      "lat": null,
-      "lng": null
+      "lat": 10.170026,
+      "lng": -68.000399
     },
     {
+      "pais": "Venezuela",
       "org": "Rafas Casual Food",
       "estado": "Carabobo",
       "ciudad": "Valencia",
@@ -1175,10 +1273,11 @@
       "reciben": "Agua, alimentos no perecederos, insumos médicos, ropa y abrigos",
       "tel": "",
       "info": "https://instagram.com/rafascasualfood",
-      "lat": null,
-      "lng": null
+      "lat": 10.170026,
+      "lng": -68.000399
     },
     {
+      "pais": "Venezuela",
       "org": "Notitarde",
       "estado": "Carabobo",
       "ciudad": "Valencia",
@@ -1187,10 +1286,11 @@
       "reciben": "Alimentos, agua, ropa, sábanas, mantas, higiene, linternas, material de curas, baterías",
       "tel": "",
       "info": "https://instagram.com/diarionotitarde",
-      "lat": null,
-      "lng": null
+      "lat": 10.170026,
+      "lng": -68.000399
     },
     {
+      "pais": "Venezuela",
       "org": "Asociación de Ejecutivos de Carabobo",
       "estado": "Carabobo",
       "ciudad": "Valencia",
@@ -1199,10 +1299,11 @@
       "reciben": "Alimentos, ropa, medicinas e insumos médicos",
       "tel": "",
       "info": "https://instagram.com/aeecoficial",
-      "lat": null,
-      "lng": null
+      "lat": 10.170026,
+      "lng": -68.000399
     },
     {
+      "pais": "Venezuela",
       "org": "Trigal Norte Apoyo",
       "estado": "Carabobo",
       "ciudad": "Valencia",
@@ -1211,10 +1312,11 @@
       "reciben": "Medicina, inyectadoras, herramientas, linternas, ropa y zapatos en buen estado",
       "tel": "04124214889",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.170026,
+      "lng": -68.000399
     },
     {
+      "pais": "Venezuela",
       "org": "Cáritas Venezuela",
       "estado": "Falcón",
       "ciudad": "Punto Fijo",
@@ -1227,6 +1329,7 @@
       "lng": -70.210815
     },
     {
+      "pais": "Venezuela",
       "org": "Gobernación del estado Falcón",
       "estado": "Falcón",
       "ciudad": "Coro",
@@ -1235,10 +1338,11 @@
       "reciben": "Cualquier tipo de insumos, medicamentos, ropa",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 11.40558,
+      "lng": -69.667912
     },
     {
+      "pais": "Venezuela",
       "org": "CC Costa Azul",
       "estado": "Falcón",
       "ciudad": "Coro",
@@ -1247,10 +1351,11 @@
       "reciben": "Insumos, comida, ropa",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 11.414217,
+      "lng": -69.661925
     },
     {
+      "pais": "Venezuela",
       "org": "Geralds Coro",
       "estado": "Falcón",
       "ciudad": "Coro",
@@ -1259,10 +1364,11 @@
       "reciben": "Todo tipo de insumos",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 11.410859,
+      "lng": -69.657854
     },
     {
+      "pais": "Venezuela",
       "org": "Colegio Pío XII",
       "estado": "Falcón",
       "ciudad": "Coro",
@@ -1271,10 +1377,11 @@
       "reciben": "Todo tipo de insumos",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 11.40558,
+      "lng": -69.667912
     },
     {
+      "pais": "Venezuela",
       "org": "Sede Nuevo Día",
       "estado": "Falcón",
       "ciudad": "Coro",
@@ -1283,10 +1390,11 @@
       "reciben": "Todo tipo de insumos",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 11.40558,
+      "lng": -69.667912
     },
     {
+      "pais": "Venezuela",
       "org": "Farmacias SAAS",
       "estado": "Falcón",
       "ciudad": "Coro",
@@ -1295,10 +1403,11 @@
       "reciben": "Agua, medicina, alimentos no perecederos",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 11.40558,
+      "lng": -69.667912
     },
     {
+      "pais": "Venezuela",
       "org": "Barbería Coro",
       "estado": "Falcón",
       "ciudad": "Coro",
@@ -1307,10 +1416,11 @@
       "reciben": "Agua, comida no perecedera, insumos médicos",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 11.40558,
+      "lng": -69.667912
     },
     {
+      "pais": "Venezuela",
       "org": "Casa Juan Borges",
       "estado": "Falcón",
       "ciudad": "Coro",
@@ -1319,10 +1429,11 @@
       "reciben": "Alimentos no perecederos, agua, ropa, abrigo",
       "tel": "04120766116",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 11.40558,
+      "lng": -69.667912
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil (CC Santa Eulalia)",
       "estado": "Anzoátegui",
       "ciudad": "Barcelona",
@@ -1335,6 +1446,7 @@
       "lng": -64.679876
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad civil (Playa Mansa)",
       "estado": "Anzoátegui",
       "ciudad": "Lechería",
@@ -1347,6 +1459,7 @@
       "lng": -64.696636
     },
     {
+      "pais": "Venezuela",
       "org": "Centro Sirio Venezolano",
       "estado": "Anzoátegui",
       "ciudad": "Puerto La Cruz",
@@ -1359,6 +1472,7 @@
       "lng": -64.663389
     },
     {
+      "pais": "Venezuela",
       "org": "Sociedad Civil",
       "estado": "La Guaira",
       "ciudad": "La Guaira",
@@ -1367,8 +1481,1425 @@
       "reciben": "Agua, alimentos, enlatados, higiene, pañales, toallas sanitarias, insumos médicos, lencería, comida para animales",
       "tel": "",
       "info": "",
-      "lat": null,
-      "lng": null
+      "lat": 10.600038,
+      "lng": -66.929641
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Cáritas Diocesana de Barquisimeto",
+      "estado": "Lara",
+      "ciudad": "Barquisimeto",
+      "municipio": "Iribarren",
+      "dir": "Carrera 18, entre calles 34 y 35",
+      "reciben": "Agua potable, alimentos no perecederos, insumos médicos, ropa, mantas y artículos de primeros auxilios",
+      "tel": "0251-4468402",
+      "info": "Cáritas activó su red diocesana tras los sismos del 24J",
+      "lat": 10.077437,
+      "lng": -69.322229
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Cuerpo de Bomberos Universitarios / Universidad de Carabobo",
+      "estado": "Carabobo",
+      "ciudad": "Valencia",
+      "municipio": "Naguanagua",
+      "dir": "Sede del Cuerpo de Bomberos, Universidad de Carabobo",
+      "reciben": "Agua, alimentos no perecederos, medicamentos, kits de primeros auxilios, ropa y artículos de higiene",
+      "tel": "",
+      "info": "",
+      "lat": 10.170026,
+      "lng": -68.000399
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Voluntad Popular",
+      "estado": "Bolívar",
+      "ciudad": "Ciudad Bolívar",
+      "municipio": "Angostura del Orinoco",
+      "dir": "Esquina de Banesco, avenida República",
+      "reciben": "Cascos, palas, picos, colchonetas, agua mineral y alimentos no perecederos",
+      "tel": "",
+      "info": "Horario de 7:00 am a 6:00 pm",
+      "lat": 8.102853,
+      "lng": -63.546956
+    },
+    {
+      "pais": "Venezuela",
+      "org": "VEN 911",
+      "estado": "Bolívar",
+      "ciudad": "Ciudad Guayana",
+      "municipio": "Caroní",
+      "dir": "Avenida Guayana, sector Guaiparo",
+      "reciben": "Equipos de rescate, alimentos no perecederos, insumos médicos, artículos de higiene y textiles",
+      "tel": "",
+      "info": "",
+      "lat": 8.322376,
+      "lng": -62.689662
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Frente Francisco de Miranda",
+      "estado": "Bolívar",
+      "ciudad": "Ciudad Guayana",
+      "municipio": "Caroní",
+      "dir": "Edificio Ana Caona, carrera El Palmar",
+      "reciben": "Equipos de rescate, alimentos no perecederos, insumos médicos, artículos de higiene y textiles",
+      "tel": "",
+      "info": "",
+      "lat": 8.322376,
+      "lng": -62.689662
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Cuerpo de Bomberos UNEXPO",
+      "estado": "Bolívar",
+      "ciudad": "Puerto Ordaz",
+      "municipio": "Caroní",
+      "dir": "Sede del Cuerpo de Bomberos, UNEXPO",
+      "reciben": "Equipos de rescate, alimentos no perecederos, insumos médicos, artículos de higiene y textiles",
+      "tel": "",
+      "info": "Funciona de manera continua",
+      "lat": 8.275035,
+      "lng": -62.755826
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Centro de acopio vecinal",
+      "estado": "Bolívar",
+      "ciudad": "Ciudad Guayana",
+      "municipio": "Caroní",
+      "dir": "Plaza Chipía, Los Olivos",
+      "reciben": "Equipos de rescate, alimentos no perecederos, insumos médicos, artículos de higiene y textiles",
+      "tel": "",
+      "info": "Activo desde las 2:00 pm",
+      "lat": 8.28728,
+      "lng": -62.715713
+    },
+    {
+      "pais": "Venezuela",
+      "org": "McDonald's Alta Vista",
+      "estado": "Bolívar",
+      "ciudad": "Ciudad Guayana",
+      "municipio": "Caroní",
+      "dir": "McDonald's, Alta Vista",
+      "reciben": "Equipos de rescate, alimentos no perecederos, insumos médicos, artículos de higiene y textiles",
+      "tel": "",
+      "info": "Activo desde las 11:00 am",
+      "lat": 8.292849,
+      "lng": -62.734242
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Mercal",
+      "estado": "Bolívar",
+      "ciudad": "Caicara del Orinoco",
+      "municipio": "Cedeño",
+      "dir": "Mercal, final avenida Libertador",
+      "reciben": "Equipos de rescate, alimentos no perecederos, insumos médicos, artículos de higiene y textiles",
+      "tel": "",
+      "info": "",
+      "lat": 7.625423,
+      "lng": -66.161276
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Asocoroscio",
+      "estado": "Bolívar",
+      "ciudad": "Guasipati",
+      "municipio": "Roscio",
+      "dir": "Terminal Obdulio González",
+      "reciben": "Equipos de rescate, alimentos no perecederos, insumos médicos, artículos de higiene y textiles",
+      "tel": "",
+      "info": "",
+      "lat": 7.487838,
+      "lng": -61.900996
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Fundación del Niño",
+      "estado": "Bolívar",
+      "ciudad": "Santa Elena de Uairén",
+      "municipio": "Gran Sabana",
+      "dir": "Fundación del Niño, calle Zea",
+      "reciben": "Equipos de rescate, alimentos no perecederos, insumos médicos, artículos de higiene y textiles",
+      "tel": "",
+      "info": "",
+      "lat": 4.602998,
+      "lng": -61.108922
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Casa de la Cultura",
+      "estado": "Bolívar",
+      "ciudad": "Ciudad Piar",
+      "municipio": "Bolivariano Angostura",
+      "dir": "Casa de la Cultura",
+      "reciben": "Equipos de rescate, alimentos no perecederos, insumos médicos, artículos de higiene y textiles",
+      "tel": "",
+      "info": "",
+      "lat": 7.450202,
+      "lng": -63.319671
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Gobernación de Guárico",
+      "estado": "Guárico",
+      "ciudad": "San Juan de los Morros",
+      "municipio": "Juan Germán Roscio",
+      "dir": "Sede de la Gobernación de Guárico",
+      "reciben": "Alimentos no perecederos, agua potable, artículos de higiene personal, mantas y suministros médicos",
+      "tel": "",
+      "info": "",
+      "lat": 9.915231,
+      "lng": -67.356914
+    },
+    {
+      "pais": "Venezuela",
+      "org": "UNERG",
+      "estado": "Guárico",
+      "ciudad": "San Juan de los Morros",
+      "municipio": "Juan Germán Roscio",
+      "dir": "Casona Universitaria de la UNERG",
+      "reciben": "Alimentos no perecederos, agua potable, artículos de higiene personal, mantas y suministros médicos",
+      "tel": "",
+      "info": "",
+      "lat": 9.915231,
+      "lng": -67.356914
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Sociedad Anticancerosa de Guárico",
+      "estado": "Guárico",
+      "ciudad": "San Juan de los Morros",
+      "municipio": "Juan Germán Roscio",
+      "dir": "Sede de la Sociedad Anticancerosa de Guárico",
+      "reciben": "Alimentos no perecederos, agua potable, artículos de higiene personal, mantas y suministros médicos",
+      "tel": "",
+      "info": "",
+      "lat": 9.915231,
+      "lng": -67.356914
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Gobernación de Guárico",
+      "estado": "Guárico",
+      "ciudad": "San Juan de los Morros",
+      "municipio": "Juan Germán Roscio",
+      "dir": "Domo de la Ciudad Olímpica",
+      "reciben": "Alimentos no perecederos, agua potable, artículos de higiene personal, mantas y suministros médicos",
+      "tel": "",
+      "info": "",
+      "lat": 9.915231,
+      "lng": -67.356914
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Gobernación de Guárico",
+      "estado": "Guárico",
+      "ciudad": "San Juan de los Morros",
+      "municipio": "Juan Germán Roscio",
+      "dir": "Parque Antonio Miguel Martínez",
+      "reciben": "Alimentos no perecederos, agua potable, artículos de higiene personal, mantas y suministros médicos",
+      "tel": "",
+      "info": "",
+      "lat": 9.915231,
+      "lng": -67.356914
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Gobernación de Mérida",
+      "estado": "Mérida",
+      "ciudad": "Mérida",
+      "municipio": "Libertador",
+      "dir": "Sede de Protección Civil Mérida",
+      "reciben": "Alimentos no perecederos, ropa en buen estado e insumos médicos",
+      "tel": "",
+      "info": "Único centro de acopio habilitado por la Gobernación",
+      "lat": 8.581696,
+      "lng": -71.165807
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Rotaract Caracas",
+      "estado": "Distrito Capital",
+      "ciudad": "Caracas",
+      "municipio": "Baruta",
+      "dir": "Terraza del Club Hípico",
+      "reciben": "Agua, alimentos no perecederos, insumos médicos, ropa, mantas, linternas y kits de primeros auxilios",
+      "tel": "",
+      "info": "",
+      "lat": 10.506093,
+      "lng": -66.914601
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Motorizados de Caracas",
+      "estado": "Distrito Capital",
+      "ciudad": "Caracas",
+      "municipio": "Libertador",
+      "dir": "La Esfera de Soto",
+      "reciben": "Ropa, medicinas y alimentos",
+      "tel": "",
+      "info": "Funciona de manera ininterrumpida; ayuda para la Gran Caracas y La Guaira",
+      "lat": 10.506093,
+      "lng": -66.914601
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Reporte Confidencial / Colegio Pablo Romero Millán",
+      "estado": "Nueva Esparta",
+      "ciudad": "Antolín del Campo",
+      "municipio": "Antolín del Campo",
+      "dir": "Instalaciones del Colegio Pablo Romero Millán, municipio Antolín del Campo, Isla de Margarita",
+      "reciben": "Insumos médicos (analgésicos, gasas, vendas, alcohol, antisépticos, medicinas pediátricas), artículos de higiene (toallitas, pañales, jabón) y ropa limpia",
+      "tel": "",
+      "info": "Activo domingo 28 de junio de 2026, de 8:30 a.m. a 12:00 m. Ofrecen retiro a domicilio para donantes con dificultad de movilidad (contacto por sus redes sociales)",
+      "lat": 11.123979,
+      "lng": -63.858254
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Gobernación de Sucre / Protección Civil",
+      "estado": "Sucre",
+      "ciudad": "Cumaná",
+      "municipio": "Sucre",
+      "dir": "Gimnasio Ely Montes, Polideportivo Félix 'Lalito' Velásquez",
+      "reciben": "Alimentos no perecederos, ropa, agua potable, pañales, medicamentos",
+      "tel": "",
+      "info": "Centro de acopio principal del estado; se habilitaron puntos en los 15 municipios de la región",
+      "lat": 10.449571,
+      "lng": -64.157805
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Prosalud / Cuerpo de Bomberos de Yaracuy",
+      "estado": "Yaracuy",
+      "ciudad": "San Felipe",
+      "municipio": "San Felipe",
+      "dir": "Sede del Cuerpo de Bomberos del estado Yaracuy",
+      "reciben": "Alimentos no perecederos, ropa, agua potable, medicamentos esenciales",
+      "tel": "",
+      "info": "Prosalud centralizó las contribuciones; se habilitaron espacios en los 14 municipios",
+      "lat": 10.33948,
+      "lng": -68.741703
+    },
+    {
+      "pais": "Venezuela",
+      "org": "PSUV",
+      "estado": "Apure",
+      "ciudad": "San Fernando de Apure",
+      "municipio": "San Fernando",
+      "dir": "Calle Sucre con Girardot, a dos cuadras de la Plaza Bolívar",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, ropa",
+      "tel": "",
+      "info": "",
+      "lat": 7.883767,
+      "lng": -67.470861
+    },
+    {
+      "pais": "Venezuela",
+      "org": "PSUV",
+      "estado": "Amazonas",
+      "ciudad": "Puerto Ayacucho",
+      "municipio": "Atures",
+      "dir": "Calle Principal de Yapacana, detrás del Consejo Nacional Electoral (CNE)",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, ropa",
+      "tel": "",
+      "info": "",
+      "lat": 5.655167,
+      "lng": -67.600079
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Cáritas Tucupita (Vicaría Apostólica)",
+      "estado": "Delta Amacuro",
+      "ciudad": "Tucupita",
+      "municipio": "Tucupita",
+      "dir": "Vicaría Apostólica, Avenida Arismendi",
+      "reciben": "Ropa, alimentos, medicamentos",
+      "tel": "",
+      "info": "Coordinado por Monseñor Ernesto Romero; grupos juveniles apoyan recolección y traslado",
+      "lat": 9.066027,
+      "lng": -62.054297
+    },
+    {
+      "pais": "Venezuela",
+      "org": "PSUV",
+      "estado": "Delta Amacuro",
+      "ciudad": "Tucupita",
+      "municipio": "Tucupita",
+      "dir": "Calle Petión, diagonal a INCES, a 200 metros de la Plaza Bolívar",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, ropa",
+      "tel": "",
+      "info": "",
+      "lat": 9.066027,
+      "lng": -62.054297
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Organizaciones civiles / Iglesia católica",
+      "estado": "Distrito Capital",
+      "ciudad": "Caracas",
+      "municipio": "Libertador",
+      "dir": "Parque Alí Primera (parque del Oeste), Avenida Sucre, Catia",
+      "reciben": "Alimentos, insumos y medicinas",
+      "tel": "",
+      "info": "Funciona como refugio y punto de atención médica y recepción de ayuda para familias provenientes de La Guaira",
+      "lat": 10.506093,
+      "lng": -66.914601
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Gobernación de Anzoátegui / Protección Civil",
+      "estado": "Anzoátegui",
+      "ciudad": "Barcelona",
+      "municipio": "Simón Bolívar",
+      "dir": "Avenida 5 de Julio con Avenida Fuerzas Armadas",
+      "reciben": "Alimentos no perecederos, ropa, artículos de higiene, insumos médicos",
+      "tel": "",
+      "info": "",
+      "lat": 10.132595,
+      "lng": -64.681958
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Alcaldía / Protección Civil",
+      "estado": "Anzoátegui",
+      "ciudad": "Puerto La Cruz",
+      "municipio": "Juan Antonio Sotillo",
+      "dir": "Plaza Boyacá, instalaciones de Protección Civil (Casa del Abuelo)",
+      "reciben": "Donativos varios (alimentos, ropa, insumos)",
+      "tel": "",
+      "info": "",
+      "lat": 10.202862,
+      "lng": -64.630763
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Gobierno local",
+      "estado": "Anzoátegui",
+      "ciudad": "Lechería",
+      "municipio": "Diego Bautista Urbaneja",
+      "dir": "Centro Comercial Forum Plaza",
+      "reciben": "Insumos de emergencia (alimentos, agua, medicamentos)",
+      "tel": "",
+      "info": "",
+      "lat": 10.191049,
+      "lng": -64.684545
+    },
+    {
+      "pais": "México",
+      "org": "Embajada de la República Bolivariana de Venezuela en México",
+      "estado": "Ciudad de México",
+      "ciudad": "Ciudad de México",
+      "municipio": "Miguel Hidalgo",
+      "dir": "Schiller 326, colonia Polanco (Chapultepec Morales)",
+      "reciben": "Medicamentos (analgésicos y antiinflamatorios), productos de higiene personal y alimentos no perecederos",
+      "tel": "",
+      "info": "Horario 10:00–17:00. NO recibe agua embotellada, ropa ni donativos en efectivo. La embajada advierte que no coordina con ninguna otra organización que solicite dinero.",
+      "lat": 19.43263,
+      "lng": -99.133178
+    },
+    {
+      "pais": "México",
+      "org": "Cruz Roja Mexicana",
+      "estado": "Ciudad de México",
+      "ciudad": "Ciudad de México",
+      "municipio": "Miguel Hidalgo",
+      "dir": "Luis Vives 200, colonia Los Morales Polanco",
+      "reciben": "Ayuda en especie para las familias afectadas; también donativos económicos por su plataforma en línea",
+      "tel": "",
+      "info": "",
+      "lat": 19.43263,
+      "lng": -99.133178
+    },
+    {
+      "pais": "México",
+      "org": "Brigada de Rescate Topos Tlatelolco",
+      "estado": "Ciudad de México",
+      "ciudad": "Ciudad de México",
+      "municipio": "Iztapalapa",
+      "dir": "Calle Magistrados 75, colonia Ampliación El Sifón, C.P. 09180",
+      "reciben": "Agua, casas de campaña, lonas plásticas, repelente, bloqueador, artículos de higiene, leche en polvo, alimentos no perecederos (enlatados, sopas instantáneas, barras energéticas) y equipo de rescate (cascos, guantes, botas, palas)",
+      "tel": "",
+      "info": "",
+      "lat": 19.43263,
+      "lng": -99.133178
+    },
+    {
+      "pais": "México",
+      "org": "Caracas de Ayer",
+      "estado": "Ciudad de México",
+      "ciudad": "Ciudad de México",
+      "municipio": "Benito Juárez",
+      "dir": "Calle Cuicuilco 8, colonia Letrán Valle",
+      "reciben": "Enlatados (atún, sardina, frijoles, verduras), arroz, pasta, medicamentos (analgésicos, antibióticos), productos de higiene personal y pañales",
+      "tel": "",
+      "info": "La ayuda se envía mediante vuelos humanitarios",
+      "lat": 19.376491,
+      "lng": -99.151158
+    },
+    {
+      "pais": "México",
+      "org": "Pasticho Express",
+      "estado": "Ciudad de México",
+      "ciudad": "Ciudad de México",
+      "municipio": "Miguel Hidalgo",
+      "dir": "Centro Comercial Parques Polanco, Lago Alberto 320, colonia Granada",
+      "reciben": "Medicamentos (paracetamol, ibuprofeno), antisépticos, suero fisiológico, cremas para quemaduras, sales de rehidratación, termómetros, guantes, cubrebocas y gel antibacterial",
+      "tel": "",
+      "info": "",
+      "lat": 19.44048,
+      "lng": -99.184488
+    },
+    {
+      "pais": "México",
+      "org": "Ayuda a Venezuela",
+      "estado": "Ciudad de México",
+      "ciudad": "Ciudad de México",
+      "municipio": "Cuauhtémoc",
+      "dir": "Calle Tehuantepec 36, colonia Roma Sur",
+      "reciben": "Ropa limpia, cobijas, zapatos en buen estado, agua, alimento para bebés y víveres",
+      "tel": "",
+      "info": "",
+      "lat": 19.405074,
+      "lng": -99.16198
+    },
+    {
+      "pais": "México",
+      "org": "Secretaría de Participación Ciudadana de Nuevo León",
+      "estado": "Nuevo León",
+      "ciudad": "Monterrey",
+      "municipio": "Monterrey",
+      "dir": "Avenida Junco de la Vega No. 143, colonia Roma",
+      "reciben": "Donativos en especie para los damnificados",
+      "tel": "",
+      "info": "Horario lunes a viernes de 10:00 a 16:00; recibe del 26 de junio al 3 de julio de 2026",
+      "lat": 25.680202,
+      "lng": -100.315258
+    },
+    {
+      "pais": "México",
+      "org": "Centro de acopio vecinal (Teresa Sánchez y Carmen León)",
+      "estado": "Nuevo León",
+      "ciudad": "Guadalupe",
+      "municipio": "Guadalupe",
+      "dir": "Calle Guillermo Marconi número 781, colonia Contry la Silla",
+      "reciben": "Ayuda en especie",
+      "tel": "",
+      "info": "Centro de acopio dispuesto en una vivienda particular",
+      "lat": 25.675111,
+      "lng": -100.215175
+    },
+    {
+      "pais": "Colombia",
+      "org": "Fundación Juntos Se Puede",
+      "estado": "Bogotá D.C.",
+      "ciudad": "Bogotá",
+      "municipio": "Bogotá",
+      "dir": "Calle 104 #54-31, barrio Pasadena, localidad de Suba",
+      "reciben": "Agua potable, alimentos no perecederos, leche en polvo, alimentos para bebés, comida para mascotas, artículos de higiene, pañales, medicamentos, cobijas, colchonetas, ropa en buen estado",
+      "tel": "",
+      "info": "Recibe donaciones hasta el 1 de julio, 7:00 a.m. a 7:00 p.m.",
+      "lat": 4.653382,
+      "lng": -74.083633
+    },
+    {
+      "pais": "Colombia",
+      "org": "Fundación Juntos Se Puede",
+      "estado": "Bogotá D.C.",
+      "ciudad": "Bogotá",
+      "municipio": "Bogotá",
+      "dir": "Hotel Matisse, Carrera 13 #63-21, local 111, Chapinero",
+      "reciben": "Alimentos no perecederos, agua, productos de higiene, medicamentos, ropa, cobijas",
+      "tel": "",
+      "info": "Horario 8:00 a.m. a 8:00 p.m.",
+      "lat": 4.653382,
+      "lng": -74.083633
+    },
+    {
+      "pais": "Colombia",
+      "org": "Bomberos de Bogotá (Una Garra por Venezuela)",
+      "estado": "Bogotá D.C.",
+      "ciudad": "Bogotá",
+      "municipio": "Bogotá",
+      "dir": "Estación Puente Aranda, Calle 20 No. 68A-06",
+      "reciben": "Alimentos para perros y gatos, medicamentos veterinarios, donaciones para mascotas",
+      "tel": "",
+      "info": "",
+      "lat": 4.653382,
+      "lng": -74.083633
+    },
+    {
+      "pais": "Colombia",
+      "org": "Bomberos de Bogotá (Una Garra por Venezuela)",
+      "estado": "Bogotá D.C.",
+      "ciudad": "Bogotá",
+      "municipio": "Bogotá",
+      "dir": "Estación Kennedy, Carrera 79 No. 41D-20 Sur",
+      "reciben": "Alimentos para perros y gatos, medicamentos veterinarios, donaciones para mascotas",
+      "tel": "",
+      "info": "",
+      "lat": 4.653382,
+      "lng": -74.083633
+    },
+    {
+      "pais": "Colombia",
+      "org": "Bomberos de Bogotá (Una Garra por Venezuela)",
+      "estado": "Bogotá D.C.",
+      "ciudad": "Bogotá",
+      "municipio": "Bogotá",
+      "dir": "Estación Chapinero, Carrera 9A No. 61-77",
+      "reciben": "Alimentos para perros y gatos, medicamentos veterinarios, donaciones para mascotas",
+      "tel": "",
+      "info": "",
+      "lat": 4.653382,
+      "lng": -74.083633
+    },
+    {
+      "pais": "Colombia",
+      "org": "Bomberos de Bogotá (Una Garra por Venezuela)",
+      "estado": "Bogotá D.C.",
+      "ciudad": "Bogotá",
+      "municipio": "Bogotá",
+      "dir": "Estación Restrepo, Avenida Carrera 27 No. 19A-10 Sur",
+      "reciben": "Alimentos para perros y gatos, medicamentos veterinarios, donaciones para mascotas",
+      "tel": "",
+      "info": "",
+      "lat": 4.653382,
+      "lng": -74.083633
+    },
+    {
+      "pais": "Colombia",
+      "org": "El Minuto de Dios",
+      "estado": "Bogotá D.C.",
+      "ciudad": "Bogotá",
+      "municipio": "Bogotá",
+      "dir": "Transversal 73A No. 82-61, barrio Minuto de Dios",
+      "reciben": "Alimentos no perecederos, kits de aseo, colchonetas, herramientas",
+      "tel": "",
+      "info": "",
+      "lat": 4.653382,
+      "lng": -74.083633
+    },
+    {
+      "pais": "Colombia",
+      "org": "El Minuto de Dios",
+      "estado": "Antioquia",
+      "ciudad": "Medellín",
+      "municipio": "Medellín",
+      "dir": "Carrera 49 No. 53-19, Oficina 403, Edificio Bancoquia",
+      "reciben": "Agua, alimentos, medicamentos, ropa, cobijas, carpas",
+      "tel": "",
+      "info": "",
+      "lat": 6.269732,
+      "lng": -75.60256
+    },
+    {
+      "pais": "Colombia",
+      "org": "Operación Todos con Venezuela / I.E. Héctor Abad Gómez",
+      "estado": "Antioquia",
+      "ciudad": "Medellín",
+      "municipio": "Medellín",
+      "dir": "Sede Placita de Flores, Calle 50 #39-65",
+      "reciben": "Agua potable, alimentos no perecederos, insumos médicos, ropa y cobijas",
+      "tel": "",
+      "info": "",
+      "lat": 6.269732,
+      "lng": -75.60256
+    },
+    {
+      "pais": "Colombia",
+      "org": "Centro Intégrate (Alcaldía de Medellín)",
+      "estado": "Antioquia",
+      "ciudad": "Medellín",
+      "municipio": "Medellín",
+      "dir": "Carrera 49 #31B-125, barrio Líbano",
+      "reciben": "Alimentos no perecederos, agua, productos de higiene, ropa en buen estado",
+      "tel": "",
+      "info": "Horario 8:00 a.m. a 4:00 p.m.",
+      "lat": 6.269732,
+      "lng": -75.60256
+    },
+    {
+      "pais": "Colombia",
+      "org": "Grupo Mega",
+      "estado": "Antioquia",
+      "ciudad": "Itagüí",
+      "municipio": "Itagüí",
+      "dir": "Mall Itagüí, local 146",
+      "reciben": "Agua, alimentos no perecederos, medicinas, productos de higiene, pañales, ropa en buen estado, comida para mascotas",
+      "tel": "",
+      "info": "",
+      "lat": 6.172435,
+      "lng": -75.609325
+    },
+    {
+      "pais": "Colombia",
+      "org": "Grupo Mega",
+      "estado": "Antioquia",
+      "ciudad": "Bello",
+      "municipio": "Bello",
+      "dir": "Carrera 50 #50-15",
+      "reciben": "Agua, alimentos no perecederos, medicinas, productos de higiene, pañales, ropa en buen estado, comida para mascotas",
+      "tel": "",
+      "info": "",
+      "lat": 6.339309,
+      "lng": -75.559055
+    },
+    {
+      "pais": "Colombia",
+      "org": "Funcolven",
+      "estado": "Valle del Cauca",
+      "ciudad": "Cali",
+      "municipio": "Cali",
+      "dir": "Carrera 44A #13B-30, barrio Santo Domingo",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, ropa, productos de higiene",
+      "tel": "",
+      "info": "",
+      "lat": 3.410843,
+      "lng": -76.581213
+    },
+    {
+      "pais": "Colombia",
+      "org": "Fundación Productive-Mente",
+      "estado": "Valle del Cauca",
+      "ciudad": "Cali",
+      "municipio": "Cali",
+      "dir": "Carrera 12A #52-54, barrio Villacolombia",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, ropa, productos de higiene",
+      "tel": "",
+      "info": "",
+      "lat": 3.410843,
+      "lng": -76.581213
+    },
+    {
+      "pais": "Colombia",
+      "org": "Colectivo Luchando por un Sueño",
+      "estado": "Valle del Cauca",
+      "ciudad": "Cali",
+      "municipio": "Cali",
+      "dir": "Carrera 13 #63-33, barrio Nueva Base, frente al puente Los Mil Días",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, ropa, productos de higiene",
+      "tel": "",
+      "info": "",
+      "lat": 3.410843,
+      "lng": -76.581213
+    },
+    {
+      "pais": "Colombia",
+      "org": "El Minuto de Dios",
+      "estado": "Valle del Cauca",
+      "ciudad": "Cali",
+      "municipio": "Cali",
+      "dir": "Calle 5B No. 37-120, San Fernando",
+      "reciben": "Productos de primera necesidad, alimentos, agua, medicamentos",
+      "tel": "",
+      "info": "",
+      "lat": 3.430766,
+      "lng": -76.542646
+    },
+    {
+      "pais": "Colombia",
+      "org": "Alcaldía Distrital de Barranquilla",
+      "estado": "Atlántico",
+      "ciudad": "Barranquilla",
+      "municipio": "Barranquilla",
+      "dir": "Carrera 43 #6-120, sector Barranquillita",
+      "reciben": "Agua potable, alimentos no perecederos, medicamentos e insumos médicos, ropa en buen estado, cobijas, colchonetas, artículos de higiene",
+      "tel": "",
+      "info": "Abierto todos los días de 8:00 a.m. a 4:00 p.m.",
+      "lat": 10.99386,
+      "lng": -74.792612
+    },
+    {
+      "pais": "Colombia",
+      "org": "Comerciantes del centro de Barranquilla",
+      "estado": "Atlántico",
+      "ciudad": "Barranquilla",
+      "municipio": "Barranquilla",
+      "dir": "Carrera 43 con calle 37, frente a Mall Plaza Paris",
+      "reciben": "Agua, alimentos no perecederos, medicamentos, ropa en buen estado, artículos de higiene",
+      "tel": "",
+      "info": "",
+      "lat": 10.99386,
+      "lng": -74.792612
+    },
+    {
+      "pais": "Colombia",
+      "org": "El Minuto de Dios",
+      "estado": "Atlántico",
+      "ciudad": "Barranquilla",
+      "municipio": "Barranquilla",
+      "dir": "Calle 73 No. 7E esquina, barrio El Bosque",
+      "reciben": "Donaciones en especie: alimentos, agua, medicamentos, ropa",
+      "tel": "",
+      "info": "",
+      "lat": 10.99386,
+      "lng": -74.792612
+    },
+    {
+      "pais": "Colombia",
+      "org": "El Minuto de Dios",
+      "estado": "Norte de Santander",
+      "ciudad": "Cúcuta",
+      "municipio": "Cúcuta",
+      "dir": "Avenida 1E No. 20-56, barrio Blanco-Caobos",
+      "reciben": "Artículos de emergencia, alimentos, agua, medicamentos, ropa",
+      "tel": "",
+      "info": "",
+      "lat": 8.077619,
+      "lng": -72.4689
+    },
+    {
+      "pais": "Colombia",
+      "org": "Movimiento Vente Venezuela",
+      "estado": "Norte de Santander",
+      "ciudad": "Cúcuta",
+      "municipio": "Cúcuta",
+      "dir": "Centro Comercial Gran Sambil, calle 11A, segundo piso, local 243",
+      "reciben": "Cobijas, ropa en buen estado, alimentos no perecederos, artículos para bebés (pañales, toallitas, leche de fórmula), artículos de higiene personal",
+      "tel": "",
+      "info": "Segundo punto en el barrio Lleras, cerca del estadio General Santander",
+      "lat": 8.077619,
+      "lng": -72.4689
+    },
+    {
+      "pais": "Colombia",
+      "org": "El Minuto de Dios",
+      "estado": "Santander",
+      "ciudad": "Bucaramanga",
+      "municipio": "Bucaramanga",
+      "dir": "Carrera 27 No. 19-40, oficina COMD",
+      "reciben": "Alimentos no perecederos, medicinas, ropa, productos de higiene",
+      "tel": "",
+      "info": "",
+      "lat": 7.166984,
+      "lng": -73.104729
+    },
+    {
+      "pais": "Colombia",
+      "org": "El Minuto de Dios",
+      "estado": "Bolívar",
+      "ciudad": "Cartagena",
+      "municipio": "Cartagena",
+      "dir": "Carrera 15 No. 31-110, Centro Comercial San Lázaro, local 19",
+      "reciben": "Suministros humanitarios: alimentos, agua, medicamentos, ropa",
+      "tel": "",
+      "info": "",
+      "lat": 10.426557,
+      "lng": -75.544167
+    },
+    {
+      "pais": "Chile",
+      "org": "Papelón Sabroso (comunidad venezolana)",
+      "estado": "Región Metropolitana",
+      "ciudad": "Santiago",
+      "municipio": "Providencia",
+      "dir": "Av. Providencia 1669, explanada de las Torres Carlos Antúnez (cerca del metro Pedro de Valdivia)",
+      "reciben": "Alimentos no perecederos y enlatados, agua mineral, pañales, toallas húmedas, artículos de higiene personal, productos de limpieza e insumos médicos (suero fisiológico, gasas, vendas, medicamentos)",
+      "tel": "",
+      "info": "Centro de acopio habilitado en el restaurante venezolano Papelón Sabroso; atención 26, 27 y 28 de junio de 2026 de 8:00 a 18:00",
+      "lat": -33.4377,
+      "lng": -70.651067
+    },
+    {
+      "pais": "España",
+      "org": "Plataforma Apoyando a Venezuela / Fundación Bandazul",
+      "estado": "Comunidad de Madrid",
+      "ciudad": "Leganés",
+      "municipio": "Leganés",
+      "dir": "Centro Comercial Sambil Outlet, La Fortuna, planta baja",
+      "reciben": "Alimentos no perecederos, agua embotellada, leche infantil, pañales, medicamentos, artículos de higiene, mantas, linternas, pilas y material de rescate (no se acepta cristal ni ropa usada en mal estado)",
+      "tel": "",
+      "info": "Sábados y domingos de 10:30 a 18:00. Gestionado por Plataforma Apoyando a Venezuela; distribución por Fundación Bandazul y Toneladas de Alegría",
+      "lat": 40.328194,
+      "lng": -3.76527
+    },
+    {
+      "pais": "España",
+      "org": "Refugiados Sin Fronteras / Diáspora en Movimiento",
+      "estado": "Comunidad de Madrid",
+      "ciudad": "Madrid",
+      "municipio": "Madrid",
+      "dir": "Calle Matilde Landa, 26 (Metro Ventilla)",
+      "reciben": "Material de primera necesidad: alimentos no perecederos, agua, medicamentos, pañales, productos de higiene",
+      "tel": "",
+      "info": "Sábado 27 y domingo 28 de junio, de 11:00 a 18:00",
+      "lat": 40.416782,
+      "lng": -3.703507
+    },
+    {
+      "pais": "España",
+      "org": "Pardillo Center / Asociación Civil de Venezolanos en España (VENESP)",
+      "estado": "Comunidad de Madrid",
+      "ciudad": "Villanueva del Pardillo",
+      "municipio": "Villanueva del Pardillo",
+      "dir": "Avenida de Madrid, 4, local 1",
+      "reciben": "Alimentos no perecederos, productos de higiene personal, ropa, mantas, linternas, pilas, botiquines, utensilios de cocina y agua embotellada; también aportaciones económicas",
+      "tel": "",
+      "info": "",
+      "lat": 40.494923,
+      "lng": -3.960006
+    },
+    {
+      "pais": "España",
+      "org": "Comando ConVzla",
+      "estado": "Comunidad de Madrid",
+      "ciudad": "Madrid",
+      "municipio": "Madrid",
+      "dir": "Calle Oñate, 10, Bajo Exterior derecha (Oficina AMS Abogados) (Metro Estrecho)",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, pañales, productos de higiene y suministros de emergencia",
+      "tel": "",
+      "info": "Viernes 26 de junio, de 09:00 a 18:00",
+      "lat": 40.416782,
+      "lng": -3.703507
+    },
+    {
+      "pais": "España",
+      "org": "QW Food Truck",
+      "estado": "Comunidad de Madrid",
+      "ciudad": "Madrid",
+      "municipio": "Madrid",
+      "dir": "Calle de los Donados, 2 (Metro Ópera/Sol)",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, pañales, productos de higiene y suministros de emergencia",
+      "tel": "",
+      "info": "Hasta el domingo 28 de junio, de 10:00 a 17:00",
+      "lat": 40.416782,
+      "lng": -3.703507
+    },
+    {
+      "pais": "España",
+      "org": "Teresa Club",
+      "estado": "Comunidad de Madrid",
+      "ciudad": "Madrid",
+      "municipio": "Madrid",
+      "dir": "Calle del Príncipe, 11 (Metro Sevilla/Sol)",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, pañales, productos de higiene y suministros de emergencia",
+      "tel": "",
+      "info": "Hasta el domingo 28 de junio",
+      "lat": 40.416782,
+      "lng": -3.703507
+    },
+    {
+      "pais": "España",
+      "org": "Burgos NovaCars",
+      "estado": "Comunidad de Madrid",
+      "ciudad": "Madrid",
+      "municipio": "Madrid",
+      "dir": "Calle Atocha, 70 (Metro Antón Martín/Lavapiés)",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, pañales, productos de higiene y suministros de emergencia",
+      "tel": "",
+      "info": "Hasta el domingo 28 de junio",
+      "lat": 40.416782,
+      "lng": -3.703507
+    },
+    {
+      "pais": "España",
+      "org": "Bee Beer Madrid",
+      "estado": "Comunidad de Madrid",
+      "ciudad": "Madrid",
+      "municipio": "Madrid",
+      "dir": "Calle de Ferraz, 10 (Metro Plaza de España)",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, pañales, productos de higiene y suministros de emergencia",
+      "tel": "",
+      "info": "De 13:00 a 01:00",
+      "lat": 40.416782,
+      "lng": -3.703507
+    },
+    {
+      "pais": "España",
+      "org": "Grama Bar",
+      "estado": "Comunidad de Madrid",
+      "ciudad": "Madrid",
+      "municipio": "Madrid",
+      "dir": "Calle Cruz, 19 (Metro Sol)",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, pañales, productos de higiene y suministros de emergencia",
+      "tel": "",
+      "info": "Diariamente de 13:00 a 23:00",
+      "lat": 40.416782,
+      "lng": -3.703507
+    },
+    {
+      "pais": "España",
+      "org": "Legalizados (Gabriela Domigno)",
+      "estado": "Comunidad de Madrid",
+      "ciudad": "Madrid",
+      "municipio": "Madrid",
+      "dir": "Calle Villamanta, 20, Vallecas (Metro Villa de Vallecas)",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, pañales, productos de higiene y suministros de emergencia",
+      "tel": "",
+      "info": "Viernes 26 de 09:00 a 15:00; sábado de 10:00 a 22:00; domingo de 10:00 a 18:00",
+      "lat": 40.416782,
+      "lng": -3.703507
+    },
+    {
+      "pais": "España",
+      "org": "Asociación Venezolana",
+      "estado": "Comunidad de Madrid",
+      "ciudad": "Alcobendas",
+      "municipio": "Alcobendas",
+      "dir": "Parroquia Santa María de la Esperanza (Metro Marqués de la Valdavia)",
+      "reciben": "Alimentos no perecederos, agua, medicamentos, pañales, productos de higiene y suministros de emergencia",
+      "tel": "",
+      "info": "Sábado 27 y domingo 28 de junio, de 10:00 a 18:30",
+      "lat": 40.540008,
+      "lng": -3.635849
+    },
+    {
+      "pais": "España",
+      "org": "Fundación Madrina",
+      "estado": "Comunidad de Madrid",
+      "ciudad": "Madrid",
+      "municipio": "Madrid",
+      "dir": "Plaza de San Amaro (sede de Fundación Madrina)",
+      "reciben": "Herramientas de desescombro y productos de alimentación maternoinfantil",
+      "tel": "",
+      "info": "Punto de acopio abierto durante el fin de semana desde el viernes 26 de junio; envíos a través de la Diócesis de Caracas",
+      "lat": 40.416782,
+      "lng": -3.703507
+    },
+    {
+      "pais": "España",
+      "org": "Asociación de Venezolanos en Valladolid (AVeVa)",
+      "estado": "Castilla y León",
+      "ciudad": "Valladolid",
+      "municipio": "Valladolid",
+      "dir": "Sede de Ropero Amigo, Plaza Marqués de Suances",
+      "reciben": "Alimentos no perecederos, agua, ropa, material de primeros auxilios y productos básicos",
+      "tel": "",
+      "info": "Campaña 'Ayuda Humanitaria para Venezuela' los días 27 y 28 de junio",
+      "lat": 41.620002,
+      "lng": -4.725991
+    },
+    {
+      "pais": "Panamá",
+      "org": "Alcaldía de Panamá (Todos con Venezuela)",
+      "estado": "Panamá",
+      "ciudad": "Ciudad de Panamá",
+      "municipio": "",
+      "dir": "Teatro Gladys Vidal, planta baja del Edificio Hatillo",
+      "reciben": "Alimentos no perecederos, artículos de emergencia (linternas, pilas), productos de higiene, ropa, mochilas y útiles escolares",
+      "tel": "",
+      "info": "Horario 8:00 a.m. a 4:00 p.m. (jueves 25 y viernes 26 de junio)",
+      "lat": 8.971449,
+      "lng": -79.53418
+    },
+    {
+      "pais": "Panamá",
+      "org": "Este Sport Center",
+      "estado": "Panamá",
+      "ciudad": "Ciudad de Panamá",
+      "municipio": "Costa del Este",
+      "dir": "Estacionamientos del Este Sport Center, avenida La Rotonda, contiguo al edificio Bladex",
+      "reciben": "Agua embotellada, alimentos no perecederos, fórmula infantil, productos de higiene, primeros auxilios, artículos para refugio",
+      "tel": "",
+      "info": "Horario 12:00 m. a 8:00 p.m. (jueves 25 y viernes 26 de junio)",
+      "lat": 8.971449,
+      "lng": -79.53418
+    },
+    {
+      "pais": "Panamá",
+      "org": "Casa Club Parque Omar",
+      "estado": "Panamá",
+      "ciudad": "Ciudad de Panamá",
+      "municipio": "",
+      "dir": "Casa Club, Parque Omar",
+      "reciben": "Alimentos no perecederos, agua, fórmula infantil, alimentos para mascotas, artículos de emergencia",
+      "tel": "",
+      "info": "Horario 8:00 a.m. a 8:00 p.m. (jueves-viernes) y 8:00 a.m. a 2:00 p.m. (sábado), 25-27 de junio",
+      "lat": 8.971449,
+      "lng": -79.53418
+    },
+    {
+      "pais": "Panamá",
+      "org": "Iglesia Refugio Panamá",
+      "estado": "Panamá",
+      "ciudad": "Ciudad de Panamá",
+      "municipio": "",
+      "dir": "Avenida Domingo Díaz, Plaza Roosevelt",
+      "reciben": "Alimentos, artículos de emergencia, productos de higiene, ropa, cobijas, kits escolares",
+      "tel": "",
+      "info": "Horario 9:00 a.m. a 6:00 p.m. (jueves a domingo)",
+      "lat": 8.971449,
+      "lng": -79.53418
+    },
+    {
+      "pais": "Panamá",
+      "org": "Iglesia Refugio Panamá",
+      "estado": "Colón",
+      "ciudad": "Cativá",
+      "municipio": "",
+      "dir": "Cativá, Colón",
+      "reciben": "Alimentos, artículos de emergencia, productos de higiene, ropa, cobijas, kits escolares",
+      "tel": "",
+      "info": "Horario 9:00 a.m. a 6:00 p.m. (jueves a domingo)",
+      "lat": 9.363401,
+      "lng": -79.834954
+    },
+    {
+      "pais": "Estados Unidos",
+      "org": "Global Empowerment Mission (GEM)",
+      "estado": "Florida",
+      "ciudad": "Doral",
+      "municipio": "Miami-Dade",
+      "dir": "1850 NW 84th Ave., Doral, FL",
+      "reciben": "Alimentos no perecederos, agua, productos de higiene, pañales, primeros auxilios y medicamentos (no reciben ropa)",
+      "tel": "",
+      "info": "Horario lunes a viernes, 9:00 a.m. a 4:00 p.m.",
+      "lat": 25.791241,
+      "lng": -80.333164
+    },
+    {
+      "pais": "Estados Unidos",
+      "org": "The Nucleus Orchestral Program",
+      "estado": "Florida",
+      "ciudad": "Orlando",
+      "municipio": "",
+      "dir": "9521 S. Orange Blossom Trail, Suite 118, Orlando, FL 32837",
+      "reciben": "Alimentos no perecederos, medicinas, ropa limpia y artículos de higiene personal",
+      "tel": "",
+      "info": "",
+      "lat": 28.542122,
+      "lng": -81.379045
+    },
+    {
+      "pais": "Estados Unidos",
+      "org": "KOË",
+      "estado": "Florida",
+      "ciudad": "Orlando",
+      "municipio": "",
+      "dir": "601 W. Taft Vineland Road, Orlando, FL 32824",
+      "reciben": "Agua, alimentos, ropa, pañales, medicamentos, artículos para personas y mascotas",
+      "tel": "",
+      "info": "Horario 2:00 p.m. a 8:30 p.m.",
+      "lat": 28.421224,
+      "lng": -81.371584
+    },
+    {
+      "pais": "Estados Unidos",
+      "org": "Kingdom Movement",
+      "estado": "Florida",
+      "ciudad": "Orlando",
+      "municipio": "",
+      "dir": "6881 Kingspointe Parkway, Orlando",
+      "reciben": "Productos de higiene, pañales, ropa, medicinas, alimentos y cobijas",
+      "tel": "407-561-0217",
+      "info": "",
+      "lat": 28.459412,
+      "lng": -81.43816
+    },
+    {
+      "pais": "Estados Unidos",
+      "org": "Centro de Acopio de Aixa Avilés",
+      "estado": "Florida",
+      "ciudad": "Orlando",
+      "municipio": "",
+      "dir": "13564 Village Park Drive, Suite 0250, Orlando, FL",
+      "reciben": "Artículos de higiene, pañales, ropa, vendas y suministros básicos",
+      "tel": "",
+      "info": "Horario lunes a viernes, 9:00 a.m. a 5:00 p.m. (hasta el 30 de junio)",
+      "lat": 28.542122,
+      "lng": -81.379045
+    },
+    {
+      "pais": "Estados Unidos",
+      "org": "Psico Salud Belleza Academy",
+      "estado": "Florida",
+      "ciudad": "Kissimmee",
+      "municipio": "",
+      "dir": "3357 West Vine Street, Suite 103, Kissimmee",
+      "reciben": "Artículos de higiene, pañales, ropa y medicinas",
+      "tel": "",
+      "info": "Horario lunes-jueves 9:00 a.m. a 5:00 p.m.; viernes-sábado 9:00 a.m. a 2:00 p.m. (hasta el 30 de junio)",
+      "lat": 28.291899,
+      "lng": -81.407584
+    },
+    {
+      "pais": "Perú",
+      "org": "La Llama",
+      "estado": "Lima",
+      "ciudad": "Lima",
+      "municipio": "Los Olivos",
+      "dir": "Av. Alisos 799, Los Olivos",
+      "reciben": "Alimentos no perecibles y medicinas esenciales",
+      "tel": "",
+      "info": "",
+      "lat": -11.983296,
+      "lng": -77.076766
+    },
+    {
+      "pais": "Perú",
+      "org": "AquíVa PSB",
+      "estado": "Lima",
+      "ciudad": "Lima",
+      "municipio": "Los Olivos",
+      "dir": "Centro Comercial Siglo XXI (Óvalo Huandoy), Los Olivos",
+      "reciben": "Alimentos no perecibles y medicinas esenciales",
+      "tel": "",
+      "info": "",
+      "lat": -12.045981,
+      "lng": -77.030591
+    },
+    {
+      "pais": "Perú",
+      "org": "Flama Pizzería",
+      "estado": "Lima",
+      "ciudad": "Lima",
+      "municipio": "Miraflores",
+      "dir": "Calle Coronel Inclán 300, Miraflores",
+      "reciben": "Alimentos no perecibles y medicinas esenciales",
+      "tel": "",
+      "info": "",
+      "lat": -12.118498,
+      "lng": -77.031385
+    },
+    {
+      "pais": "Perú",
+      "org": "Rosa Luz",
+      "estado": "Lima",
+      "ciudad": "Lima",
+      "municipio": "Puente Piedra",
+      "dir": "Urb. Rosa Luz, Mz. L Lt. 27, Puente Piedra",
+      "reciben": "Alimentos no perecibles y medicinas esenciales",
+      "tel": "+51 916 235 332",
+      "info": "",
+      "lat": -12.045981,
+      "lng": -77.030591
+    },
+    {
+      "pais": "Perú",
+      "org": "Sede Ocasiven",
+      "estado": "Lima",
+      "ciudad": "Lima",
+      "municipio": "San Juan de Miraflores",
+      "dir": "Calle Antonio Buckingham 280, San Juan de Miraflores",
+      "reciben": "Alimentos no perecibles y medicinas esenciales",
+      "tel": "+51 953 318 045",
+      "info": "",
+      "lat": -12.153207,
+      "lng": -76.977423
+    },
+    {
+      "pais": "Perú",
+      "org": "Parque Voces por El Clima",
+      "estado": "Lima",
+      "ciudad": "Lima",
+      "municipio": "Santiago de Surco",
+      "dir": "Parque Voces por El Clima, planta de reciclaje, Santiago de Surco",
+      "reciben": "Alimentos no perecibles y medicinas esenciales",
+      "tel": "+51 925 897 233",
+      "info": "",
+      "lat": -12.045981,
+      "lng": -77.030591
+    },
+    {
+      "pais": "Perú",
+      "org": "Sede APPV",
+      "estado": "Lima",
+      "ciudad": "Lima",
+      "municipio": "Barranco",
+      "dir": "Av. República de Panamá 6680, Barranco",
+      "reciben": "Alimentos no perecibles y medicinas esenciales",
+      "tel": "+51 992 824 991",
+      "info": "",
+      "lat": -12.137114,
+      "lng": -77.017772
+    },
+    {
+      "pais": "Perú",
+      "org": "Mail Boxes Etc.",
+      "estado": "Lima",
+      "ciudad": "Lima",
+      "municipio": "Jesús María",
+      "dir": "Av. Salaverry 1802, Jesús María",
+      "reciben": "Alimentos no perecibles y medicinas esenciales",
+      "tel": "",
+      "info": "",
+      "lat": -12.083737,
+      "lng": -77.047331
+    },
+    {
+      "pais": "Perú",
+      "org": "AquíVa PSB (Gamarra)",
+      "estado": "Lima",
+      "ciudad": "Lima",
+      "municipio": "La Victoria",
+      "dir": "Gama Moda Plaza (Gamarra), Jr. Las Turquezas 426, La Victoria",
+      "reciben": "Alimentos no perecibles y medicinas esenciales",
+      "tel": "+51 950 293 496",
+      "info": "",
+      "lat": -12.045981,
+      "lng": -77.030591
+    },
+    {
+      "pais": "Argentina",
+      "org": "Casa Venezuela Arg (Asociación de Venezolanos en el AMBA)",
+      "estado": "Ciudad Autónoma de Buenos Aires",
+      "ciudad": "Buenos Aires",
+      "municipio": "San Cristóbal / Monserrat",
+      "dir": "Combate de los Pozos 1055, CABA",
+      "reciben": "Agua potable, alimentos no perecederos, medicamentos y primeros auxilios, ropa y calzado, artículos de higiene personal, cobijas y sábanas",
+      "tel": "",
+      "info": "",
+      "lat": -34.611011,
+      "lng": -58.393342
+    },
+    {
+      "pais": "Argentina",
+      "org": "Dulce y Crujiente",
+      "estado": "Ciudad Autónoma de Buenos Aires",
+      "ciudad": "Buenos Aires",
+      "municipio": "Villa Ortúzar",
+      "dir": "Charlone 1514, Villa Ortúzar, CABA",
+      "reciben": "Donaciones para afectados (alimentos no perecederos, higiene, medicamentos)",
+      "tel": "",
+      "info": "",
+      "lat": -34.580754,
+      "lng": -58.463544
+    },
+    {
+      "pais": "Argentina",
+      "org": "Wai Hoy",
+      "estado": "Ciudad Autónoma de Buenos Aires",
+      "ciudad": "Buenos Aires",
+      "municipio": "Almagro",
+      "dir": "Estado de Palestina 876, Almagro, CABA",
+      "reciben": "Donaciones para afectados (alimentos no perecederos, higiene, medicamentos)",
+      "tel": "",
+      "info": "",
+      "lat": -34.600608,
+      "lng": -58.425445
+    },
+    {
+      "pais": "Argentina",
+      "org": "Fiorella Química",
+      "estado": "Buenos Aires",
+      "ciudad": "Avellaneda",
+      "municipio": "Sarandí",
+      "dir": "Bartolomé Mitre 3816, Sarandí, Avellaneda",
+      "reciben": "Donaciones para afectados (alimentos no perecederos, higiene, medicamentos)",
+      "tel": "",
+      "info": "",
+      "lat": -34.687342,
+      "lng": -58.33889
+    },
+    {
+      "pais": "Argentina",
+      "org": "Lajoda Club",
+      "estado": "Ciudad Autónoma de Buenos Aires",
+      "ciudad": "Buenos Aires",
+      "municipio": "",
+      "dir": "Niceto Vega 5646, CABA",
+      "reciben": "Donaciones para afectados (alimentos no perecederos, higiene, medicamentos)",
+      "tel": "",
+      "info": "",
+      "lat": -34.586483,
+      "lng": -58.439861
+    },
+    {
+      "pais": "Ecuador",
+      "org": "Cámara de Comercio Ecuatoriano Venezolana",
+      "estado": "Pichincha",
+      "ciudad": "Quito",
+      "municipio": "",
+      "dir": "Av. Naciones Unidas y Av. 10 de Agosto (referencia: Cachapas El Félix)",
+      "reciben": "Alimentos no perecibles, agua embotellada, kits de higiene, medicamentos básicos, ropa en buen estado, mantas e insumos de primera necesidad",
+      "tel": "",
+      "info": "",
+      "lat": -0.220164,
+      "lng": -78.512327
+    },
+    {
+      "pais": "Ecuador",
+      "org": "IMPAQTO La Carolina",
+      "estado": "Pichincha",
+      "ciudad": "Quito",
+      "municipio": "",
+      "dir": "Av. Shyris y Suecia, edificio IQON",
+      "reciben": "Alimentos no perecibles, agua embotellada, kits de higiene, medicamentos básicos, ropa en buen estado, mantas e insumos de primera necesidad",
+      "tel": "",
+      "info": "",
+      "lat": -0.220164,
+      "lng": -78.512327
+    },
+    {
+      "pais": "Ecuador",
+      "org": "Comunidad venezolana (Edificio Gaudí)",
+      "estado": "Pichincha",
+      "ciudad": "Quito",
+      "municipio": "",
+      "dir": "Edificio Gaudí, calle Checoslovaquia (preguntar por Luis Magallanes)",
+      "reciben": "Alimentos no perecibles, agua embotellada, kits de higiene, medicamentos básicos, ropa en buen estado, mantas e insumos de primera necesidad",
+      "tel": "",
+      "info": "",
+      "lat": -0.220164,
+      "lng": -78.512327
+    },
+    {
+      "pais": "Ecuador",
+      "org": "Comunidad venezolana (Chamos Burger)",
+      "estado": "Guayas",
+      "ciudad": "Guayaquil",
+      "municipio": "",
+      "dir": "Av. Víctor Emilio Estrada y Jiguas (referencia: Chamos Burger)",
+      "reciben": "Alimentos no perecibles, agua embotellada, kits de higiene, medicamentos básicos, ropa en buen estado, mantas e insumos de primera necesidad",
+      "tel": "",
+      "info": "",
+      "lat": -2.190057,
+      "lng": -79.886867
+    },
+    {
+      "pais": "Ecuador",
+      "org": "Comunidad venezolana (Edificio Portal del Sol)",
+      "estado": "Azuay",
+      "ciudad": "Cuenca",
+      "municipio": "Yanuncay",
+      "dir": "Av. 12 de Octubre y calle Emilio Carrere, Edificio Portal del Sol, sector Yanuncay",
+      "reciben": "Alimentos no perecibles, agua embotellada, kits de higiene, medicamentos básicos, ropa en buen estado, mantas e insumos de primera necesidad",
+      "tel": "",
+      "info": "",
+      "lat": -2.897407,
+      "lng": -79.004173
+    },
+    {
+      "pais": "República Dominicana",
+      "org": "El Arepanito",
+      "estado": "Distrito Nacional",
+      "ciudad": "Santo Domingo",
+      "municipio": "",
+      "dir": "Av. Winston Churchill #26",
+      "reciben": "Agua, alimentos no perecederos, medicamentos, pañales y artículos de higiene personal",
+      "tel": "",
+      "info": "No se reciben contribuciones en efectivo",
+      "lat": 18.480259,
+      "lng": -69.945732
+    },
+    {
+      "pais": "República Dominicana",
+      "org": "BlueMall Santo Domingo",
+      "estado": "Distrito Nacional",
+      "ciudad": "Santo Domingo",
+      "municipio": "",
+      "dir": "BlueMall Santo Domingo, nivel -1",
+      "reciben": "Artículos de primeros auxilios y productos de cuidado personal",
+      "tel": "",
+      "info": "No se reciben contribuciones en efectivo",
+      "lat": 18.471386,
+      "lng": -69.891844
+    },
+    {
+      "pais": "República Dominicana",
+      "org": "Cámara de Comercio Dominico-Venezolana (Sambil Santo Domingo)",
+      "estado": "Distrito Nacional",
+      "ciudad": "Santo Domingo",
+      "municipio": "",
+      "dir": "Sambil Santo Domingo, Av. John F. Kennedy, local K-54, nivel Kennedy",
+      "reciben": "Agua, alimentos y material médico",
+      "tel": "",
+      "info": "Horario 10:00 a.m. a 7:00 p.m.",
+      "lat": 18.471386,
+      "lng": -69.891844
     }
   ]
 }

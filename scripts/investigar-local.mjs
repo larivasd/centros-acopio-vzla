@@ -31,7 +31,7 @@ const norm = (s) =>
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
 
-const claveCentro = (c) => `${norm(c.org)}|${norm(c.ciudad)}|${norm(c.dir)}`;
+const claveCentro = (c) => `${norm(c.pais)}|${norm(c.org)}|${norm(c.ciudad)}|${norm(c.dir)}`;
 const esNumOnull = (v) => v === null || (typeof v === "number" && isFinite(v));
 const hoyISO = () => new Date().toISOString().slice(0, 10);
 
@@ -42,22 +42,33 @@ const indice = new Map(centros.map((c) => [claveCentro(c), c]));
 console.log(`📂 Centros actuales: ${centros.length}`);
 
 const listaExistente = centros
-  .map((c) => `- ${c.org} | ${c.dir} (${c.ciudad}, ${c.estado})`)
+  .map((c) => `- [${c.pais}] ${c.org} | ${c.dir} (${c.ciudad}, ${c.estado})`)
   .join("\n");
 
+// foco opcional para corridas dirigidas (ej. FOCO="estado Nueva Esparta")
+const FOCO = (process.env.FOCO || "").trim();
+const bloqueFoco = FOCO
+  ? `\nENFOQUE DE ESTA BÚSQUEDA: concéntrate especialmente en ${FOCO}. Haz varias búsquedas web sobre eso hasta agotar resultados confiables.\n`
+  : "";
+
 // --- 2. prompt ---
-const PROMPT = `Eres un investigador que mantiene un directorio público de CENTROS DE ACOPIO en Venezuela para ayudar a las víctimas de los terremotos del 24 de junio de 2026 (magnitudes 7,2 y 7,5).
+const PROMPT = `Eres un investigador que mantiene un directorio público de CENTROS DE ACOPIO para ayudar a las víctimas de los terremotos del 24 de junio de 2026 en Venezuela (magnitudes 7,2 y 7,5).
 
-Usa la búsqueda web (WebSearch) para encontrar centros de acopio NUEVOS (que NO estén en la lista de abajo) y datos de contacto/ubicación que falten. Busca en prensa venezolana, sitios oficiales y publicaciones públicas de X (Twitter) e Instagram indexadas. Cubre todos los estados afectados.
+Hay centros de acopio en DOS tipos de lugares:
+  a) Dentro de Venezuela (todos los estados afectados).
+  b) En el EXTERIOR: puntos en otros países (México, Chile, Colombia, Panamá, España, Estados Unidos, Perú, Argentina, Ecuador, etc.) que recolectan ayuda para enviar a Venezuela.
 
+Usa la búsqueda web (WebSearch) para encontrar centros de acopio NUEVOS (que NO estén en la lista de abajo) y datos de contacto/ubicación que falten. Busca en prensa, sitios oficiales, consulados/embajadas, organizaciones de migrantes venezolanos y publicaciones públicas de X (Twitter) e Instagram indexadas.
+${bloqueFoco}
 REGLAS ESTRICTAS (modo conservador — esta info manda gente a lugares físicos):
-1. Solo incluye un centro si tienes una FUENTE pública verificable (URL) y datos suficientes: organización, estado, ciudad y dirección. Si dudas, NO lo incluyas.
+1. Solo incluye un centro si tienes una FUENTE pública verificable (URL) y datos suficientes: país, organización, ciudad y dirección. Si dudas, NO lo incluyas.
 2. NO inventes direcciones, teléfonos ni coordenadas. Dato que no encuentres = "" (o null para lat/lng).
 3. NO repitas centros de la lista existente.
-4. Prioriza información reciente y confiable.
+4. Para "estado": en Venezuela usa el estado; en el exterior usa el estado/provincia/región (o repite la ciudad si no aplica).
+5. Prioriza información reciente y confiable.
 
 IMPORTANTE: responde ÚNICAMENTE con el objeto JSON, sin explicaciones, sin markdown, sin texto antes ni después. Forma exacta:
-{"centros":[{"org":"","estado":"","ciudad":"","municipio":"","dir":"","reciben":"","tel":"","info":"","lat":null,"lng":null,"fuente":"URL de dónde lo obtuviste"}]}
+{"centros":[{"pais":"","org":"","estado":"","ciudad":"","municipio":"","dir":"","reciben":"","tel":"","info":"","lat":null,"lng":null,"fuente":"URL de dónde lo obtuviste"}]}
 
 Si no hay nada nuevo confiable: {"centros":[]}
 
@@ -122,7 +133,7 @@ function extraerJSON(texto) {
 // --- 4. validación / limpieza ---
 function valido(c) {
   if (!c || typeof c !== "object") return false;
-  for (const k of ["org", "estado", "ciudad", "dir"])
+  for (const k of ["pais", "org", "estado", "ciudad", "dir"])
     if (!c[k] || !String(c[k]).trim()) return false;
   if (!c.fuente || !String(c.fuente).trim()) return false;
   if (!esNumOnull(c.lat ?? null) || !esNumOnull(c.lng ?? null)) return false;
@@ -132,6 +143,7 @@ function limpiar(c) {
   const txt = (v) => (v == null ? "" : String(v).trim());
   const num = (v) => (v === null || v === undefined || v === "" ? null : Number(v));
   return {
+    pais: txt(c.pais),
     org: txt(c.org),
     estado: txt(c.estado),
     ciudad: txt(c.ciudad),
