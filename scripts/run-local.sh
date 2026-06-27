@@ -20,13 +20,18 @@ cd "$REPO" || { echo "$(ts) ❌ no existe $REPO" >>"$LOG"; exit 1; }
   # Traer cambios remotos para evitar conflictos
   git pull --rebase --quiet origin main 2>&1 || echo "aviso: git pull falló (sigo)"
 
-  # Investigar y actualizar el JSON
+  # 1) Investigar centros nuevos
   node scripts/investigar-local.mjs 2>&1
   RES=$?
-
   if [ $RES -ne 0 ]; then
     echo "$(ts) ⚠️ el agente terminó con código $RES"
   fi
+
+  # 2) Normalizar país/estado y deduplicar (corrige errores de tipeo)
+  node scripts/normalizar.mjs 2>&1
+
+  # 3) Geocodificar los que aún no tengan coordenadas
+  node scripts/geocodificar.mjs 2>&1
 
   # Publicar solo si cambió el JSON
   if [ -n "$(git status --porcelain data/centros.json)" ]; then
