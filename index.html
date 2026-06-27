@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centros de Acopio Venezuela — Terremoto 24 de junio 2026</title>
+<meta name="description" content="Directorio de centros de acopio para ayudar a las personas afectadas por los terremotos del 24 de junio de 2026 en Venezuela. Busca por estado, ciudad y municipio. Mapa con ubicación GPS.">
+<meta name="theme-color" content="#7a1620">
+<meta property="og:title" content="Centros de Acopio Venezuela — Terremoto 2026">
+<meta property="og:description" content="Encuentra dónde llevar tus donaciones para las personas afectadas por los terremotos en Venezuela. Busca por estado, ciudad y municipio.">
+<meta property="og:type" content="website">
+
+<!-- Leaflet (mapa) desde CDN -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<style>
+  :root{
+    --rojo:#7a1620;        /* vinotinto */
+    --rojo-claro:#a52a35;
+    --amarillo:#f3c54b;
+    --azul:#15467a;
+    --tinta:#1c1a17;
+    --gris:#5c5750;
+    --crema:#fbf7ef;
+    --blanco:#ffffff;
+    --linea:#e4ddd0;
+    --ok:#1f7a4d;
+    --foco:#15467a;
+    --radio:14px;
+    --sombra:0 2px 10px rgba(28,26,23,.08);
+    --sombra-fuerte:0 6px 24px rgba(28,26,23,.16);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--crema);
+    color:var(--tinta);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--azul)}
+  /* Accesibilidad: foco visible */
+  a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,
+  [tabindex]:focus-visible{
+    outline:3px solid var(--foco);
+    outline-offset:2px;
+    border-radius:6px;
+  }
+  .saltar{
+    position:absolute;left:-999px;top:0;background:var(--tinta);color:#fff;
+    padding:.7rem 1rem;z-index:9999;border-radius:0 0 8px 0;
+  }
+  .saltar:focus{left:0}
+  .oculto-visual{
+    position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  }
+
+  /* ---------- Encabezado ---------- */
+  header.sitio{
+    background:linear-gradient(135deg,var(--rojo),var(--rojo-claro));
+    color:#fff;padding:1.4rem 1rem 1.6rem;
+  }
+  .contenedor{max-width:1180px;margin:0 auto;padding:0 1rem}
+  .marca{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+  .marca .bandera{font-size:1.8rem;line-height:1}
+  header.sitio h1{margin:0;font-size:1.5rem;letter-spacing:-.01em}
+  header.sitio p.lema{margin:.5rem 0 0;opacity:.95;max-width:60ch;font-size:.98rem}
+  .aviso{
+    margin-top:1rem;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.25);border-radius:var(--radio);
+    padding:.7rem .9rem;font-size:.9rem;display:flex;gap:.6rem;align-items:flex-start;
+  }
+  .aviso strong{color:var(--amarillo)}
+
+  /* ---------- Conmutador de pestañas ---------- */
+  .tabs{
+    display:flex;gap:.5rem;max-width:1180px;margin:-1rem auto 0;padding:0 1rem;
+    position:relative;z-index:5;flex-wrap:wrap;
+  }
+  .tab{
+    flex:1 1 220px;border:none;cursor:pointer;font-size:1.05rem;font-weight:700;
+    padding:1rem;border-radius:var(--radio);background:var(--blanco);color:var(--tinta);
+    box-shadow:var(--sombra);display:flex;align-items:center;justify-content:center;gap:.5rem;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .tab .icono{font-size:1.3rem}
+  .tab[aria-selected="true"]{
+    background:var(--tinta);color:#fff;box-shadow:var(--sombra-fuerte);
+  }
+  .tab:hover{transform:translateY(-2px)}
+
+  main{padding:1.6rem 0 4rem}
+  .panel{display:none}
+  .panel.activo{display:block;animation:aparecer .25s ease}
+  @keyframes aparecer{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  }
+
+  /* ---------- Filtros ---------- */
+  .filtros{
+    background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio);
+    padding:1rem;box-shadow:var(--sombra);margin-bottom:1.2rem;
+  }
+  .filtros .fila{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.8rem}
+  .campo{display:flex;flex-direction:column;gap:.3rem}
+  .campo label{font-weight:600;font-size:.86rem;color:var(--gris)}
+  select,input[type="text"],input[type="search"],input[type="tel"],input[type="url"],textarea{
+    font:inherit;padding:.6rem .7rem;border:1.5px solid var(--linea);border-radius:10px;
+    background:var(--crema);color:var(--tinta);width:100%;
+  }
+  textarea{min-height:80px;resize:vertical}
+  .buscador{position:relative}
+  .buscador input{padding-left:2.2rem}
+  .buscador::before{content:"🔍";position:absolute;left:.7rem;top:50%;transform:translateY(-50%);opacity:.6}
+  .acciones-filtro{display:flex;gap:.6rem;align-items:flex-end;flex-wrap:wrap;margin-top:.6rem}
+  .btn{
+    font:inherit;font-weight:700;cursor:pointer;border:none;border-radius:10px;
+    padding:.7rem 1.1rem;display:inline-flex;align-items:center;gap:.45rem;
+  }
+  .btn-primario{background:var(--rojo);color:#fff}
+  .btn-primario:hover{background:var(--rojo-claro)}
+  .btn-sec{background:var(--crema);border:1.5px solid var(--linea);color:var(--tinta)}
+  .btn-sec:hover{background:#f0e9da}
+  .btn-mapa{background:var(--azul);color:#fff}
+
+  .resumen-conteo{
+    display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;
+    margin:.2rem 0 1rem;font-size:.95rem;color:var(--gris);
+  }
+  .chip{
+    background:var(--amarillo);color:#3a2c00;border-radius:999px;
+    padding:.15rem .7rem;font-weight:700;font-size:.85rem;
+  }
+
+  /* ---------- Mapa ---------- */
+  #mapa{height:380px;border-radius:var(--radio);border:1px solid var(--linea);
+    box-shadow:var(--sombra);margin-bottom:1.2rem;z-index:1}
+  .leaflet-popup-content{font-family:inherit}
+  .pop h3{margin:.1rem 0 .3rem;font-size:1rem;color:var(--rojo)}
+  .pop p{margin:.2rem 0;font-size:.86rem}
+  .pop a{font-weight:700}
+
+  /* ---------- Tarjetas ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1rem}
+  .tarjeta{
+    background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio);
+    padding:1rem;box-shadow:var(--sombra);display:flex;flex-direction:column;gap:.5rem;
+  }
+  .tarjeta:focus-within{box-shadow:var(--sombra-fuerte)}
+  .tarjeta .ubic{
+    display:inline-flex;align-items:center;gap:.35rem;font-size:.78rem;font-weight:700;
+    color:#fff;background:var(--azul);padding:.2rem .6rem;border-radius:999px;align-self:flex-start;
+  }
+  .tarjeta h3{margin:.1rem 0;font-size:1.08rem;line-height:1.25}
+  .tarjeta .org{font-size:.82rem;color:var(--gris);font-weight:600;text-transform:uppercase;letter-spacing:.02em}
+  .tarjeta .dir{font-size:.92rem}
+  .tarjeta .reciben{font-size:.86rem;background:var(--crema);border-radius:10px;padding:.5rem .6rem}
+  .tarjeta .reciben b{color:var(--rojo)}
+  .tarjeta .pie{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:auto;padding-top:.4rem}
+  .tarjeta .pie a{
+    font-size:.85rem;font-weight:700;text-decoration:none;border-radius:8px;
+    padding:.45rem .7rem;display:inline-flex;align-items:center;gap:.3rem;
+  }
+  .lnk-mapa{background:var(--azul);color:#fff}
+  .lnk-tel{background:var(--ok);color:#fff}
+  .lnk-info{background:var(--crema);color:var(--tinta);border:1.5px solid var(--linea)}
+
+  .sin-resultados{
+    text-align:center;padding:2.5rem 1rem;color:var(--gris);
+    background:var(--blanco);border:1px dashed var(--linea);border-radius:var(--radio);
+  }
+
+  /* ---------- Formulario de registro ---------- */
+  .form-card{
+    background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio);
+    padding:1.4rem;box-shadow:var(--sombra);max-width:760px;margin:0 auto;
+  }
+  .form-card h2{margin-top:0;color:var(--rojo)}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .form-grid .ancho{grid-column:1 / -1}
+  .req{color:var(--rojo)}
+  .ayuda{font-size:.8rem;color:var(--gris)}
+  .nota-importante{
+    background:#fff7e0;border:1px solid var(--amarillo);border-radius:12px;
+    padding:.8rem 1rem;font-size:.9rem;margin-bottom:1.2rem;
+  }
+  #salida-json{
+    width:100%;min-height:150px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.82rem;background:#1c1a17;color:#f3eddf;border-radius:10px;padding:.8rem;border:none;
+    white-space:pre;overflow:auto;margin-top:.6rem;
+  }
+  .exito{background:#e7f5ee;border:1px solid var(--ok);color:#155}
+  .exito{border-radius:12px;padding:.8rem 1rem;font-size:.9rem;margin-top:1rem}
+
+  /* ---------- Pie ---------- */
+  footer.sitio{
+    background:var(--tinta);color:#e9e3d6;padding:1.6rem 1rem;font-size:.86rem;
+  }
+  footer.sitio a{color:var(--amarillo)}
+  footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;max-width:1180px;margin:0 auto}
+
+  @media (max-width:560px){
+    .form-grid{grid-template-columns:1fr}
+    header.sitio h1{font-size:1.25rem}
+    #mapa{height:300px}
+  }
+</style>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido principal</a>
+
+<header class="sitio">
+  <div class="contenedor">
+    <div class="marca">
+      <span class="bandera" aria-hidden="true">🇻🇪</span>
+      <h1>Centros de Acopio Venezuela</h1>
+    </div>
+    <p class="lema">Directorio de puntos donde llevar donaciones para las personas afectadas por los terremotos del 24 de junio de 2026 (magnitudes 7,2 y 7,5). Busca por estado, ciudad y municipio. Acceso rápido a ubicación GPS y contacto.</p>
+    <div class="aviso" role="note">
+      <span aria-hidden="true">⚠️</span>
+      <span><strong>Antes de ir, confirma</strong> el horario y qué necesitan ese día: las necesidades cambian rápido. Llama al centro si tiene teléfono.</span>
+    </div>
+  </div>
+</header>
+
+<!-- Pestañas -->
+<div class="tabs" role="tablist" aria-label="Opciones principales">
+  <button class="tab" id="tab-ver" role="tab" aria-selected="true" aria-controls="panel-ver">
+    <span class="icono" aria-hidden="true">📍</span> Ver centros de acopio
+  </button>
+  <button class="tab" id="tab-registrar" role="tab" aria-selected="false" aria-controls="panel-registrar">
+    <span class="icono" aria-hidden="true">➕</span> Registrar un centro
+  </button>
+</div>
+
+<main id="contenido" class="contenedor">
+
+  <!-- ============ PANEL: VER ============ -->
+  <section class="panel activo" id="panel-ver" role="tabpanel" aria-labelledby="tab-ver" tabindex="0">
+
+    <div class="filtros">
+      <h2 class="oculto-visual">Filtrar centros</h2>
+      <div class="fila">
+        <div class="campo buscador">
+          <label for="f-buscar">Buscar (organización, dirección, insumo)</label>
+          <input type="search" id="f-buscar" placeholder="Ej: agua, Cáritas, Altamira…" autocomplete="off">
+        </div>
+        <div class="campo">
+          <label for="f-estado">Estado</label>
+          <select id="f-estado"><option value="">Todos los estados</option></select>
+        </div>
+        <div class="campo">
+          <label for="f-ciudad">Ciudad</label>
+          <select id="f-ciudad"><option value="">Todas las ciudades</option></select>
+        </div>
+        <div class="campo">
+          <label for="f-municipio">Municipio</label>
+          <select id="f-municipio"><option value="">Todos los municipios</option></select>
+        </div>
+      </div>
+      <div class="acciones-filtro">
+        <button class="btn btn-sec" id="btn-limpiar" type="button">↺ Limpiar filtros</button>
+        <button class="btn btn-mapa" id="btn-ver-mapa" type="button" aria-pressed="true">🗺️ Mostrar/ocultar mapa</button>
+      </div>
+    </div>
+
+    <div class="resumen-conteo" aria-live="polite">
+      <span class="chip" id="conteo">0</span>
+      <span id="conteo-txt">centros encontrados</span>
+    </div>
+
+    <div id="mapa" role="region" aria-label="Mapa de centros de acopio"></div>
+
+    <div class="grid" id="lista"></div>
+    <div class="sin-resultados" id="sin-resultados" hidden>
+      No hay centros que coincidan con tu búsqueda. Prueba a limpiar los filtros.
+    </div>
+  </section>
+
+  <!-- ============ PANEL: REGISTRAR ============ -->
+  <section class="panel" id="panel-registrar" role="tabpanel" aria-labelledby="tab-registrar" tabindex="0">
+    <div class="form-card">
+      <h2>Registrar un nuevo centro de acopio</h2>
+      <div class="nota-importante">
+        Esta página es 100% estática (sin base de datos). Al enviar el formulario se genera un
+        <b>bloque de código JSON</b> que debes <b>copiar y pegar</b> en el archivo del sitio (variable
+        <code>CENTROS</code> en <code>index.html</code>) o enviárselo a quien administra la página. Así la
+        información se actualiza rápido y la ven todas las personas.
+      </div>
+      <form id="form-registro" novalidate>
+        <div class="form-grid">
+          <div class="campo">
+            <label for="r-org">Organización / Nombre del centro <span class="req">*</span></label>
+            <input type="text" id="r-org" required>
+          </div>
+          <div class="campo">
+            <label for="r-estado">Estado <span class="req">*</span></label>
+            <input type="text" id="r-estado" list="datalist-estados" required>
+            <datalist id="datalist-estados"></datalist>
+          </div>
+          <div class="campo">
+            <label for="r-ciudad">Ciudad <span class="req">*</span></label>
+            <input type="text" id="r-ciudad" required>
+          </div>
+          <div class="campo">
+            <label for="r-municipio">Municipio</label>
+            <input type="text" id="r-municipio">
+          </div>
+          <div class="campo ancho">
+            <label for="r-dir">Dirección exacta y referencias <span class="req">*</span></label>
+            <input type="text" id="r-dir" required placeholder="Av., calle, edificio, punto de referencia cercano…">
+          </div>
+          <div class="campo">
+            <label for="r-lat">Latitud (GPS)</label>
+            <input type="text" id="r-lat" inputmode="decimal" placeholder="Ej: 10.4979">
+            <span class="ayuda">Opcional. En Google Maps: clic derecho → copiar coordenadas.</span>
+          </div>
+          <div class="campo">
+            <label for="r-lng">Longitud (GPS)</label>
+            <input type="text" id="r-lng" inputmode="decimal" placeholder="Ej: -66.8533">
+          </div>
+          <div class="campo ancho">
+            <label for="r-reciben">¿Qué reciben?</label>
+            <textarea id="r-reciben" placeholder="Agua, alimentos no perecederos, insumos médicos, ropa…"></textarea>
+          </div>
+          <div class="campo">
+            <label for="r-tel">Teléfono de contacto</label>
+            <input type="tel" id="r-tel" placeholder="Ej: 04121234567">
+          </div>
+          <div class="campo">
+            <label for="r-info">Enlace (Instagram / más info)</label>
+            <input type="url" id="r-info" placeholder="https://…">
+          </div>
+        </div>
+        <div class="acciones-filtro" style="margin-top:1rem">
+          <button class="btn btn-primario" type="submit">✓ Generar código del centro</button>
+          <button class="btn btn-sec" type="reset">Borrar formulario</button>
+        </div>
+      </form>
+
+      <div id="resultado-registro" hidden>
+        <div class="exito" role="status">
+          ✅ Listo. Copia este bloque y pégalo dentro del arreglo <code>CENTROS</code> en el archivo
+          <code>index.html</code> (al final, antes del corchete <code>]</code>). Luego sube el archivo a GitHub Pages.
+        </div>
+        <textarea id="salida-json" readonly aria-label="Código JSON del nuevo centro"></textarea>
+        <div class="acciones-filtro">
+          <button class="btn btn-mapa" type="button" id="btn-copiar">📋 Copiar código</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="sitio">
+  <div class="cols">
+    <div>
+      <strong>Canal ciudadano de ayuda</strong><br>
+      Información recopilada de fuentes públicas tras los terremotos del 24/06/2026. Verifica siempre antes de acudir.
+    </div>
+    <div>
+      <strong>¿Cómo actualizar?</strong><br>
+      Edita la variable <code>CENTROS</code> en <code>index.html</code> y vuelve a subir el archivo a tu repositorio de GitHub Pages.
+    </div>
+    <div>
+      <strong>Fuentes</strong><br>
+      Directorios ciudadanos y medios. Datos georreferenciados con coordenadas aproximadas.
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   BASE DE DATOS (hardcoded). Para actualizar: edita este arreglo.
+   Campos: org, estado, ciudad, municipio, dir, reciben, tel, info, lat, lng
+   ===================================================================== */
+const CENTROS = [
+  {org:"Comando Con Venezuela", estado:"Barinas", ciudad:"Barinas", municipio:"Barinas", dir:"Av. Marqués del Pumar, diagonal al Hotel Comercio, Casa Azul", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"", lat:8.625737, lng:-70.217709},
+  {org:"Comando Con Venezuela", estado:"Barinas", ciudad:"Santa Bárbara de Barinas", municipio:"Ezequiel Zamora", dir:"Restaurant O'Maria, Carrera 5 con calles 18 y 19", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"04247141072", info:"", lat:7.814517, lng:-71.181144},
+  {org:"Comando Con Venezuela", estado:"Barinas", ciudad:"Barrancas", municipio:"Cruz Paredes", dir:"Av. Bolívar, diagonal al Hotel del Búfalo, Casa Azul, Barrancas", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"04145298154", info:"", lat:null, lng:null},
+  {org:"Fe y Alegría", estado:"Barinas", ciudad:"Barinas", municipio:"Barinas", dir:"Fe y Alegría 'Padre Felipe Salvador Gilij'", reciben:"", tel:"", info:"", lat:8.605089, lng:-70.195679},
+  {org:"Sociedad civil (Tatas Food)", estado:"Lara", ciudad:"Barquisimeto", municipio:"Iribarren", dir:"Tatas Food, carrera 15 entre calles 13A y 13B", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"", lat:10.059681, lng:-69.350527},
+  {org:"Voluntariado Higea", estado:"Lara", ciudad:"Barquisimeto", municipio:"Iribarren", dir:"Biotel Suites", reciben:"Alimentos no perecederos, medicinas, insumos médicos, cobijas y ropa", tel:"", info:"https://www.instagram.com/voluntariadohigea", lat:10.068304, lng:-69.356083},
+  {org:"Voluntariado Higea", estado:"Lara", ciudad:"Barquisimeto", municipio:"Iribarren", dir:"Fundación Higea", reciben:"Alimentos no perecederos, medicinas, insumos médicos, cobijas y ropa", tel:"", info:"https://www.instagram.com/voluntariadohigea", lat:10.078762, lng:-69.310191},
+  {org:"Colegio Las Colinas", estado:"Lara", ciudad:"Barquisimeto", municipio:"Iribarren", dir:"Colegio Las Colinas, entrada El Pedregal", reciben:"Herramientas, insumos médicos y medicamentos", tel:"", info:"https://www.instagram.com/colegiolascolinas1969", lat:10.060281, lng:-69.281950},
+  {org:"G3 Logística", estado:"Lara", ciudad:"Barquisimeto", municipio:"Iribarren", dir:"Zona Industrial II, Av. Principal con Calle 6, Locales 110-111-112", reciben:"Agua, alimentos no perecederos, ropa, medicamentos, insumos médicos, higiene. Horario 9-12 y 14-15:30 L-V", tel:"", info:"", lat:10.079701, lng:-69.372575},
+  {org:"Colegio de Médicos del Estado Lara", estado:"Lara", ciudad:"Barquisimeto", municipio:"Iribarren", dir:"Sede del Colegio de Médicos del Estado Lara", reciben:"Alimentos, agua, medicamentos, higiene, colchones, ropa en buen estado", tel:"", info:"https://instagram.com/COMELAR.VE", lat:null, lng:null},
+  {org:"Rianzha Motobike", estado:"Lara", ciudad:"Barquisimeto", municipio:"Iribarren", dir:"Carrera 25 entre calles 13 y 14", reciben:"Alimentos no perecederos, agua, medicamentos, primeros auxilios, ropa, higiene", tel:"", info:"", lat:null, lng:null},
+  {org:"Fitness Factory Cabudare", estado:"Lara", ciudad:"Cabudare", municipio:"Palavecino", dir:"CC Hipermercado Multimall, Av. El Placer con Av. Libertador", reciben:"Agua, alimentos, higiene, pañales, fórmula para bebés, cobijas, ropa en buen estado", tel:"", info:"", lat:10.037955, lng:-69.276968},
+  {org:"Cámara de Comercio de Bolívar", estado:"Bolívar", ciudad:"Ciudad Bolívar", municipio:"Heres", dir:"Sede de la Cámara de Comercio e Industrias, Av. Táchira", reciben:"Agua, alimentos, insumos médicos, higiene, ropa y sábanas", tel:"", info:"https://instagram.com/camaradecomerciobolivar", lat:8.132865, lng:-63.544106},
+  {org:"Comando Con Venezuela", estado:"Bolívar", ciudad:"Ciudad Guayana", municipio:"Caroní", dir:"Centro Comercial Biblos, Primer piso, Local 71C (frente a trailers de Bauxilum, al lado de la Bomba Biblos), Unare II", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"", lat:8.277558, lng:-62.756149},
+  {org:"Comando Con Venezuela", estado:"Bolívar", ciudad:"Ciudad Bolívar", municipio:"Heres", dir:"Av. Pichincha, Edificio Tequendama, Local No 4", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"", lat:8.128589, lng:-63.546217},
+  {org:"Fundación Social Bolívar (Sede 911)", estado:"Bolívar", ciudad:"Ciudad Guayana", municipio:"Caroní", dir:"Fundación Social Bolívar (Sede 911)", reciben:"Alimentos no perecederos, agua, medicamentos y ropa en buen estado", tel:"", info:"", lat:null, lng:null},
+  {org:"Mundo de Sonrisas", estado:"Bolívar", ciudad:"Ciudad Bolívar", municipio:"Heres", dir:"Mundo de Sonrisas", reciben:"Alimentos no perecederos, agua, medicamentos y ropa en buen estado", tel:"", info:"", lat:8.128438, lng:-63.544540},
+  {org:"Rotaract Santo Ángel", estado:"Bolívar", ciudad:"Ciudad Guayana", municipio:"Caroní", dir:"Croquínea, a un lado de la Clínica Razzeti, Altavista", reciben:"Agua, alimentos, enlatados, higiene, pañales, toallas sanitarias, insumos médicos, comida para animales", tel:"04121937746", info:"", lat:8.295134, lng:-62.734084},
+  {org:"Rotaract Santo Ángel", estado:"Bolívar", ciudad:"Ciudad Guayana", municipio:"Caroní", dir:"Laboratorio Roraima, Clínica Humana, San Félix", reciben:"Agua, alimentos, enlatados, higiene, pañales, insumos médicos, comida para animales", tel:"04121937746", info:"", lat:8.361775, lng:-62.666026},
+  {org:"Rotaract Santo Ángel", estado:"Bolívar", ciudad:"Ciudad Guayana", municipio:"Caroní", dir:"UCAB Guayana, Extensión Social Universitaria", reciben:"Agua, alimentos, enlatados, higiene, pañales, insumos médicos, comida para animales", tel:"04121937746", info:"", lat:8.297310, lng:-62.711356},
+  {org:"Rotaract Santo Ángel", estado:"Bolívar", ciudad:"Ciudad Guayana", municipio:"Caroní", dir:"Terraza Box, Villa Alianza, junto a la clínica Santa Isabel", reciben:"Agua, alimentos, enlatados, higiene, pañales, insumos médicos, comida para animales", tel:"04121937746", info:"", lat:8.306097, lng:-62.718858},
+  {org:"Rotaract Santo Ángel", estado:"Bolívar", ciudad:"Ciudad Guayana", municipio:"Caroní", dir:"Crazy Pets, Orinokia Mall", reciben:"Agua, alimentos, enlatados, higiene, pañales, insumos médicos, comida para animales", tel:"04121937746", info:"", lat:8.292620, lng:-62.741633},
+  {org:"UCAB Guayana", estado:"Bolívar", ciudad:"Puerto Ordaz", municipio:"Caroní", dir:"Planta alta Casa del Estudiante, Dirección de Desarrollo Estudiantil, UCAB Guayana", reciben:"Cajas, bolsas, botellas vacías de 5L, alimentos, agua, gasas, insumos médicos, cascos, guantes, higiene, calzado y ropa", tel:"04249147305", info:"", lat:8.297485, lng:-62.711523},
+  {org:"Casa de la Mujer", estado:"Bolívar", ciudad:"Upata", municipio:"Piar", dir:"Casa de la Mujer", reciben:"Alimentos no perecederos, agua, medicamentos y ropa en buen estado", tel:"", info:"", lat:8.000096, lng:-62.393740},
+  {org:"Rescatistas y vecinos", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Chacao", dir:"Edificio Petunia, Av. Francisco de Miranda, entre Los Palos Grandes y Altamira", reciben:"Agua, alimentos no perecederos", tel:"", info:"", lat:10.497912, lng:-66.847771},
+  {org:"Rescatistas y vecinos", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Chacao", dir:"Altamira, frente a la sede de la CAF", reciben:"Agua, alimentos no perecederos", tel:"04121937746", info:"", lat:10.498929, lng:-66.848326},
+  {org:"Comando Con Venezuela", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Chacao", dir:"Cuarta avenida de Altamira, entre 9ª y 10ª transversal, Quinta El Bejucal", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"https://www.instagram.com/p/DZ_kBlyIVRI/", lat:10.510625, lng:-66.852904},
+  {org:"Comando Con Venezuela", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"Iglesia La Paz, Montalbán I", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"", lat:10.475873, lng:-66.950592},
+  {org:"Comando Con Venezuela", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"Iglesia San Bernardino de Siena, Parroquia San Bernardino", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"", lat:10.513941, lng:-66.901724},
+  {org:"Sociedad civil", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Chacao", dir:"Quinta El Bejucal, 4ª av. transversal de Altamira, entre 9ª y 10ª transversal", reciben:"Ropa, medicamentos e insumos, agua, alimentos no perecederos, lencería", tel:"", info:"", lat:null, lng:null},
+  {org:"Cáritas Venezuela (Sede Montalbán)", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"Av. Teherán, a 200 m de la UCAB, frente a Urb. Juan Pablo II, Sede de la Conferencia Episcopal Venezolana, Montalbán", reciben:"Donaciones (centro de acopio)", tel:"", info:"", lat:10.467283, lng:-66.968365},
+  {org:"Fundación Cruz Azul", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Chacao", dir:"Fitness Factory VE, 4ª avenida de Los Palos Grandes entre 1ª y 2ª transversal", reciben:"Insumos médicos", tel:"", info:"https://www.instagram.com/cruzazulusm", lat:10.502559, lng:-66.846590},
+  {org:"Instituto de Diseño de Caracas", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Chacao", dir:"Av. Ávila, Caracas 1060", reciben:"Agua, ropa (prioridad suéteres), cobijas, comida, insumos médicos, linternas, cascos, martillos, chalecos, higiene", tel:"04123212782", info:"", lat:10.497145, lng:-66.853243},
+  {org:"Colegio Cristo Rey Altamira", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Chacao", dir:"Colegio Cristo Rey Altamira, 7ª Avenida entre 6ª y 7ª Transversal", reciben:"Enlatados, frutos secos, harina, queso, jamón, pan, primeros auxilios, herramientas y protección (cinceles, mandarrias, guantes, piquetas, cascos, palas)", tel:"", info:"", lat:10.505756, lng:-66.849045},
+  {org:"Chef Margaro", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"Diagonal a Residencias Florida Suites, Avenida Los Jardines", reciben:"Agua embotellada, alimentos no perecederos, insumos médicos, pañales, toallas sanitarias", tel:"", info:"", lat:10.500475, lng:-66.875802},
+  {org:"G3 Logística", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Sucre", dir:"Av. Principal de Los Cortijos de Lourdes, Edificio Maploca, Los Cortijos de Lourdes", reciben:"Donaciones. Horario 9-12 y 14-15:30, L-V", tel:"", info:"", lat:10.480899, lng:-66.827898},
+  {org:"Centro de Acopio Bloque Histórico Popular (CEPROI)", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"Catia, sector Pérez Bonalde, entre 7ma Av. y Calle Colombia, al lado del Hospital Pediátrico Dr. Elías Toro, local Intelecto Urbano", reciben:"Alimentos para la elaboración de raciones de comida", tel:"584123799207", info:"", lat:10.505416, lng:-66.947504},
+  {org:"Alcaldía de Chacao", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Chacao", dir:"Sede de Desarrollo Social, Calle Los Ángeles (lateral al CC Sambil Chacao)", reciben:"Hidratación, sábanas, alimentos no perecederos", tel:"04241285989", info:"", lat:10.489800, lng:-66.855208},
+  {org:"Colegio Mater Salvatoris", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Baruta", dir:"Cerro Quintero", reciben:"", tel:"", info:"", lat:10.485289, lng:-66.866086},
+  {org:"Alcaldía de Baruta", estado:"Miranda", ciudad:"Caracas", municipio:"Baruta", dir:"Concha Acústica de Bello Monte", reciben:"Donaciones (centro de acopio)", tel:"", info:"", lat:null, lng:null},
+  {org:"Futuros Vinotinto", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Baruta", dir:"Calle Acueducto, Polideportivo Cumbres de Curumo", reciben:"Agua, alimentos, higiene, mantas y ropa limpia, kits de primeros auxilios", tel:"04125557885", info:"", lat:null, lng:null},
+  {org:"Universidad Metropolitana (UNIMET)", estado:"Miranda", ciudad:"Caracas", municipio:"Sucre", dir:"Capellanía UNIMET, Urbanización Terrazas del Ávila", reciben:"Alimentos, ropa y abrigo, insumos médicos, agua (8am-6pm)", tel:"", info:"https://instagram.com/capellaniaunimet", lat:null, lng:null},
+  {org:"Vecinos San Martín", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"Bloque 5, Urbanización San Martín, Avenida San Martín", reciben:"Ropa, medicamentos, pañales, alimentos", tel:"", info:"", lat:null, lng:null},
+  {org:"Otro Enfoque", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"Av. Roosevelt con calle Bermúdez, Los Símbolos", reciben:"Agua, insumos médicos, alimentos, artículos de bebés, linternas, baterías y cargadores", tel:"04242231527", info:"", lat:null, lng:null},
+  {org:"Fundación Andrés Bello", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Baruta", dir:"Automercado Santa Rosa, Calle A con Calle C, Edif. Las Rosas, PB, Locales 1 y 6, Urb. Santa Rosa de Lima", reciben:"Insumos médicos, artículos personales, comida", tel:"04121200410", info:"https://instagram.com/fundacion.andresbello", lat:null, lng:null},
+  {org:"UCAB Caracas / S.O.S Ucabista", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"Av. Teherán, Montalbán, entrada principal UCAB", reciben:"Alimentos, agua, fórmulas infantiles, pañales, medicinas, suero, higiene, picos, palas, guantes, cascos, herramientas (8am-7pm)", tel:"", info:"", lat:null, lng:null},
+  {org:"Obra Evangélica Luz del Mundo", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"Calle 10, Jardines de El Valle, diagonal a la Estación Los Jardines", reciben:"Alimentos no perecederos, colchonetas, ropa", tel:"04143890573", info:"", lat:null, lng:null},
+  {org:"Iglesia Evangélica Renovada Sion", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"Final de la Calle San Rafael con Calle 13 de Julio, Agua Salud", reciben:"Agua, alimentos, higiene, medicinas y primeros auxilios, ropa, calzado (junto a Protección Civil URS7)", tel:"04242025903", info:"", lat:null, lng:null},
+  {org:"Corazones Unidos en El Recreo", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"C.C. El Recreo (entrada de la calle El Recreo)", reciben:"Alimentos, agua, higiene personal, medicinas de primera necesidad", tel:"", info:"", lat:null, lng:null},
+  {org:"Federación Venezolana de Fútbol", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"La Yaguara, Calle 2 con calle 1, frente a inspectoría de tránsito", reciben:"Insumos médicos, agua, alimentos, herramientas, linternas, aseo personal", tel:"", info:"https://instagram.com/fvf_oficial", lat:null, lng:null},
+  {org:"Centro Comercial Palo Verde", estado:"Miranda", ciudad:"Caracas", municipio:"Sucre", dir:"Av. Principal Palo Verde, CC Palo Verde, Parroquia Petare", reciben:"Alimentos, medicamentos, insumos médicos, ropa en buen estado", tel:"", info:"", lat:null, lng:null},
+  {org:"Sociedad civil (FCU-UCV)", estado:"Distrito Capital", ciudad:"Caracas", municipio:"Libertador", dir:"FCU-UCV, Ciudad Universitaria", reciben:"Ropa, medicamentos e insumos, agua, alimentos, lencería", tel:"", info:"", lat:10.491838, lng:-66.888877},
+  {org:"Sociedad civil", estado:"Miranda", ciudad:"El Hatillo", municipio:"El Hatillo", dir:"Frente a la iglesia Rumana, en la entrada a la vía de La Unión", reciben:"URGENTE: alimento para bebés y pañales", tel:"04142384085", info:"", lat:10.418468, lng:-66.821199},
+  {org:"Alcaldía de Los Salias", estado:"Miranda", ciudad:"San Antonio de los Altos", municipio:"Los Salias", dir:"Centro Parmalat, Av. Perimetral", reciben:"Agua, comida, ropa, higiene personal. También buscan ingenieros, doctores y voluntarios", tel:"04242364445", info:"", lat:null, lng:null},
+  {org:"Koko Sushi", estado:"Miranda", ciudad:"Guarenas", municipio:"Plaza", dir:"Terrazas del Ingenio, Palo Alto", reciben:"Alimentos, agua, primeros auxilios, higiene personal, ropa y sábanas", tel:"04241659844", info:"https://instagram.com/kokosushigyg", lat:null, lng:null},
+  {org:"Inversiones Guatiquesos", estado:"Miranda", ciudad:"Guatire", municipio:"Zamora", dir:"Urb. La Rosa, frente al colegio Belagua", reciben:"Agua, ropa, medicina, insumos médicos, enlatados", tel:"04122006625", info:"", lat:null, lng:null},
+  {org:"Sociedad civil (Burger Latin)", estado:"Aragua", ciudad:"La Victoria", municipio:"José Félix Ribas", dir:"Burger Latin, centro comercial Palma Center", reciben:"Agua, baterías, alimentos para mascotas, insumos médicos, ropa, pañales, palas y picos", tel:"", info:"", lat:10.224718, lng:-67.334652},
+  {org:"Sociedad civil (Bodega 33)", estado:"Aragua", ciudad:"La Victoria", municipio:"José Félix Ribas", dir:"Bodega 33, centro comercial El Solidario", reciben:"Agua, baterías, alimentos para mascotas, insumos médicos, ropa, pañales, palas y picos", tel:"", info:"", lat:10.228318, lng:-67.321106},
+  {org:"CEI María de las Mercedes", estado:"Aragua", ciudad:"La Victoria", municipio:"José Félix Ribas", dir:"Calle Dr. Vicentelli c/c Rosa María Paredes #7, Sector Centro", reciben:"Insumos médicos, agua, alimentos, higiene, pañales, fórmulas infantiles", tel:"04243573790", info:"", lat:10.229110, lng:-67.331249},
+  {org:"Parroquia Nuestra Señora del Carmen", estado:"Aragua", ciudad:"La Victoria", municipio:"José Félix Ribas", dir:"Calle Colón", reciben:"Insumos médicos, agua, alimentos, higiene, pañales, fórmulas infantiles", tel:"04243573790", info:"", lat:null, lng:null},
+  {org:"Comando Con Venezuela", estado:"Aragua", ciudad:"Maracay", municipio:"Girardot", dir:"Av. 19 de Abril, Centro Comercial La Capilla, Piso 1, Local 21", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"", lat:10.253031, lng:-67.600267},
+  {org:"Voluntad Popular", estado:"Aragua", ciudad:"Maracay", municipio:"Girardot", dir:"Paseo de la Libertad, Avenida Las Delicias, frente al Centro Médico Maracay", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"", lat:10.258534, lng:-67.591178},
+  {org:"Teatro de la Ópera", estado:"Aragua", ciudad:"Maracay", municipio:"Girardot", dir:"Teatro de la Ópera de Maracay", reciben:"Agua, alimentos, medicamentos y primeros auxilios, higiene, pañales, ropa y cobijas", tel:"", info:"", lat:10.249041, lng:-67.595455},
+  {org:"Centro de Estudiantes de Veterinaria UCV Maracay", estado:"Aragua", ciudad:"Maracay", municipio:"Girardot", dir:"Av. 19 de Abril, Maracay 2103", reciben:"No perecederos, enlatados, agua, primeros auxilios, medicamentos, ropa, zapatos, higiene", tel:"", info:"", lat:null, lng:null},
+  {org:"Deli Plaza", estado:"Aragua", ciudad:"Maracay", municipio:"Girardot", dir:"Avenida Las Delicias #12, sector Barrio Sucre 11", reciben:"Agua, enlatados, alimentos, ropa, insumos médicos, cobijas, higiene", tel:"04121971501", info:"https://instagram.com/deliplaza_", lat:null, lng:null},
+  {org:"Un Nuevo Tiempo", estado:"Zulia", ciudad:"Maracaibo", municipio:"Maracaibo", dir:"Sede regional Un Nuevo Tiempo", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"", lat:10.681654, lng:-71.603948},
+  {org:"Vente Zulia", estado:"Zulia", ciudad:"Maracaibo", municipio:"Maracaibo", dir:"Calle 70 con av. 15A y 15B N°15A-39, calle paralela a Nebabrica", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"", lat:10.670256, lng:-71.622312},
+  {org:"Colegio de Médicos del Zulia", estado:"Zulia", ciudad:"Maracaibo", municipio:"Maracaibo", dir:"Sede del Colegio de Médicos", reciben:"Material médico, primeros auxilios y medicamentos esenciales", tel:"", info:"https://www.instagram.com/comezu_2021", lat:10.688634, lng:-71.634552},
+  {org:"Torre Promotora Paraíso", estado:"Zulia", ciudad:"Maracaibo", municipio:"Maracaibo", dir:"C. 60, Maracaibo 4002", reciben:"Gasas, vendas, alcohol, jeringas, guantes, tapabocas, alimentos, agua, analgésicos, antibióticos, higiene, pañales, sábanas y cobijas", tel:"", info:"https://instagram.com/torrepromotoraparaisomcbo", lat:null, lng:null},
+  {org:"XIA Caribe Mar / Grupo LAMAR", estado:"Zulia", ciudad:"Maracaibo", municipio:"Maracaibo", dir:"Sector Tierra Negra, Avenida 13A, entre calle 69 y calle 69A", reciben:"Alimentos, agua, insumos médicos, ropa y calzado, mantas, higiene, comida para animales (8am-5pm L-V)", tel:"", info:"https://instagram.com/xiacaribemar", lat:null, lng:null},
+  {org:"PROMO 17 U.E.P Flor de María Vásquez", estado:"Zulia", ciudad:"Maracaibo", municipio:"Maracaibo", dir:"Conjunto Residencial El Araguaney", reciben:"Agua, alimentos, nutrición infantil, insumos médicos, medicamentos, higiene, ropa, linternas, comida para animales", tel:"", info:"", lat:null, lng:null},
+  {org:"RELEVECA", estado:"Zulia", ciudad:"Ciudad Ojeda", municipio:"Lagunillas", dir:"Centro Comercial Reycall, frente a la E/S La Tropicana", reciben:"Higiene personal, ropa, alimentos, alimento para mascotas, insumos médicos", tel:"04246302640", info:"", lat:10.189256, lng:-71.311961},
+  {org:"Gobierno de Venezuela", estado:"Zulia", ciudad:"Cabimas", municipio:"Cabimas", dir:"Carretera H, frente al Hotel Costa Sol (antiguo El Remanso)", reciben:"Alimentos, higiene personal, insumos médicos, limpieza, ropa y calzado, agua envasada", tel:"", info:"", lat:10.401188, lng:-71.454502},
+  {org:"Gobierno de Venezuela", estado:"Zulia", ciudad:"Cabimas", municipio:"Cabimas", dir:"Avenida 32 con Carretera H, frente a las oficinas de Corpoelec", reciben:"Alimentos, higiene personal, insumos médicos, limpieza, ropa y calzado, agua envasada", tel:"", info:"", lat:10.408363, lng:-71.442025},
+  {org:"Gobierno de Venezuela", estado:"Zulia", ciudad:"Cabimas", municipio:"Cabimas", dir:"Carretera H, Centro Comercial Borjas, estación radial Xtrema 98.9FM", reciben:"Alimentos, higiene personal, insumos médicos, limpieza, ropa y calzado, agua envasada", tel:"", info:"", lat:10.398615, lng:-71.458164},
+  {org:"Iglesia Nuestra Señora de Guadalupe", estado:"Zulia", ciudad:"San Francisco", municipio:"San Francisco", dir:"Sierra Maestra, Iglesia Nuestra Señora de Guadalupe", reciben:"", tel:"", info:"", lat:10.588186, lng:-71.635059},
+  {org:"Voluntad Popular", estado:"Monagas", ciudad:"Maturín", municipio:"Maturín", dir:"Calle 6, Antigua Bermúdez, casa N°11, antiguo restaurante El Oeste", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"", lat:null, lng:null},
+  {org:"Caritas de Venezuela", estado:"Monagas", ciudad:"Maturín", municipio:"Maturín", dir:"Parroquia Santo Domingo de Guzmán, Las Cocuizas", reciben:"Alimentos no perecederos, agua potable, pañales para adultos y niños", tel:"", info:"", lat:9.756460, lng:-63.155510},
+  {org:"Caritas de Venezuela", estado:"Monagas", ciudad:"Maturín", municipio:"Maturín", dir:"Catedral Nuestra Señora del Carmen", reciben:"Alimentos no perecederos, agua potable, pañales para adultos y niños", tel:"", info:"", lat:9.745239, lng:-63.172264},
+  {org:"Sociedad civil", estado:"Mérida", ciudad:"Mérida", municipio:"Libertador", dir:"Colegio de Médicos", reciben:"Ropa, medicamentos e insumos, agua, alimentos, lencería", tel:"", info:"", lat:8.586259, lng:-71.159601},
+  {org:"Animales Sin Nombre", estado:"Mérida", ciudad:"Mérida", municipio:"Libertador", dir:"CC El Rodeo", reciben:"Alimento para animales, medicinas, antidiarreicos", tel:"", info:"https://www.instagram.com/_asn", lat:8.589886, lng:-71.161044},
+  {org:"Rotaract Táchira", estado:"Táchira", ciudad:"San Antonio del Táchira", municipio:"Bolívar", dir:"Brave Community Fitness, al lado del hotel Manuel", reciben:"Medicinas, agua, comida no perecedera, comida de animales, power banks", tel:"", info:"", lat:7.815229, lng:-72.444075},
+  {org:"Sociedad civil (Madeco)", estado:"Táchira", ciudad:"San Cristóbal", municipio:"San Cristóbal", dir:"Madeco, Av. Cuatricentenaria", reciben:"Comida, ropa, agua, insumos médicos", tel:"", info:"", lat:7.780712, lng:-72.234949},
+  {org:"Rotaract Táchira", estado:"Táchira", ciudad:"San Cristóbal", municipio:"San Cristóbal", dir:"Revista Rotaria, frente a la Cruz Roja", reciben:"Medicinas, agua, comida no perecedera, comida de animales, power banks", tel:"04147121207", info:"", lat:7.778150, lng:-72.218345},
+  {org:"Rotaract Táchira", estado:"Táchira", ciudad:"San Cristóbal", municipio:"San Cristóbal", dir:"Edificio Rotario Dr. Augusto Peña Sosa, Piso 2, Avenida 19 de Abril", reciben:"Medicinas, agua, comida no perecedera, comida de animales, power banks", tel:"", info:"", lat:7.740808, lng:-72.233807},
+  {org:"Movimiento Estudiantil VEN UNETE (UNET)", estado:"Táchira", ciudad:"San Cristóbal", municipio:"San Cristóbal", dir:"Avenida Universidad, sector Paramillo, Edificio A, Sede de Civil (UNET)", reciben:"Alimentos, primeros auxilios, agua, mantas, linternas y cargadores", tel:"", info:"", lat:null, lng:null},
+  {org:"UCAT / ULA / UNET", estado:"Táchira", ciudad:"San Cristóbal", municipio:"San Cristóbal", dir:"UCAT (sede vieja), ULA y UNET (Ing. Civil)", reciben:"Ropa, medicamentos e insumos, agua, alimentos, lencería", tel:"", info:"", lat:7.773386, lng:-72.225988},
+  {org:"Rotaract Táchira", estado:"Táchira", ciudad:"Táriba", municipio:"Cárdenas", dir:"Centro Médico Rotario César Darío González", reciben:"Medicinas, agua, comida no perecedera, comida de animales, power banks", tel:"", info:"", lat:7.817955, lng:-72.220257},
+  {org:"Sociedad civil", estado:"Trujillo", ciudad:"Trujillo", municipio:"Trujillo", dir:"Centro Comercial Plaza Marina, Local 30", reciben:"Insumos médicos, alimentos no perecederos, ropa en buen estado", tel:"04126840791", info:"", lat:9.365772, lng:-70.435714},
+  {org:"Sociedad civil", estado:"Trujillo", ciudad:"Sabana de Mendoza", municipio:"Sucre", dir:"Urb. El Trompillo 2, parroquia Valmore Rodríguez, casa #39 (Casa Delgado)", reciben:"Insumos médicos, alimentos no perecederos, ropa en buen estado", tel:"04121644063", info:"", lat:9.434088, lng:-70.779174},
+  {org:"Sociedad civil", estado:"Trujillo", ciudad:"Pampanito", municipio:"Pampanito", dir:"Pampanito I, Urb. Villa Hermosa, 4ta calle, Casa N°377", reciben:"Insumos médicos, alimentos no perecederos, ropa en buen estado", tel:"04129843407", info:"", lat:9.408539, lng:-70.492438},
+  {org:"Sociedad civil", estado:"Trujillo", ciudad:"Valera", municipio:"Valera", dir:"Av. Principal La Floresta, sector Santa Elena, Casa G-11 (Casa Prada)", reciben:"Insumos médicos, alimentos no perecederos, ropa en buen estado", tel:"04247137359", info:"", lat:9.312972, lng:-70.621411},
+  {org:"Jóvenes por el Clima", estado:"Carabobo", ciudad:"Valencia", municipio:"Valencia", dir:"Av. Bolívar, frente al Multicentro", reciben:"Centro de acopio", tel:"", info:"", lat:10.213447, lng:-68.009671},
+  {org:"Comando Con Venezuela", estado:"Carabobo", ciudad:"Valencia", municipio:"Valencia", dir:"Avenida Monseñor Adams, El Viñedo, Edificio Talislandia, mezzanina", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"", lat:10.213869, lng:-68.013534},
+  {org:"G3 Logística", estado:"Carabobo", ciudad:"Valencia", municipio:"San Diego", dir:"Calle La Pedrera, Fundo Los Marines, Zona Industrial San Diego", reciben:"Donaciones. Horario 9-12 y 14-15:30, L-V", tel:"", info:"", lat:10.191881, lng:-67.974735},
+  {org:"Club Italo de Valencia", estado:"Carabobo", ciudad:"Valencia", municipio:"Valencia", dir:"Avenida 91, Valencia", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"https://instagram.com/sofisbylaslepores", lat:null, lng:null},
+  {org:"Aaura Movement", estado:"Carabobo", ciudad:"Valencia", municipio:"Naguanagua", dir:"Urbanización La Viña (frente a Q'arepas)", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"https://instagram.com/aaura.movement", lat:null, lng:null},
+  {org:"Rafas Casual Food", estado:"Carabobo", ciudad:"Valencia", municipio:"Valencia", dir:"Urb. El Viñedo (frente a la plaza de las esculturas)", reciben:"Agua, alimentos no perecederos, insumos médicos, ropa y abrigos", tel:"", info:"https://instagram.com/rafascasualfood", lat:null, lng:null},
+  {org:"Notitarde", estado:"Carabobo", ciudad:"Valencia", municipio:"Valencia", dir:"Avenida Boyacá entre Navas Spinola y Flores (abierto 24h)", reciben:"Alimentos, agua, ropa, sábanas, mantas, higiene, linternas, material de curas, baterías", tel:"", info:"https://instagram.com/diarionotitarde", lat:null, lng:null},
+  {org:"Asociación de Ejecutivos de Carabobo", estado:"Carabobo", ciudad:"Valencia", municipio:"Valencia", dir:"Av. 119 Teodoro Gubaira, Edif. 122-145, Urb. Valle de Camoruco, 4ª Av. de Prebo", reciben:"Alimentos, ropa, medicinas e insumos médicos", tel:"", info:"https://instagram.com/aeecoficial", lat:null, lng:null},
+  {org:"Trigal Norte Apoyo", estado:"Carabobo", ciudad:"Valencia", municipio:"Naguanagua", dir:"Valencia, Trigal Norte, Patio Trigal local 317", reciben:"Medicina, inyectadoras, herramientas, linternas, ropa y zapatos en buen estado", tel:"04124214889", info:"", lat:null, lng:null},
+  {org:"Cáritas Venezuela", estado:"Falcón", ciudad:"Punto Fijo", municipio:"Carirubana", dir:"Sector Centro, calle Páez entre Brasil y Perú, frente a la primera casa de Punto Fijo", reciben:"Agua, pañales (adultos y niños), higiene personal, alimentos, medicamentos esenciales", tel:"", info:"", lat:11.695056, lng:-70.210815},
+  {org:"Gobernación del estado Falcón", estado:"Falcón", ciudad:"Coro", municipio:"Miranda", dir:"Calle Ampíes, al lado de la Plaza Bolívar y la Catedral de Santa Ana de Coro", reciben:"Cualquier tipo de insumos, medicamentos, ropa", tel:"", info:"", lat:null, lng:null},
+  {org:"CC Costa Azul", estado:"Falcón", ciudad:"Coro", municipio:"Miranda", dir:"Avenida Independencia, Coro 4101", reciben:"Insumos, comida, ropa", tel:"", info:"", lat:null, lng:null},
+  {org:"Geralds Coro", estado:"Falcón", ciudad:"Coro", municipio:"Miranda", dir:"Avenida Pinto Salinas, Coro 4101", reciben:"Todo tipo de insumos", tel:"", info:"", lat:null, lng:null},
+  {org:"Colegio Pío XII", estado:"Falcón", ciudad:"Coro", municipio:"Miranda", dir:"Calle Urdaneta con Avenida Miranda", reciben:"Todo tipo de insumos", tel:"", info:"", lat:null, lng:null},
+  {org:"Sede Nuevo Día", estado:"Falcón", ciudad:"Coro", municipio:"Miranda", dir:"Avenida Pinto Salinas, Edificio Nuevo Día", reciben:"Todo tipo de insumos", tel:"", info:"", lat:null, lng:null},
+  {org:"Farmacias SAAS", estado:"Falcón", ciudad:"Coro", municipio:"Miranda", dir:"Avenida Los Médanos (sector Los Tres Platos)", reciben:"Agua, medicina, alimentos no perecederos", tel:"", info:"", lat:null, lng:null},
+  {org:"Barbería Coro", estado:"Falcón", ciudad:"Coro", municipio:"Miranda", dir:"Entre calles Las Flores y calle Falcón", reciben:"Agua, comida no perecedera, insumos médicos", tel:"", info:"", lat:null, lng:null},
+  {org:"Casa Juan Borges", estado:"Falcón", ciudad:"Coro", municipio:"Miranda", dir:"Las Eugenias, 2da etapa, diagonal a la Iglesia", reciben:"Alimentos no perecederos, agua, ropa, abrigo", tel:"04120766116", info:"", lat:null, lng:null},
+  {org:"Sociedad civil (CC Santa Eulalia)", estado:"Anzoátegui", ciudad:"Barcelona", municipio:"Bolívar", dir:"CC Santa Eulalia, urb. Boyacá, esq. Brill", reciben:"Alimentos, ropa, medicamentos de primera necesidad, higiene", tel:"", info:"", lat:10.155816, lng:-64.679876},
+  {org:"Sociedad civil (Playa Mansa)", estado:"Anzoátegui", ciudad:"Lechería", municipio:"Diego Bautista Urbaneja", dir:"Playa Mansa (10am-6pm aprox.)", reciben:"Alimentos no perecederos, agua, medicamentos y ropa en buen estado", tel:"", info:"", lat:10.192603, lng:-64.696636},
+  {org:"Centro Sirio Venezolano", estado:"Anzoátegui", ciudad:"Puerto La Cruz", municipio:"Sotillo", dir:"Calle Rivera, Puerto La Cruz 6023", reciben:"Comida, medicamentos, insumos médicos", tel:"", info:"", lat:10.202451, lng:-64.663389},
+  {org:"Sociedad Civil", estado:"La Guaira", ciudad:"La Guaira", municipio:"Vargas", dir:"Av. Principal de Playa Grande, La Guaira (Oficina de la DIP - PNB)", reciben:"Agua, alimentos, enlatados, higiene, pañales, toallas sanitarias, insumos médicos, lencería, comida para animales", tel:"", info:"", lat:null, lng:null}
+];
+
+/* =====================================================================
+   LÓGICA DE LA APLICACIÓN
+   ===================================================================== */
+(function(){
+  "use strict";
+
+  // ---- Pestañas ----
+  const tabVer = document.getElementById('tab-ver');
+  const tabReg = document.getElementById('tab-registrar');
+  const panelVer = document.getElementById('panel-ver');
+  const panelReg = document.getElementById('panel-registrar');
+
+  function activarTab(cualVer){
+    tabVer.setAttribute('aria-selected', cualVer ? 'true':'false');
+    tabReg.setAttribute('aria-selected', cualVer ? 'false':'true');
+    panelVer.classList.toggle('activo', cualVer);
+    panelReg.classList.toggle('activo', !cualVer);
+    if(cualVer && mapa){ setTimeout(()=>mapa.invalidateSize(), 60); }
+  }
+  tabVer.addEventListener('click', ()=>activarTab(true));
+  tabReg.addEventListener('click', ()=>activarTab(false));
+  // Navegación por teclado entre pestañas
+  [tabVer,tabReg].forEach((t,i,arr)=>{
+    t.addEventListener('keydown', e=>{
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+        e.preventDefault();
+        const otro = arr[(i+1)%2];
+        otro.focus(); otro.click();
+      }
+    });
+  });
+
+  // ---- Referencias filtros ----
+  const fBuscar = document.getElementById('f-buscar');
+  const fEstado = document.getElementById('f-estado');
+  const fCiudad = document.getElementById('f-ciudad');
+  const fMunic  = document.getElementById('f-municipio');
+  const lista   = document.getElementById('lista');
+  const sinRes  = document.getElementById('sin-resultados');
+  const conteo  = document.getElementById('conteo');
+  const conteoTxt = document.getElementById('conteo-txt');
+
+  // ---- Poblar selects ----
+  function unicos(campo, filtro){
+    const set = new Set();
+    CENTROS.forEach(c=>{
+      if(filtro && !filtro(c)) return;
+      if(c[campo]) set.add(c[campo]);
+    });
+    return [...set].sort((a,b)=>a.localeCompare(b,'es'));
+  }
+  function llenarSelect(sel, valores, etiqueta){
+    const actual = sel.value;
+    sel.innerHTML = '<option value="">'+etiqueta+'</option>';
+    valores.forEach(v=>{
+      const o=document.createElement('option'); o.value=v; o.textContent=v; sel.appendChild(o);
+    });
+    if(valores.includes(actual)) sel.value=actual;
+  }
+  llenarSelect(fEstado, unicos('estado'), 'Todos los estados');
+  llenarSelect(fCiudad, unicos('ciudad'), 'Todas las ciudades');
+  llenarSelect(fMunic, unicos('municipio'), 'Todos los municipios');
+
+  // datalist de estados para el formulario
+  const dlEstados = document.getElementById('datalist-estados');
+  unicos('estado').forEach(e=>{const o=document.createElement('option');o.value=e;dlEstados.appendChild(o);});
+
+  // Encadenar: al cambiar estado, filtrar ciudades y municipios
+  fEstado.addEventListener('change', ()=>{
+    const est=fEstado.value;
+    llenarSelect(fCiudad, unicos('ciudad', c=>!est||c.estado===est), 'Todas las ciudades');
+    llenarSelect(fMunic, unicos('municipio', c=>!est||c.estado===est), 'Todos los municipios');
+    render();
+  });
+  fCiudad.addEventListener('change', ()=>{
+    const est=fEstado.value, ciu=fCiudad.value;
+    llenarSelect(fMunic, unicos('municipio', c=>(!est||c.estado===est)&&(!ciu||c.ciudad===ciu)), 'Todos los municipios');
+    render();
+  });
+  fMunic.addEventListener('change', render);
+  fBuscar.addEventListener('input', render);
+
+  document.getElementById('btn-limpiar').addEventListener('click', ()=>{
+    fBuscar.value=''; fEstado.value=''; fCiudad.value=''; fMunic.value='';
+    llenarSelect(fCiudad, unicos('ciudad'), 'Todas las ciudades');
+    llenarSelect(fMunic, unicos('municipio'), 'Todos los municipios');
+    render();
+  });
+
+  // ---- Mapa ----
+  let mapa, capaMarcadores;
+  function initMapa(){
+    mapa = L.map('mapa', {scrollWheelZoom:false}).setView([8.5, -66.9], 6);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom:19, attribution:'&copy; OpenStreetMap'
+    }).addTo(mapa);
+    capaMarcadores = L.layerGroup().addTo(mapa);
+    mapa.whenReady(()=>mapa.invalidateSize());
+  }
+  initMapa();
+
+  const btnVerMapa = document.getElementById('btn-ver-mapa');
+  const divMapa = document.getElementById('mapa');
+  btnVerMapa.addEventListener('click', ()=>{
+    const oculto = divMapa.hasAttribute('hidden');
+    if(oculto){ divMapa.removeAttribute('hidden'); btnVerMapa.setAttribute('aria-pressed','true'); setTimeout(()=>mapa.invalidateSize(),60); }
+    else { divMapa.setAttribute('hidden',''); btnVerMapa.setAttribute('aria-pressed','false'); }
+  });
+
+  function mapsUrl(c){
+    if(c.lat!=null && c.lng!=null) return 'https://www.google.com/maps?q='+c.lat+','+c.lng;
+    return 'https://www.google.com/maps/search/'+encodeURIComponent([c.dir,c.ciudad,c.estado,'Venezuela'].filter(Boolean).join(', '));
+  }
+  function telLimpio(t){ return t? t.replace(/[^0-9+]/g,''):''; }
+
+  // ---- Render ----
+  function render(){
+    const q = fBuscar.value.trim().toLowerCase();
+    const est=fEstado.value, ciu=fCiudad.value, mun=fMunic.value;
+    const filtrados = CENTROS.filter(c=>{
+      if(est && c.estado!==est) return false;
+      if(ciu && c.ciudad!==ciu) return false;
+      if(mun && c.municipio!==mun) return false;
+      if(q){
+        const txt=(c.org+' '+c.dir+' '+(c.reciben||'')+' '+c.ciudad+' '+c.estado+' '+(c.municipio||'')).toLowerCase();
+        if(!txt.includes(q)) return false;
+      }
+      return true;
+    });
+
+    // conteo
+    conteo.textContent = filtrados.length;
+    conteoTxt.textContent = filtrados.length===1 ? 'centro encontrado' : 'centros encontrados';
+
+    // tarjetas
+    lista.innerHTML='';
+    sinRes.hidden = filtrados.length>0;
+    filtrados.forEach(c=>{
+      const card=document.createElement('article');
+      card.className='tarjeta';
+      const ubic = [c.ciudad, c.municipio].filter(Boolean).join(' · ');
+      let pie = '<a class="lnk-mapa" href="'+mapsUrl(c)+'" target="_blank" rel="noopener">🗺️ Ver en mapa</a>';
+      if(c.tel) pie += '<a class="lnk-tel" href="tel:'+telLimpio(c.tel)+'">📞 Llamar</a>';
+      if(c.info) pie += '<a class="lnk-info" href="'+c.info+'" target="_blank" rel="noopener">ℹ️ Más info</a>';
+      card.innerHTML =
+        '<span class="ubic">📍 '+escapar(c.estado)+(ubic?' — '+escapar(ubic):'')+'</span>'+
+        '<h3>'+escapar(c.org)+'</h3>'+
+        '<p class="dir">'+escapar(c.dir)+'</p>'+
+        (c.reciben?'<p class="reciben"><b>Reciben:</b> '+escapar(c.reciben)+'</p>':'')+
+        '<div class="pie">'+pie+'</div>';
+      lista.appendChild(card);
+    });
+
+    // marcadores
+    capaMarcadores.clearLayers();
+    const conCoord = filtrados.filter(c=>c.lat!=null && c.lng!=null);
+    conCoord.forEach(c=>{
+      const m=L.marker([c.lat,c.lng]);
+      m.bindPopup('<div class="pop"><h3>'+escapar(c.org)+'</h3>'+
+        '<p>'+escapar(c.dir)+'</p>'+
+        '<p><b>'+escapar(c.ciudad)+', '+escapar(c.estado)+'</b></p>'+
+        (c.reciben?'<p>'+escapar(c.reciben)+'</p>':'')+
+        '<p><a href="'+mapsUrl(c)+'" target="_blank" rel="noopener">Cómo llegar →</a></p></div>');
+      capaMarcadores.addLayer(m);
+    });
+    if(conCoord.length){
+      const grupo=L.featureGroup(conCoord.map(c=>L.marker([c.lat,c.lng])));
+      try{ mapa.fitBounds(grupo.getBounds().pad(0.2)); }catch(e){}
+    }
+  }
+
+  function escapar(s){
+    return String(s==null?'':s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+
+  render();
+
+  // =====================================================================
+  // FORMULARIO DE REGISTRO -> genera bloque JSON para pegar
+  // =====================================================================
+  const form = document.getElementById('form-registro');
+  const salida = document.getElementById('salida-json');
+  const resultado = document.getElementById('resultado-registro');
+
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    const req = ['r-org','r-estado','r-ciudad','r-dir'];
+    let ok=true;
+    req.forEach(id=>{ const el=document.getElementById(id); if(!el.value.trim()){el.style.borderColor='var(--rojo)'; ok=false;} else el.style.borderColor=''; });
+    if(!ok){ return; }
+
+    const latRaw=document.getElementById('r-lat').value.trim();
+    const lngRaw=document.getElementById('r-lng').value.trim();
+    const lat=latRaw?parseFloat(latRaw.replace(',','.')):null;
+    const lng=lngRaw?parseFloat(lngRaw.replace(',','.')):null;
+
+    const obj={
+      org:document.getElementById('r-org').value.trim(),
+      estado:document.getElementById('r-estado').value.trim(),
+      ciudad:document.getElementById('r-ciudad').value.trim(),
+      municipio:document.getElementById('r-municipio').value.trim(),
+      dir:document.getElementById('r-dir').value.trim(),
+      reciben:document.getElementById('r-reciben').value.trim(),
+      tel:document.getElementById('r-tel').value.trim(),
+      info:document.getElementById('r-info').value.trim(),
+      lat:(lat!=null && !isNaN(lat))?lat:null,
+      lng:(lng!=null && !isNaN(lng))?lng:null
+    };
+
+    function s(v){ return v==null ? 'null' : JSON.stringify(v); }
+    const linea = '  {org:'+s(obj.org)+', estado:'+s(obj.estado)+', ciudad:'+s(obj.ciudad)+
+      ', municipio:'+s(obj.municipio)+', dir:'+s(obj.dir)+', reciben:'+s(obj.reciben)+
+      ', tel:'+s(obj.tel)+', info:'+s(obj.info)+', lat:'+(obj.lat==null?'null':obj.lat)+
+      ', lng:'+(obj.lng==null?'null':obj.lng)+'},';
+
+    salida.value = linea;
+    resultado.hidden=false;
+    resultado.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+
+  document.getElementById('btn-copiar').addEventListener('click', ()=>{
+    salida.select();
+    try{
+      navigator.clipboard.writeText(salida.value);
+    }catch(e){ document.execCommand('copy'); }
+    const b=document.getElementById('btn-copiar');
+    const o=b.textContent; b.textContent='✅ ¡Copiado!';
+    setTimeout(()=>b.textContent=o,1800);
+  });
+})();
+</script>
+</body>
+</html>
