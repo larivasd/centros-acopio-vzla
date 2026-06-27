@@ -78,25 +78,7 @@
   }
   .aviso strong{color:var(--amarillo)}
 
-  /* ---------- Conmutador de pestañas ---------- */
-  .tabs{
-    display:flex;gap:.5rem;max-width:1180px;margin:-1rem auto 0;padding:0 1rem;
-    position:relative;z-index:5;flex-wrap:wrap;
-  }
-  .tab{
-    flex:1 1 220px;border:none;cursor:pointer;font-size:1.05rem;font-weight:700;
-    padding:1rem;border-radius:var(--radio);background:var(--blanco);color:var(--tinta);
-    box-shadow:var(--sombra);display:flex;align-items:center;justify-content:center;gap:.5rem;
-    transition:transform .12s ease, box-shadow .12s ease;
-  }
-  .tab .icono{font-size:1.3rem}
-  .tab[aria-selected="true"]{
-    background:var(--tinta);color:#fff;box-shadow:var(--sombra-fuerte);
-  }
-  .tab:hover{transform:translateY(-2px)}
-
   main{padding:1.6rem 0 4rem}
-  .panel{display:none}
   .panel.activo{display:block;animation:aparecer .25s ease}
   @keyframes aparecer{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   @media (prefers-reduced-motion: reduce){
@@ -178,28 +160,6 @@
     background:var(--blanco);border:1px dashed var(--linea);border-radius:var(--radio);
   }
 
-  /* ---------- Formulario de registro ---------- */
-  .form-card{
-    background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio);
-    padding:1.4rem;box-shadow:var(--sombra);max-width:760px;margin:0 auto;
-  }
-  .form-card h2{margin-top:0;color:var(--rojo)}
-  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-  .form-grid .ancho{grid-column:1 / -1}
-  .req{color:var(--rojo)}
-  .ayuda{font-size:.8rem;color:var(--gris)}
-  .nota-importante{
-    background:#fff7e0;border:1px solid var(--amarillo);border-radius:12px;
-    padding:.8rem 1rem;font-size:.9rem;margin-bottom:1.2rem;
-  }
-  #salida-json{
-    width:100%;min-height:150px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    font-size:.82rem;background:#1c1a17;color:#f3eddf;border-radius:10px;padding:.8rem;border:none;
-    white-space:pre;overflow:auto;margin-top:.6rem;
-  }
-  .exito{background:#e7f5ee;border:1px solid var(--ok);color:#155}
-  .exito{border-radius:12px;padding:.8rem 1rem;font-size:.9rem;margin-top:1rem}
-
   /* ---------- Pie ---------- */
   footer.sitio{
     background:var(--tinta);color:#e9e3d6;padding:1.6rem 1rem;font-size:.86rem;
@@ -208,7 +168,6 @@
   footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;max-width:1180px;margin:0 auto}
 
   @media (max-width:560px){
-    .form-grid{grid-template-columns:1fr}
     header.sitio h1{font-size:1.25rem}
     #mapa{height:300px}
   }
@@ -231,20 +190,9 @@
   </div>
 </header>
 
-<!-- Pestañas -->
-<div class="tabs" role="tablist" aria-label="Opciones principales">
-  <button class="tab" id="tab-ver" role="tab" aria-selected="true" aria-controls="panel-ver">
-    <span class="icono" aria-hidden="true">📍</span> Ver centros de acopio
-  </button>
-  <button class="tab" id="tab-registrar" role="tab" aria-selected="false" aria-controls="panel-registrar">
-    <span class="icono" aria-hidden="true">➕</span> Registrar un centro
-  </button>
-</div>
-
 <main id="contenido" class="contenedor">
 
-  <!-- ============ PANEL: VER ============ -->
-  <section class="panel activo" id="panel-ver" role="tabpanel" aria-labelledby="tab-ver" tabindex="0">
+  <section id="panel-ver" tabindex="-1">
 
     <div class="filtros">
       <h2 class="oculto-visual">Filtrar centros</h2>
@@ -288,83 +236,6 @@
       No hay centros que coincidan con tu búsqueda. Prueba a limpiar los filtros.
     </div>
   </section>
-
-  <!-- ============ PANEL: REGISTRAR ============ -->
-  <section class="panel" id="panel-registrar" role="tabpanel" aria-labelledby="tab-registrar" tabindex="0">
-    <div class="form-card">
-      <h2>Registrar un nuevo centro de acopio</h2>
-      <div class="nota-importante">
-        Al enviar el formulario se genera un <b>bloque JSON</b> que debes <b>copiar y pegar</b>
-        en el archivo <code>data/centros.json</code> (o enviárselo a quien administra la página).
-        Así la información se actualiza para todas las personas.
-      </div>
-      <form id="form-registro" novalidate>
-        <div class="form-grid">
-          <div class="campo">
-            <label for="r-org">Organización / Nombre del centro <span class="req">*</span></label>
-            <input type="text" id="r-org" required>
-          </div>
-          <div class="campo">
-            <label for="r-pais">País <span class="req">*</span></label>
-            <input type="text" id="r-pais" value="Venezuela" required>
-          </div>
-          <div class="campo">
-            <label for="r-estado">Estado / Región <span class="req">*</span></label>
-            <input type="text" id="r-estado" list="datalist-estados" required>
-            <datalist id="datalist-estados"></datalist>
-          </div>
-          <div class="campo">
-            <label for="r-ciudad">Ciudad <span class="req">*</span></label>
-            <input type="text" id="r-ciudad" required>
-          </div>
-          <div class="campo">
-            <label for="r-municipio">Municipio</label>
-            <input type="text" id="r-municipio">
-          </div>
-          <div class="campo ancho">
-            <label for="r-dir">Dirección exacta y referencias <span class="req">*</span></label>
-            <input type="text" id="r-dir" required placeholder="Av., calle, edificio, punto de referencia cercano…">
-          </div>
-          <div class="campo">
-            <label for="r-lat">Latitud (GPS)</label>
-            <input type="text" id="r-lat" inputmode="decimal" placeholder="Ej: 10.4979">
-            <span class="ayuda">Opcional. En Google Maps: clic derecho → copiar coordenadas.</span>
-          </div>
-          <div class="campo">
-            <label for="r-lng">Longitud (GPS)</label>
-            <input type="text" id="r-lng" inputmode="decimal" placeholder="Ej: -66.8533">
-          </div>
-          <div class="campo ancho">
-            <label for="r-reciben">¿Qué reciben?</label>
-            <textarea id="r-reciben" placeholder="Agua, alimentos no perecederos, insumos médicos, ropa…"></textarea>
-          </div>
-          <div class="campo">
-            <label for="r-tel">Teléfono de contacto</label>
-            <input type="tel" id="r-tel" placeholder="Ej: 04121234567">
-          </div>
-          <div class="campo">
-            <label for="r-info">Enlace (Instagram / más info)</label>
-            <input type="url" id="r-info" placeholder="https://…">
-          </div>
-        </div>
-        <div class="acciones-filtro" style="margin-top:1rem">
-          <button class="btn btn-primario" type="submit">✓ Generar código del centro</button>
-          <button class="btn btn-sec" type="reset">Borrar formulario</button>
-        </div>
-      </form>
-
-      <div id="resultado-registro" hidden>
-        <div class="exito" role="status">
-          ✅ Listo. Copia este bloque y pégalo en <code>data/centros.json</code>, justo
-          <b>antes del corchete <code>]</code></b> que cierra la lista de centros. Luego sube el archivo.
-        </div>
-        <textarea id="salida-json" readonly aria-label="Código JSON del nuevo centro"></textarea>
-        <div class="acciones-filtro">
-          <button class="btn btn-mapa" type="button" id="btn-copiar">📋 Copiar código</button>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="sitio">
@@ -375,12 +246,12 @@
       Última actualización de datos: <strong id="fecha-actualizado">—</strong>.
     </div>
     <div>
-      <strong>¿Cómo actualizar?</strong><br>
-      La información vive en <code>data/centros.json</code>. Edita ese archivo (o usa el formulario «Registrar un centro») y súbelo: el sitio se actualiza solo.
+      <strong>¿Cómo se actualiza?</strong><br>
+      Un agente automático revisa fuentes públicas cada hora y suma los centros verificables. La información se mantiene sola.
     </div>
     <div>
       <strong>Fuentes</strong><br>
-      Directorios ciudadanos y medios. Datos georreferenciados con coordenadas aproximadas.
+      Prensa, organismos oficiales y directorios ciudadanos verificables. Coordenadas aproximadas.
     </div>
   </div>
 </footer>
@@ -411,32 +282,6 @@
     const l = document.getElementById('lista');
     if(l){ l.innerHTML = '<div class="sin-resultados">No se pudo cargar la informaci\u00f3n de centros. Revisa tu conexi\u00f3n y recarga la p\u00e1gina.</div>'; }
   }
-
-  // ---- Pestañas ----
-  const tabVer = document.getElementById('tab-ver');
-  const tabReg = document.getElementById('tab-registrar');
-  const panelVer = document.getElementById('panel-ver');
-  const panelReg = document.getElementById('panel-registrar');
-
-  function activarTab(cualVer){
-    tabVer.setAttribute('aria-selected', cualVer ? 'true':'false');
-    tabReg.setAttribute('aria-selected', cualVer ? 'false':'true');
-    panelVer.classList.toggle('activo', cualVer);
-    panelReg.classList.toggle('activo', !cualVer);
-    if(cualVer && mapa){ setTimeout(()=>mapa.invalidateSize(), 60); }
-  }
-  tabVer.addEventListener('click', ()=>activarTab(true));
-  tabReg.addEventListener('click', ()=>activarTab(false));
-  // Navegación por teclado entre pestañas
-  [tabVer,tabReg].forEach((t,i,arr)=>{
-    t.addEventListener('keydown', e=>{
-      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
-        e.preventDefault();
-        const otro = arr[(i+1)%2];
-        otro.focus(); otro.click();
-      }
-    });
-  });
 
   // ---- Referencias filtros ----
   const fBuscar = document.getElementById('f-buscar');
@@ -470,10 +315,6 @@
   llenarSelect(fEstado, unicos('estado'), 'Todos los estados');
   llenarSelect(fCiudad, unicos('ciudad'), 'Todas las ciudades');
   llenarSelect(fMunic, unicos('municipio'), 'Todos los municipios');
-
-  // datalist de estados para el formulario
-  const dlEstados = document.getElementById('datalist-estados');
-  unicos('estado').forEach(e=>{const o=document.createElement('option');o.value=e;dlEstados.appendChild(o);});
 
   // Encadenar: país -> estado -> ciudad -> municipio
   fPais.addEventListener('change', ()=>{
@@ -600,53 +441,6 @@
 
   render();
 
-  // =====================================================================
-  // FORMULARIO DE REGISTRO -> genera bloque JSON para pegar
-  // =====================================================================
-  const form = document.getElementById('form-registro');
-  const salida = document.getElementById('salida-json');
-  const resultado = document.getElementById('resultado-registro');
-
-  form.addEventListener('submit', e=>{
-    e.preventDefault();
-    const req = ['r-org','r-pais','r-estado','r-ciudad','r-dir'];
-    let ok=true;
-    req.forEach(id=>{ const el=document.getElementById(id); if(!el.value.trim()){el.style.borderColor='var(--rojo)'; ok=false;} else el.style.borderColor=''; });
-    if(!ok){ return; }
-
-    const latRaw=document.getElementById('r-lat').value.trim();
-    const lngRaw=document.getElementById('r-lng').value.trim();
-    const lat=latRaw?parseFloat(latRaw.replace(',','.')):null;
-    const lng=lngRaw?parseFloat(lngRaw.replace(',','.')):null;
-
-    const obj={
-      pais:document.getElementById('r-pais').value.trim(),
-      org:document.getElementById('r-org').value.trim(),
-      estado:document.getElementById('r-estado').value.trim(),
-      ciudad:document.getElementById('r-ciudad').value.trim(),
-      municipio:document.getElementById('r-municipio').value.trim(),
-      dir:document.getElementById('r-dir').value.trim(),
-      reciben:document.getElementById('r-reciben').value.trim(),
-      tel:document.getElementById('r-tel').value.trim(),
-      info:document.getElementById('r-info').value.trim(),
-      lat:(lat!=null && !isNaN(lat))?lat:null,
-      lng:(lng!=null && !isNaN(lng))?lng:null
-    };
-
-    salida.value = ',\n  ' + JSON.stringify(obj);
-    resultado.hidden=false;
-    resultado.scrollIntoView({behavior:'smooth', block:'nearest'});
-  });
-
-  document.getElementById('btn-copiar').addEventListener('click', ()=>{
-    salida.select();
-    try{
-      navigator.clipboard.writeText(salida.value);
-    }catch(e){ document.execCommand('copy'); }
-    const b=document.getElementById('btn-copiar');
-    const o=b.textContent; b.textContent='✅ ¡Copiado!';
-    setTimeout(()=>b.textContent=o,1800);
-  });
 })();
 </script>
 </body>

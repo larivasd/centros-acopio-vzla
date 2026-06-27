@@ -53,4 +53,6 @@ El registro de actividad queda en `scripts/agente.log`.
 
 ## Actualización manual
 
-Edita `data/centros.json` (o usa el formulario «Registrar un centro» de la página, que genera el bloque JSON listo para pegar) y haz commit. El sitio se actualiza automáticamente.
+Edita `data/centros.json` y haz commit. El sitio se actualiza automáticamente.
+El público **no** registra centros: solo se publica información verificable que el
+agente encuentra en fuentes públicas.
