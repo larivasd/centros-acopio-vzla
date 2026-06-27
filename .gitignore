@@ -1,4 +1,5 @@
-# Logs del agente local (no se publican)
+# Logs e informes del agente local (no se publican)
 scripts/agente.log
 scripts/launchd.out.log
 scripts/launchd.err.log
+scripts/informes/

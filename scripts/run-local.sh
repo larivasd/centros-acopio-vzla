@@ -20,11 +20,11 @@ cd "$REPO" || { echo "$(ts) ❌ no existe $REPO" >>"$LOG"; exit 1; }
   # Traer cambios remotos para evitar conflictos
   git pull --rebase --quiet origin main 2>&1 || echo "aviso: git pull falló (sigo)"
 
-  # 1) Investigar centros nuevos
-  node scripts/investigar-local.mjs 2>&1
+  # 1) Investigar EN PARALELO: un agente por región + informe
+  node scripts/investigar-paralelo.mjs 2>&1
   RES=$?
   if [ $RES -ne 0 ]; then
-    echo "$(ts) ⚠️ el agente terminó con código $RES"
+    echo "$(ts) ⚠️ el orquestador terminó con código $RES"
   fi
 
   # 2) Normalizar país/estado y deduplicar (corrige errores de tipeo)
