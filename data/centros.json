@@ -3108,6 +3108,84 @@
       "info": "Punto de recolección de ALUSVEN en la tienda Liberty Express de Aveiro para enviar ayuda a los afectados por los sismos del 24/06/2026 en Venezuela.",
       "lat": 40.640496,
       "lng": -8.653784
+    },
+    {
+      "pais": "Uruguay",
+      "org": "Consulado de Venezuela en Uruguay (Sección Consular de la Embajada)",
+      "estado": "Montevideo",
+      "ciudad": "Montevideo",
+      "municipio": "",
+      "dir": "Rincón 745 esquina Ciudadela",
+      "reciben": "Agua, medicamentos esenciales, insumos médicos, kits de higiene, fórmula infantil, herramientas de rescate, equipos de protección personal, linternas, baterías, colchones, cobijas, carpas y sistemas de purificación de agua",
+      "tel": "",
+      "info": "Centro de acopio habilitado en la sede consular tras los terremotos del 24/06/2026; campaña coordinada con organizaciones de migrantes venezolanos y el gobierno uruguayo",
+      "lat": -34.905892,
+      "lng": -56.19131
+    },
+    {
+      "pais": "Uruguay",
+      "org": "Panadería Embajada (Justo Álvarez)",
+      "estado": "Montevideo",
+      "ciudad": "Montevideo",
+      "municipio": "",
+      "dir": "Rincón esquina Ciudadela, frente a la Embajada de Venezuela",
+      "reciben": "Insumos para enviar como ayuda a los afectados por los terremotos",
+      "tel": "",
+      "info": "Uno de los cinco locales comerciales de Montevideo que funcionan como punto de recolección; lista completa difundida por la cuenta de Instagram @venezolanosenuruguay",
+      "lat": -34.905892,
+      "lng": -56.19131
+    },
+    {
+      "pais": "Brasil",
+      "org": "Hermandade Sem Fronteiras",
+      "estado": "Paraná",
+      "ciudad": "Curitiba",
+      "municipio": "Curitiba",
+      "dir": "Rua Carlos de Laet, 5225, Boqueirão",
+      "reciben": "Alimentos no perecederos, medicamentos, ropa en buen estado, calzado, productos de higiene",
+      "tel": "+55 41 8813-0719",
+      "info": "Iniciativa de organizaciones de migrantes y refugiados venezolanos en Brasil para enviar ayuda a los afectados por los terremotos del 24/06/2026",
+      "lat": -25.489762,
+      "lng": -49.239246
+    },
+    {
+      "pais": "Brasil",
+      "org": "Casa Hispana",
+      "estado": "São Paulo",
+      "ciudad": "Guarulhos",
+      "municipio": "Guarulhos",
+      "dir": "Av. Natalia Zarif, 60",
+      "reciben": "Alimentos no perecederos, medicamentos, ropa en buen estado, calzado, productos de higiene",
+      "tel": "+55 11 96616-7972",
+      "info": "Punto de coleta de la campaña de organizaciones venezolanas en Brasil para las víctimas de los terremotos del 24/06/2026",
+      "lat": -23.434432,
+      "lng": -46.495356
+    },
+    {
+      "pais": "Brasil",
+      "org": "Humanidade Mais Que Fronteiras",
+      "estado": "Roraima",
+      "ciudad": "Boa Vista",
+      "municipio": "Boa Vista",
+      "dir": "Rua João Pessoa, 2489, Nova Cidade",
+      "reciben": "Alimentos no perecederos, medicamentos, ropa en buen estado, calzado, productos de higiene",
+      "tel": "+55 95 8103-2134",
+      "info": "Organización que coordina donaciones (también recibe aportes vía Pix/transferencia) para los afectados por los terremotos del 24/06/2026",
+      "lat": 2.767013,
+      "lng": -60.734309
+    },
+    {
+      "pais": "Brasil",
+      "org": "JR Acredita Soluções Educacionais",
+      "estado": "Roraima",
+      "ciudad": "Boa Vista",
+      "municipio": "Boa Vista",
+      "dir": "Rua Aruanã, 441, Santa Tereza",
+      "reciben": "Alimentos no perecederos, medicamentos, ropa en buen estado, calzado, productos de higiene",
+      "tel": "+55 95 99175-8019",
+      "info": "Punto de coleta de la campaña de organizaciones venezolanas en Brasil para las víctimas de los terremotos del 24/06/2026",
+      "lat": 2.832504,
+      "lng": -60.733618
     }
   ]
 }
