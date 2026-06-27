@@ -111,6 +111,9 @@
   .btn-sec{background:var(--crema);border:1.5px solid var(--linea);color:var(--tinta)}
   .btn-sec:hover{background:#f0e9da}
   .btn-mapa{background:var(--azul);color:#fff}
+  .btn-cerca{background:var(--ok);color:#fff}
+  .btn-cerca[aria-pressed="true"]{background:var(--tinta)}
+  .estado-ubic{margin:.6rem 0 0;font-size:.85rem;color:var(--gris)}
 
   .resumen-conteo{
     display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;
@@ -141,6 +144,10 @@
     color:#fff;background:var(--azul);padding:.2rem .6rem;border-radius:999px;align-self:flex-start;
   }
   .tarjeta .ubic.intl{background:var(--ok)}
+  .tarjeta .dist{
+    display:inline-flex;align-items:center;gap:.3rem;font-size:.8rem;font-weight:800;
+    color:#fff;background:var(--rojo);padding:.2rem .6rem;border-radius:999px;align-self:flex-start;
+  }
   .tarjeta h3{margin:.1rem 0;font-size:1.08rem;line-height:1.25}
   .tarjeta .org{font-size:.82rem;color:var(--gris);font-weight:600;text-transform:uppercase;letter-spacing:.02em}
   .tarjeta .dir{font-size:.92rem}
@@ -219,9 +226,11 @@
         </div>
       </div>
       <div class="acciones-filtro">
+        <button class="btn btn-cerca" id="btn-cerca" type="button" aria-pressed="false">📍 Centros cerca de mí</button>
         <button class="btn btn-sec" id="btn-limpiar" type="button">↺ Limpiar filtros</button>
         <button class="btn btn-mapa" id="btn-ver-mapa" type="button" aria-pressed="true">🗺️ Mostrar/ocultar mapa</button>
       </div>
+      <p class="estado-ubic" id="estado-ubic" role="status" hidden></p>
     </div>
 
     <div class="resumen-conteo" aria-live="polite">
@@ -374,6 +383,63 @@
   function telLimpio(t){ return t? t.replace(/[^0-9+]/g,''):''; }
   function esVE(c){ return !c.pais || c.pais==='Venezuela'; }
 
+  // ---- Geolocalización / cercanía ----
+  let userPos = null; // {lat,lng} cuando la persona comparte su ubicación
+  const btnCerca = document.getElementById('btn-cerca');
+  const estadoUbic = document.getElementById('estado-ubic');
+
+  function haversineKm(lat1,lng1,lat2,lng2){
+    const R=6371, toRad=x=>x*Math.PI/180;
+    const dLat=toRad(lat2-lat1), dLng=toRad(lng2-lng1);
+    const a=Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLng/2)**2;
+    return 2*R*Math.asin(Math.sqrt(a));
+  }
+  function formatKm(km){
+    if(!isFinite(km)) return '';
+    return km<1 ? Math.round(km*1000)+' m' : (km<10 ? km.toFixed(1) : Math.round(km))+' km';
+  }
+  function mostrarEstadoUbic(msg){
+    estadoUbic.textContent = msg || '';
+    estadoUbic.hidden = !msg;
+  }
+
+  btnCerca.addEventListener('click', ()=>{
+    // si ya está activo, lo desactivamos (volver al orden normal)
+    if(userPos){
+      userPos=null;
+      btnCerca.setAttribute('aria-pressed','false');
+      btnCerca.textContent='📍 Centros cerca de mí';
+      mostrarEstadoUbic('');
+      render();
+      return;
+    }
+    if(!('geolocation' in navigator)){
+      mostrarEstadoUbic('Tu navegador no permite ubicación. Puedes filtrar por país, estado y ciudad.');
+      return;
+    }
+    btnCerca.disabled=true;
+    btnCerca.textContent='Buscando tu ubicación…';
+    navigator.geolocation.getCurrentPosition(
+      pos=>{
+        userPos={lat:pos.coords.latitude, lng:pos.coords.longitude};
+        btnCerca.disabled=false;
+        btnCerca.setAttribute('aria-pressed','true');
+        btnCerca.textContent='✕ Quitar orden por cercanía';
+        mostrarEstadoUbic('Mostrando los centros más cercanos a ti primero.');
+        render();
+      },
+      err=>{
+        btnCerca.disabled=false;
+        btnCerca.textContent='📍 Centros cerca de mí';
+        const m = err.code===1
+          ? 'No diste permiso de ubicación. Actívalo en el navegador o filtra manualmente.'
+          : 'No pudimos obtener tu ubicación. Intenta de nuevo o filtra manualmente.';
+        mostrarEstadoUbic(m);
+      },
+      {enableHighAccuracy:false, timeout:10000, maximumAge:300000}
+    );
+  });
+
   // ---- Render ----
   function render(){
     const q = fBuscar.value.trim().toLowerCase();
@@ -390,6 +456,16 @@
       return true;
     });
 
+    // ordenar por cercanía si la persona compartió su ubicación
+    if(userPos){
+      filtrados.forEach(c=>{
+        c._dist = (c.lat!=null && c.lng!=null)
+          ? haversineKm(userPos.lat, userPos.lng, c.lat, c.lng)
+          : Infinity;
+      });
+      filtrados.sort((a,b)=>a._dist-b._dist);
+    }
+
     // conteo
     conteo.textContent = filtrados.length;
     conteoTxt.textContent = filtrados.length===1 ? 'centro encontrado' : 'centros encontrados';
@@ -405,7 +481,9 @@
       if(c.tel) pie += '<a class="lnk-tel" href="tel:'+telLimpio(c.tel)+'">📞 Llamar</a>';
       if(c.info) pie += '<a class="lnk-info" href="'+c.info+'" target="_blank" rel="noopener">ℹ️ Más info</a>';
       const tagPais = esVE(c) ? '' : '<span class="ubic intl">🌍 '+escapar(c.pais)+'</span>';
+      const tagDist = (userPos && isFinite(c._dist)) ? '<span class="dist">📍 a '+formatKm(c._dist)+' de ti</span>' : '';
       card.innerHTML =
+        tagDist+
         tagPais+
         '<span class="ubic">📍 '+escapar(c.estado)+(ubic?' — '+escapar(ubic):'')+'</span>'+
         '<h3>'+escapar(c.org)+'</h3>'+
