@@ -4291,6 +4291,19 @@
       "info": "Centro de acopio central de Paraguay; NO se solicita ni maneja dinero en efectivo ni transferencias. Puntos de recepción también en Asunción, San Lorenzo, Lambaré, Fernando de la Mora y Ciudad del Este",
       "lat": -25.266542,
       "lng": -57.492693
+    },
+    {
+      "pais": "México",
+      "org": "Centro de acopio (Colonia Anzures)",
+      "estado": "Ciudad de México",
+      "ciudad": "Ciudad de México",
+      "municipio": "Miguel Hidalgo",
+      "dir": "Buffon 36, Colonia Anzures",
+      "reciben": "",
+      "tel": "",
+      "info": "",
+      "lat": 19.433849,
+      "lng": -99.177136
     }
   ]
 }
