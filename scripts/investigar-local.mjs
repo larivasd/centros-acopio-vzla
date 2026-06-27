@@ -45,18 +45,30 @@ const listaExistente = centros
   .map((c) => `- [${c.pais}] ${c.org} | ${c.dir} (${c.ciudad}, ${c.estado})`)
   .join("\n");
 
-// foco opcional para corridas dirigidas (ej. FOCO="estado Nueva Esparta")
+// Rotación de enfoque: cada hora el agente profundiza en una región distinta,
+// para cubrir TODA América + Europa con diáspora venezolana a lo largo del día.
+const ROTACION = [
+  "los estados de Venezuela con pocos o ningún centro (Portuguesa/Acarigua, Cojedes, Yaracuy, Sucre, Nueva Esparta, Apure, Amazonas, Delta Amacuro, Guárico, Trujillo, Mérida, Táchira)",
+  "Norteamérica: Estados Unidos (todas las ciudades), Canadá y México",
+  "Centroamérica: Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica, Panamá y Belice",
+  "el Caribe: República Dominicana, Cuba, Puerto Rico, Trinidad y Tobago, Aruba y Curazao",
+  "la región andina: Colombia, Ecuador, Perú y Bolivia",
+  "el Cono Sur: Chile, Argentina, Uruguay, Paraguay y Brasil",
+  "Europa del sur y oeste: España, Portugal, Italia, Francia y Andorra",
+  "Europa central y del norte: Alemania, Reino Unido, Irlanda, Países Bajos, Bélgica, Suiza, Austria, Suecia y Noruega",
+];
+
+// foco manual (FOCO=...) tiene prioridad; si no, rota según la hora del día
 const FOCO = (process.env.FOCO || "").trim();
-const bloqueFoco = FOCO
-  ? `\nENFOQUE DE ESTA BÚSQUEDA: concéntrate especialmente en ${FOCO}. Haz varias búsquedas web sobre eso hasta agotar resultados confiables.\n`
-  : "";
+const focoActivo = FOCO || ROTACION[new Date().getHours() % ROTACION.length];
+const bloqueFoco = `\nENFOQUE DE ESTA CORRIDA: concéntrate especialmente en ${focoActivo}. Haz varias búsquedas web hasta agotar resultados confiables; igual puedes añadir centros de cualquier otro país si los encuentras.\n`;
 
 // --- 2. prompt ---
 const PROMPT = `Eres un investigador que mantiene un directorio público de CENTROS DE ACOPIO para ayudar a las víctimas de los terremotos del 24 de junio de 2026 en Venezuela (magnitudes 7,2 y 7,5).
 
 Hay centros de acopio en DOS tipos de lugares:
   a) Dentro de Venezuela (todos los estados afectados).
-  b) En el EXTERIOR: puntos en otros países (México, Chile, Colombia, Panamá, España, Estados Unidos, Perú, Argentina, Ecuador, etc.) que recolectan ayuda para enviar a Venezuela.
+  b) En el EXTERIOR: puntos en otros países que recolectan ayuda para enviar a Venezuela. Cubre TODOS los países de América (Norteamérica, Centroamérica, el Caribe y Sudamérica) y los países de Europa con población venezolana (España, Portugal, Italia, Francia, Alemania, Reino Unido, Irlanda, Países Bajos, Bélgica, Suiza, Andorra, etc.). Los organizan consulados, embajadas, ONG y asociaciones de migrantes venezolanos.
 
 Usa la búsqueda web (WebSearch) para encontrar centros de acopio NUEVOS (que NO estén en la lista de abajo) y datos de contacto/ubicación que falten. Busca en prensa, sitios oficiales, consulados/embajadas, organizaciones de migrantes venezolanos y publicaciones públicas de X (Twitter) e Instagram indexadas.
 ${bloqueFoco}
