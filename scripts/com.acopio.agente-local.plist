@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Lanzador del agente local de centros de acopio.
+  Instalar:
+    cp scripts/com.acopio.agente-local.plist ~/Library/LaunchAgents/
+    launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.acopio.agente-local.plist
+  Quitar:
+    launchctl bootout gui/$(id -u)/com.acopio.agente-local
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.acopio.agente-local</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/zsh</string>
+    <string>/Users/lucasrivas/Downloads/centros-acopio-vzla/scripts/run-local.sh</string>
+  </array>
+
+  <!-- Cada hora (3600 s). Si la Mac está dormida, corre al despertar. -->
+  <key>StartInterval</key>
+  <integer>3600</integer>
+
+  <key>RunAtLoad</key>
+  <false/>
+
+  <key>ProcessType</key>
+  <string>Background</string>
+
+  <key>StandardOutPath</key>
+  <string>/Users/lucasrivas/Downloads/centros-acopio-vzla/scripts/launchd.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/lucasrivas/Downloads/centros-acopio-vzla/scripts/launchd.err.log</string>
+</dict>
+</plist>

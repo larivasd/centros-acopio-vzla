@@ -2,7 +2,7 @@
 
 Sitio informativo con centros de acopio para ayuda tras los terremotos del 24/06/2026.
 
-🌐 **En línea:** https://larivasd.github.io/centros-acopio-vzla/
+🌐 **En línea:** https://centros-acopio-vzla.com
 
 > ⚠️ Los centros pueden cambiar de horario y necesidades rápidamente.
 > Confirma horario y qué están recibiendo antes de acudir o donar.
@@ -13,30 +13,43 @@ Sitio informativo con centros de acopio para ayuda tras los terremotos del 24/06
 |---------|--------|
 | `index.html` | La página. Lee los datos con `fetch()` desde el JSON. **No se edita para actualizar datos.** |
 | `data/centros.json` | **Fuente de verdad** de los centros. Aquí se agrega/edita la información. |
-| `scripts/investigar.mjs` | Agente que investiga centros nuevos con IA + búsqueda web. |
-| `.github/workflows/actualizar.yml` | Corre el agente **cada hora** y publica los cambios solo. |
+| `scripts/investigar-local.mjs` | Agente que investiga centros nuevos usando Claude Code + búsqueda web. |
+| `scripts/run-local.sh` | Wrapper: corre el agente y publica los cambios (commit + push). |
+| `scripts/com.acopio.agente-local.plist` | Lanzador `launchd` que ejecuta el agente **cada hora** en segundo plano. |
 
-## Agente automático
+## Agente local (en la Mac)
 
-Cada hora, un GitHub Action ejecuta el agente, que:
+El agente corre en la máquina del autor con `launchd`, cada hora, usando la sesión
+de **Claude Code ya autenticada** (no necesita API key de pago). En cada corrida:
 
-1. Busca en la web (prensa, sitios oficiales, posts públicos de X/Instagram indexados) centros de acopio nuevos o datos faltantes.
+1. Busca en la web (prensa, sitios oficiales, posts públicos de X/Instagram indexados) centros nuevos o datos faltantes.
 2. Valida y deduplica de forma **conservadora**: solo agrega centros con fuente verificable y datos suficientes; **nunca borra** los existentes.
 3. Si hay cambios, hace commit de `data/centros.json` y el sitio se actualiza solo (~1 min).
 
-### Activación
+### Instalación del lanzador
 
-El agente necesita una API key de Claude guardada como secret:
+```sh
+cp scripts/com.acopio.agente-local.plist ~/Library/LaunchAgents/
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.acopio.agente-local.plist
+```
 
-1. Obtén una key en https://console.anthropic.com (menú **API Keys**).
-2. En este repo: **Settings → Secrets and variables → Actions → New repository secret**.
-3. Nombre: `ANTHROPIC_API_KEY` · Valor: tu key (`sk-ant-...`).
+Quitar:
 
-Sin el secret, el agente queda inactivo (no falla, simplemente no hace nada).
+```sh
+launchctl bootout gui/$(id -u)/com.acopio.agente-local
+```
 
-### Probarlo a mano
+Correr a mano una vez (para probar):
 
-En la pestaña **Actions** del repo → workflow «Actualizar centros de acopio» → **Run workflow**.
+```sh
+launchctl kickstart -k gui/$(id -u)/com.acopio.agente-local
+# o directamente:
+zsh scripts/run-local.sh
+```
+
+El registro de actividad queda en `scripts/agente.log`.
+
+> Nota: el agente solo corre cuando la Mac está encendida (si está dormida, corre al despertar).
 
 ## Actualización manual
 
