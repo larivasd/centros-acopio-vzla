@@ -36,35 +36,46 @@ async function geocodificar(q) {
   return null;
 }
 
+// extrae "calle + número" quitando notas/landmarks que confunden al geocodificador
+function calle(dir) {
+  let s = String(dir || "").split("(")[0];
+  s = s.replace(
+    /,?\s*(frente a|diagonal a?|al lado de|contiguo a?|detr[aá]s de|cerca del?|junto a|explanada.*|esquina donde.*|planta baja|local\b.*|piso\b.*|mezzanina.*|sede\b.*).*/i,
+    ""
+  );
+  return s.replace(/\s+/g, " ").replace(/[,\s]+$/, "").trim();
+}
+
 const db = JSON.parse(readFileSync(RUTA, "utf8"));
 const pendientes = db.centros.filter((c) => c.lat == null || c.lng == null);
 console.log(`📍 Centros sin coordenadas: ${pendientes.length}`);
 
 let ok = 0,
-  ciudad = 0,
   fallo = 0;
 
 for (const c of pendientes) {
-  const q1 = [c.dir, c.ciudad, c.estado, c.pais].filter(Boolean).join(", ");
-  const q2 = [c.ciudad, c.estado, c.pais].filter(Boolean).join(", ");
-  let coord = null;
-  try {
-    coord = await geocodificar(q1);
-    await sleep(PAUSA_MS);
-    if (!coord && q2 !== q1) {
-      coord = await geocodificar(q2);
-      await sleep(PAUSA_MS);
-      if (coord) ciudad++;
-    } else if (coord) {
-      ok++;
-    }
-  } catch (e) {
-    console.log(`  ⚠️ error geocodificando ${c.org}: ${e.message}`);
-    await sleep(PAUSA_MS);
+  // intentos del más preciso al más general
+  const calleLimpia = calle(c.dir);
+  const intentos = [];
+  if (calleLimpia && /\d/.test(calleLimpia)) {
+    intentos.push([calleLimpia, c.ciudad, c.pais].filter(Boolean).join(", "));
   }
+  intentos.push([c.dir, c.ciudad, c.estado, c.pais].filter(Boolean).join(", "));
+  intentos.push([c.ciudad, c.estado, c.pais].filter(Boolean).join(", "));
+
+  let coord = null;
+  for (const q of intentos) {
+    try {
+      coord = await geocodificar(q);
+    } catch (e) {}
+    await sleep(PAUSA_MS);
+    if (coord) break;
+  }
+
   if (coord) {
     c.lat = coord.lat;
     c.lng = coord.lng;
+    ok++;
     console.log(`  ✅ ${c.org} (${c.ciudad}) → ${coord.lat}, ${coord.lng}`);
   } else {
     fallo++;
@@ -72,11 +83,7 @@ for (const c of pendientes) {
   }
 }
 
-if (ok + ciudad > 0) {
+if (ok > 0) {
   writeFileSync(RUTA, JSON.stringify(db, null, 2) + "\n", "utf8");
-  console.log(
-    `\n✅ Geocodificados ${ok + ciudad} (${ok} exactos, ${ciudad} a nivel ciudad). Sin resultado: ${fallo}.`
-  );
-} else {
-  console.log("\nSin coordenadas nuevas.");
 }
+console.log(`\n✅ Geocodificados ${ok}. Sin resultado: ${fallo}.`);
