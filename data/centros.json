@@ -4343,6 +4343,19 @@
       "info": "Sede Miraflores habilitada como punto de acopio para los afectados por los terremotos en Venezuela",
       "lat": -12.127043,
       "lng": -77.032878
+    },
+    {
+      "pais": "Venezuela",
+      "org": "Centro de acopio Plaza Los Palos Grandes",
+      "estado": "Miranda",
+      "ciudad": "Caracas",
+      "municipio": "Chacao",
+      "dir": "Plaza Los Palos Grandes",
+      "reciben": "",
+      "tel": "",
+      "info": "",
+      "lat": 10.500123,
+      "lng": -66.844126
     }
   ]
 }
