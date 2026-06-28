@@ -4304,6 +4304,45 @@
       "info": "",
       "lat": 19.433849,
       "lng": -99.177136
+    },
+    {
+      "pais": "Bolivia",
+      "org": "Fundación Equipo Solidario",
+      "estado": "Santa Cruz",
+      "ciudad": "Santa Cruz de la Sierra",
+      "municipio": "",
+      "dir": "Calle/Av. Suárez Arana 604, entre primer y segundo anillo",
+      "reciben": "Alimentos no perecederos, agua, ropa, material sanitario y artículos de primera necesidad",
+      "tel": "62177790",
+      "info": "Campaña de la comunidad venezolana en Bolivia tras los terremotos del 24 de junio de 2026",
+      "lat": -17.783422,
+      "lng": -63.182085
+    },
+    {
+      "pais": "Bolivia",
+      "org": "Comunidad venezolana en Bolivia",
+      "estado": "La Paz",
+      "ciudad": "La Paz",
+      "municipio": "",
+      "dir": "Calle Arturo Fortún, pasaje 25 de Los Pinos, casa 200, zona sur",
+      "reciben": "Alimentos no perecederos, agua, ropa para niños y adultos, cobijas, linternas, baterías y material sanitario",
+      "tel": "",
+      "info": "Centro de acopio en la zona sur de La Paz para damnificados por los terremotos en Venezuela",
+      "lat": -16.495545,
+      "lng": -68.133623
+    },
+    {
+      "pais": "Perú",
+      "org": "VIP Medical Care",
+      "estado": "Lima",
+      "ciudad": "Lima",
+      "municipio": "Miraflores",
+      "dir": "Calle Porta 130, piso 5, oficina 508",
+      "reciben": "Alimentos no perecederos, medicamentos básicos e insumos esenciales",
+      "tel": "",
+      "info": "Sede Miraflores habilitada como punto de acopio para los afectados por los terremotos en Venezuela",
+      "lat": -12.045981,
+      "lng": -77.030591
     }
   ]
 }
