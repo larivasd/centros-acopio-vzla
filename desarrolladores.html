@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API pública — Centros de Acopio Venezuela</title>
+<meta name="description" content="API pública y gratuita (JSON) con el directorio de centros de acopio para los afectados por los terremotos de Venezuela 2026. Un GET devuelve todo el listado.">
+<meta name="theme-color" content="#7a1620">
+<style>
+  :root{
+    --rojo:#7a1620; --rojo-claro:#a52a35; --amarillo:#f3c54b; --azul:#15467a;
+    --tinta:#1c1a17; --gris:#5c5750; --crema:#fbf7ef; --blanco:#fff; --linea:#e4ddd0;
+    --ok:#1f7a4d; --radio:14px; --sombra:0 2px 10px rgba(28,26,23,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--crema);color:var(--tinta);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--azul)}
+  header.sitio{background:linear-gradient(135deg,var(--rojo),var(--rojo-claro));color:#fff;padding:1.4rem 1rem 1.6rem}
+  .contenedor{max-width:920px;margin:0 auto;padding:0 1rem}
+  .marca{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;justify-content:space-between}
+  .marca .izq{display:flex;align-items:center;gap:.6rem}
+  header.sitio h1{margin:0;font-size:1.35rem;letter-spacing:-.01em}
+  .volver{color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;
+    background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:.45rem .8rem;border-radius:10px}
+  .volver:hover{background:rgba(255,255,255,.26)}
+  header.sitio p.lema{margin:.6rem 0 0;opacity:.95;max-width:62ch}
+  main{padding:2rem 0 4rem}
+  h2{color:var(--rojo);margin:2rem 0 .6rem;font-size:1.3rem}
+  h3{margin:1.4rem 0 .4rem;font-size:1.05rem}
+  .tarjeta{background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio);
+    padding:1.2rem 1.3rem;box-shadow:var(--sombra);margin-bottom:1.2rem}
+  .endpoint{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;
+    background:var(--tinta);color:#f3eddf;border-radius:10px;padding:.7rem .9rem;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92rem;word-break:break-all}
+  .metodo{background:var(--ok);color:#fff;font-weight:800;padding:.15rem .55rem;border-radius:6px;font-size:.8rem;letter-spacing:.03em}
+  .badges{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0 0}
+  .badge{background:var(--amarillo);color:#3a2c00;border-radius:999px;padding:.2rem .7rem;font-weight:700;font-size:.8rem}
+  pre{background:#1c1a17;color:#f3eddf;border-radius:10px;padding:1rem;overflow:auto;font-size:.84rem;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;line-height:1.5}
+  code:not(pre code){background:#f0e9da;border-radius:6px;padding:.1rem .35rem;font-family:ui-monospace,Menlo,monospace;font-size:.88em}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;background:var(--blanco);border-radius:10px;overflow:hidden}
+  th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--linea)}
+  th{background:var(--crema);font-size:.82rem;text-transform:uppercase;letter-spacing:.03em;color:var(--gris)}
+  td code{background:#f0e9da;border-radius:5px;padding:.05rem .3rem}
+  .nota{background:#fff7e0;border:1px solid var(--amarillo);border-radius:12px;padding:.8rem 1rem;font-size:.92rem;margin-top:1rem}
+  footer{background:var(--tinta);color:#e9e3d6;padding:1.6rem 1rem;font-size:.86rem;text-align:center}
+  footer a{color:var(--amarillo)}
+  @media(max-width:560px){header.sitio h1{font-size:1.1rem}}
+</style>
+</head>
+<body>
+<header class="sitio">
+  <div class="contenedor">
+    <div class="marca">
+      <span class="izq"><span aria-hidden="true">🇻🇪</span> <h1>API pública · Centros de Acopio</h1></span>
+      <a class="volver" href="index.html">← Volver al directorio</a>
+    </div>
+    <p class="lema">Datos abiertos del directorio de centros de acopio para los afectados por los terremotos del 24/06/2026. Úsalos libremente en tu app, bot o sitio.</p>
+  </div>
+</header>
+
+<main class="contenedor">
+
+  <h2>Endpoint</h2>
+  <div class="tarjeta">
+    <div class="endpoint">
+      <span class="metodo">GET</span>
+      <span>https://centros-acopio-vzla.com/data/centros.json</span>
+    </div>
+    <div class="badges">
+      <span class="badge">Gratis</span>
+      <span class="badge">Sin API key</span>
+      <span class="badge">CORS abierto</span>
+      <span class="badge">JSON</span>
+      <span class="badge">Se actualiza 3× al día</span>
+    </div>
+    <p style="margin:.9rem 0 0">Una sola petición <code>GET</code> devuelve <strong>todo</strong> el listado de centros con su información completa. No requiere autenticación. Se puede llamar desde el navegador (CORS habilitado).</p>
+  </div>
+
+  <h2>Forma de la respuesta</h2>
+  <pre>{
+  "actualizado": "2026-06-29",
+  "fuente": "Directorios ciudadanos y medios ...",
+  "centros": [
+    {
+      "pais": "Venezuela",
+      "org": "Comando Con Venezuela",
+      "estado": "Barinas",
+      "ciudad": "Barinas",
+      "municipio": "Barinas",
+      "dir": "Av. Marqués del Pumar, diagonal al Hotel Comercio, Casa Azul",
+      "reciben": "Agua, alimentos no perecederos, insumos médicos, ropa y abrigos",
+      "tel": "",
+      "info": "",
+      "lat": 8.625737,
+      "lng": -70.217709
+    }
+  ]
+}</pre>
+
+  <h3>Campos de cada centro</h3>
+  <table>
+    <thead><tr><th>Campo</th><th>Tipo</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td><code>pais</code></td><td>string</td><td>País del centro (Venezuela o el país de la diáspora).</td></tr>
+      <tr><td><code>org</code></td><td>string</td><td>Organización o nombre del centro.</td></tr>
+      <tr><td><code>estado</code></td><td>string</td><td>Estado / provincia / región.</td></tr>
+      <tr><td><code>ciudad</code></td><td>string</td><td>Ciudad.</td></tr>
+      <tr><td><code>municipio</code></td><td>string</td><td>Municipio (puede ir vacío).</td></tr>
+      <tr><td><code>dir</code></td><td>string</td><td>Dirección y referencias.</td></tr>
+      <tr><td><code>reciben</code></td><td>string</td><td>Qué donaciones reciben (puede ir vacío).</td></tr>
+      <tr><td><code>tel</code></td><td>string</td><td>Teléfono de contacto (puede ir vacío).</td></tr>
+      <tr><td><code>info</code></td><td>string</td><td>Enlace (Instagram/web) u horario (puede ir vacío).</td></tr>
+      <tr><td><code>lat</code></td><td>number\|null</td><td>Latitud (GPS).</td></tr>
+      <tr><td><code>lng</code></td><td>number\|null</td><td>Longitud (GPS).</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Ejemplos</h2>
+
+  <h3>cURL</h3>
+  <pre>curl https://centros-acopio-vzla.com/data/centros.json</pre>
+
+  <h3>JavaScript (fetch)</h3>
+  <pre>const res = await fetch('https://centros-acopio-vzla.com/data/centros.json');
+const { centros } = await res.json();
+console.log(centros.length + ' centros');
+
+// ej: solo los de Venezuela con coordenadas
+const conMapa = centros.filter(c =&gt; c.pais === 'Venezuela' &amp;&amp; c.lat != null);</pre>
+
+  <h3>Python</h3>
+  <pre>import requests
+
+data = requests.get('https://centros-acopio-vzla.com/data/centros.json').json()
+print(len(data['centros']), 'centros')
+
+for c in data['centros']:
+    print(c['org'], '—', c['ciudad'], c['pais'])</pre>
+
+  <h2>Notas de uso</h2>
+  <div class="nota">
+    <ul style="margin:.2rem 0;padding-left:1.2rem">
+      <li>Los datos se recopilan de fuentes públicas y se actualizan automáticamente <strong>3 veces al día</strong> (8:00, 12:00 y 18:00, hora de Venezuela).</li>
+      <li>Algunas coordenadas son aproximadas (a nivel de barrio o ciudad) cuando no hay dirección exacta.</li>
+      <li>La respuesta tiene caché de ~10 minutos.</li>
+      <li><strong>Verifica siempre</strong> horario y necesidades antes de dirigir a alguien a un centro: la situación cambia rápido.</li>
+      <li>Uso libre. Si la integras en algo, agradecemos que enlaces a <a href="https://centros-acopio-vzla.com">centros-acopio-vzla.com</a>.</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  Datos abiertos · <a href="index.html">Volver al directorio</a> · <a href="https://centros-acopio-vzla.com/data/centros.json">Ver JSON</a>
+</footer>
+</body>
+</html>

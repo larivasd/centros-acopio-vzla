@@ -67,8 +67,15 @@
     color:#fff;padding:1.4rem 1rem 1.6rem;
   }
   .contenedor{max-width:1180px;margin:0 auto;padding:0 1rem}
-  .marca{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+  .marca{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;justify-content:space-between}
+  .marca-izq{display:flex;align-items:center;gap:.7rem}
   .marca .bandera{font-size:1.8rem;line-height:1}
+  .nav-api{
+    color:#fff;text-decoration:none;font-weight:700;font-size:.85rem;
+    background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);
+    padding:.45rem .8rem;border-radius:10px;white-space:nowrap;
+  }
+  .nav-api:hover{background:rgba(255,255,255,.28)}
   header.sitio h1{margin:0;font-size:1.5rem;letter-spacing:-.01em}
   header.sitio p.lema{margin:.5rem 0 0;opacity:.95;max-width:60ch;font-size:.98rem}
   .aviso{
@@ -186,8 +193,11 @@
 <header class="sitio">
   <div class="contenedor">
     <div class="marca">
-      <span class="bandera" aria-hidden="true">🇻🇪</span>
-      <h1>Centros de Acopio Venezuela</h1>
+      <span class="marca-izq">
+        <span class="bandera" aria-hidden="true">🇻🇪</span>
+        <h1>Centros de Acopio Venezuela</h1>
+      </span>
+      <a class="nav-api" href="desarrolladores.html">&lt;/&gt; API para desarrolladores</a>
     </div>
     <p class="lema">Directorio de puntos donde llevar donaciones para las personas afectadas por los terremotos del 24 de junio de 2026 (magnitudes 7,2 y 7,5). Busca por estado, ciudad y municipio. Acceso rápido a ubicación GPS y contacto.</p>
     <div class="aviso" role="note">
@@ -261,6 +271,10 @@
     <div>
       <strong>Fuentes</strong><br>
       Prensa, organismos oficiales y directorios ciudadanos verificables. Coordenadas aproximadas.
+    </div>
+    <div>
+      <strong>Para desarrolladores</strong><br>
+      API pública y gratuita (JSON) con todo el listado. <a href="desarrolladores.html">Ver documentación →</a>
     </div>
   </div>
 </footer>
